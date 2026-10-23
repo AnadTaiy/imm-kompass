@@ -1,0 +1,12 @@
+.state/
+site/
+outputs/
+__pycache__/
+work/.sync-staging/
+work/sync-cache/
+work/sync-cache.json
+work/sync-status.json
+work/sync-backup/
+work/sync.lock
+work/renal-source.html
+work/catalog/refresh-meta.json

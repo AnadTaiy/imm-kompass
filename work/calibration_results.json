@@ -1,0 +1,186 @@
+[
+  {
+    "input": {
+      "id": "A",
+      "age": "81",
+      "sex": "female",
+      "creatinine": "105",
+      "cystatin": "1.5",
+      "weight": "55",
+      "height": "165"
+    },
+    "values": {
+      "cr": 46.038424093535596,
+      "combined": 43.56920155568828,
+      "cys": 38.88018084760734,
+      "cg": 32.25255291005291,
+      "bsa": 1.5877132402714709
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 1.1877828054298643,
+    "cgWeight": 55,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "B",
+      "age": "80",
+      "sex": "male",
+      "creatinine": "120",
+      "cystatin": "1.8",
+      "weight": "60",
+      "height": "175"
+    },
+    "values": {
+      "cr": 52.72589630981731,
+      "combined": 42.021769550669816,
+      "cys": 32.877616914221385,
+      "cg": 36.833333333333336,
+      "bsa": 1.707825127659933
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 1.3574660633484161,
+    "cgWeight": 60,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "C",
+      "age": "55",
+      "sex": "male",
+      "creatinine": "88.4",
+      "cystatin": "0.8",
+      "weight": "80",
+      "height": "180"
+    },
+    "values": {
+      "cr": 88.88407112743099,
+      "combined": 102.82610826391424,
+      "cys": 106.68792150207,
+      "cg": 94.44444444444444,
+      "bsa": 2
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 1,
+    "cgWeight": 80,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "D",
+      "age": "35",
+      "sex": "female",
+      "creatinine": "53.04",
+      "cystatin": "0.7",
+      "weight": "60",
+      "height": "165"
+    },
+    "values": {
+      "cr": 119.96864882040761,
+      "combined": 122.44913029835541,
+      "cys": 115.15488864321289,
+      "cg": 123.95833333333334,
+      "bsa": 1.6583123951777
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 0.6,
+    "cgWeight": 60,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "E",
+      "age": "70",
+      "sex": "female",
+      "creatinine": "176.8",
+      "cystatin": "2.5",
+      "weight": "75",
+      "height": "160"
+    },
+    "values": {
+      "cr": 26.38031510583189,
+      "combined": 23.022133172123144,
+      "cys": 20.61865890715316,
+      "cg": 30.989583333333336,
+      "bsa": 1.8257418583505538
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 2,
+    "cgWeight": 75,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "F",
+      "age": "27",
+      "sex": "male",
+      "creatinine": "79.56",
+      "cystatin": "0.8",
+      "weight": "90",
+      "height": "185"
+    },
+    "values": {
+      "cr": 120.04971667732151,
+      "combined": 121.4823406777389,
+      "cys": 119.35861710696071,
+      "cg": 156.94444444444446,
+      "bsa": 2.1505813167606567
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 0.9,
+    "cgWeight": 90,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "G",
+      "age": "27",
+      "sex": "female",
+      "creatinine": "61.88",
+      "cystatin": "0.8",
+      "weight": "65",
+      "height": "170"
+    },
+    "values": {
+      "cr": 121.49031327744937,
+      "combined": 116.98749407266256,
+      "cys": 111.24223114368739,
+      "cg": 123.87400793650794,
+      "bsa": 1.7519830034690533
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 0.7,
+    "cgWeight": 65,
+    "valid": true
+  },
+  {
+    "input": {
+      "id": "H",
+      "age": "65",
+      "sex": "male",
+      "creatinine": "265.2",
+      "cystatin": "3",
+      "weight": "120",
+      "height": "175"
+    },
+    "values": {
+      "cr": 22.349528050000334,
+      "combined": 19.452817445094055,
+      "cys": 17.71720111153727,
+      "cg": 41.66666666666667,
+      "bsa": 2.41522945769824
+    },
+    "messages": [],
+    "warnings": [],
+    "scrMgDl": 2.9999999999999996,
+    "cgWeight": 120,
+    "valid": true
+  }
+]
