@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Om Mohanad Taiy – IMM Kompass</title>
+<meta name="description" content="Mohanad Taiy om IMM Kompass: et selvstendig studentprosjekt som gjør læring i klinisk farmasi mer oversiktlig og systematisk.">
+<link rel="canonical" href="https://anadtaiy.github.io/imm-kompass/om-meg.html">
+<!--FAVICON-->
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('imm-theme-v1')||'light';}catch{}</script>
+<link rel="stylesheet" href="/*STYLE*/">
+<style>
+.about-page{max-width:1080px;margin:0 auto;padding:70px 28px 48px}.about-nav{max-width:1080px}.about-nav .brand{text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:12px}.about-card{display:grid;grid-template-columns:minmax(220px,310px) 1fr;gap:clamp(32px,6vw,76px);align-items:start}.about-portrait{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}.about-copy{max-width:620px}.about-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}.about-copy h1{font-size:clamp(34px,4.2vw,48px);margin-bottom:26px}.about-copy p{font-size:16px;line-height:1.8;margin:0 0 18px}.about-copy .about-kicker{font-size:12px;line-height:1.5}.about-copy .about-credit{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:22px;margin-top:26px}.about-copy .button{margin-top:8px}.about-footer{text-align:center;color:var(--muted);font-size:12px;padding:28px;border-top:1px solid var(--line);margin-top:64px}.about-nav #theme-toggle{min-width:86px}
+@media(max-width:680px){.about-page{padding:36px 22px}.about-nav{padding:16px 22px}.about-nav .brand{font-size:23px}.about-card{grid-template-columns:1fr;gap:30px}.about-portrait{max-width:240px}.about-copy h1{font-size:34px}.about-footer{margin-top:32px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Om Mohanad Taiy – IMM Kompass","url":"https://anadtaiy.github.io/imm-kompass/om-meg.html","inLanguage":"nb","mainEntity":{"@type":"Person","name":"Mohanad Taiy","image":"https://anadtaiy.github.io/imm-kompass/assets/mohanad.png"},"about":{"@type":"LearningResource","name":"IMM Kompass","url":"https://anadtaiy.github.io/imm-kompass/"}}</script>
+</head>
+<body>
+<a href="#about-main" class="screenreader">Gå til hovedinnhold</a>
+<header class="app-header"><div class="header-inner about-nav"><a class="brand" href="./" aria-label="IMM Kompass – til start"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16 8-2 6-6 2 2-6z"/></svg>IMM Kompass</a><button id="theme-toggle" type="button" aria-pressed="false">Mørk modus</button></div></header>
+<main id="about-main" class="about-page">
+<article class="about-card">
+<img class="about-portrait" src="assets/mohanad.png" alt="Mohanad Taiy" width="532" height="733">
+<div class="about-copy">
+<p class="about-kicker">Om meg · Mohanad Taiy</p>
+<h1>Fra informasjon til forståelse.</h1>
+<p>Jeg heter Mohanad Taiy og er farmasøyt bosatt i Norge. IMM Kompass er et selvstendig studentprosjekt utviklet for egen læring i klinisk farmasi under masterstudiet i farmasi ved UiT – Norges arktiske universitet.</p>
+<p>Jeg laget appen for å samle arbeidet med legemidler i én oversiktlig arbeidsflate. Målet er å gjøre det enklere å sammenligne legemiddellister, avklare faktisk bruk og arbeide systematisk med mulige legemiddelrelaterte problemer.</p>
+<p>Arbeidsflyten følger prinsippene i Integrated Medicines Management (IMM): fra legemiddelsamstemming og legemiddelgjennomgang til et kort, strukturert journalutkast. Fagkilder og beregningsverktøy er tilgjengelige underveis, slik at observasjoner kan undersøkes og forslag begrunnes.</p>
+<p>Jeg håper IMM Kompass kan være nyttig også for medstudenter – som et sted å øve, stille bedre spørsmål og forstå hvorfor et legemiddelproblem bør vurderes videre.</p>
+<p class="about-credit">Laget av Mohanad Taiy, 2026 – Til egen læring. Et selvstendig studentprosjekt; ikke et offisielt UiT-verktøy eller klinisk beslutningsstøtte.</p>
+<a class="button" href="./">Åpne IMM Kompass <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
+</div>
+</article>
+</main>
+<footer class="about-footer">Laget av Mohanad Taiy · Til eget bruk · 2026</footer>
+<script>
+const themeButton=document.getElementById('theme-toggle');
+function showTheme(){const dark=document.documentElement.dataset.theme==='dark';themeButton.textContent=dark?'Lys modus':'Mørk modus';themeButton.setAttribute('aria-pressed',String(dark));themeButton.setAttribute('aria-label',dark?'Bytt til lys modus':'Bytt til mørk modus');}
+themeButton.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('imm-theme-v1',theme);}catch{}showTheme();});showTheme();
+</script>
+</body>
+</html>

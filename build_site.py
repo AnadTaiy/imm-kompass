@@ -52,7 +52,11 @@ def main():
  html=html.replace('<body>','<body><noscript><h1>IMM Kompass av Mohanad Taiy</h1><p>Læringsverktøy for klinisk farmasi. Aktiver JavaScript for å bruke appen.</p></noscript>')
  (SITE/'index.html').write_text(html,encoding='utf-8');(SITE/'.nojekyll').touch()
  status=read_json(W/'sync-status.json',{'phase':'waiting'});status.update(service='IMM-Kompass-sync',revision=revision);write_json(SITE/'version.json',status)
- (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+url+'</loc></url></urlset>',encoding='utf-8')
+ about=(W/'about.template.html').read_text(encoding='utf-8').replace('/*STYLE*/',style)
+ about=about.replace('<!--FAVICON-->',re.search(r'<link\b[^>]*rel=["\']icon["\'][^>]*>',html)[0])
+ (SITE/'om-meg.html').write_text(about,encoding='utf-8')
+ shutil.copytree(ROOT/'public',SITE,dirs_exist_ok=True)
+ (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+url+path+'</loc></url>' for path in ['', 'om-meg.html'])+'</urlset>',encoding='utf-8')
  assert 'base64' not in compact(data.get('documents',[]));assert len(scripts)==4
  print(json.dumps({'revision':revision,'assets':asset_paths,'status':status.get('phase'),'bytes':sum(p.stat().st_size for p in SITE.rglob('*') if p.is_file())}))
 if __name__=='__main__':main()

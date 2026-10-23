@@ -45,3 +45,5 @@
 .header-inner button[data-action=help]:hover{background:var(--accent-soft);border-color:var(--link)}.header-inner button[data-action=help] .icon{width:18px;height:18px;color:var(--link)}.header-inner button[data-action=help]>span{display:flex;align-items:center}
 @media(max-width:720px){.header-inner>.actions>button,.header-inner .tools>summary{width:86px;height:40px}}
 .renal-transfer .textlink{display:block;margin-top:14px}
+
+.tools-popover a.button{justify-content:flex-start;border-color:transparent;background:transparent;text-align:left}.tools-popover a.button:hover{background:var(--hover)}
