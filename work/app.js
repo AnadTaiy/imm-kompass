@@ -135,7 +135,6 @@ function contextSearch(){
  const p=state.profile,tags=[];if(IMMCalc.number(p.age)>=65||p.frail)tags.push('alder');if(p.weight)tags.push('vekt');if(p.egfr||p.creatinine||p.dialysis)tags.push('nyre');if(p.fall)tags.push('fall');if(p.sonde)tags.push('sonde');
  filters={q:'',cat:'',tags,mode:'any',fav:false,pediatric:false,access:''};route('library');
 }
-function about(){modal('Om IMM Kompass',`<div class="modalbody"><p><a href="./om-meg.html">Om meg – Mohanad Taiy</a></p><p class="about-credit">Laget av Mohanad Taiy, 2026 – Til egen læring. Et selvstendig studentprosjekt; ikke et offisielt UiT-verktøy eller klinisk beslutningsstøtte.</p><p class="sectiongap">IMM Kompass samler legemiddelsamstemming, legemiddelgjennomgang og strukturerte journalutkast i én arbeidsflate for farmasistudenter. Fagkilder kan åpnes underveis, også gjennom skole og arbeidsplass.</p><p class="sectiongap">Gjennomganger og kladder lagres automatisk i denne nettleseren. Bruk fiktive kasus uten identifiserende opplysninger; initialer alene gjør ikke et kasus anonymt. Arbeidsdata sendes ikke til eksterne fagkilder.</p><p class="sectiongap">Bruk samme nettleser og nettadresse. Eksporter gjennomgangen for en separat sikkerhetskopi; sletting av nettleserdata kan fjerne lokal lagring.</p></div>`,`<div class="modalfoot"><button class="primary" data-action="close-modal">Lukk</button></div>`);}
 function institution(){
  const proxy=DATA.audit.find(a=>a.id===72)?.original;
  modal('Tilgang via skole eller arbeidsplass',`<div class="modalbody"><p>Åpne ressursen i nettleseren der du vanligvis er innlogget. Bruk arbeidsplassens/skolens nett, VPN, bibliotekportal eller personlige konto etter din avtale.</p><ul class="bulletlist"><li>${external('https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/oversikt-over-avtaler-og-tilgang-pa-helsebiblioteket.no','Helsebiblioteket – avtaler og tilgang')}</li><li>${external('https://www.uptodate.com/contents/search','UpToDate – direkte søk')}</li><li>${external('https://kidneydosing.uptodate.com/uptodate','UpToDate Kidney Dosing Tool – direkte inngang')}</li><li>${external('https://www.micromedexsolutions.com/micromedex2/librarian/ssl/true','Micromedex')}</li><li>${external('https://www.new.medicinescomplete.com/log-in/','MedicinesComplete')}</li>${proxy?`<li>${external(proxy,'UiT-proxy for MedicinesComplete (fra originalsamlingen)')}</li>`:''}</ul><p class="smalltext muted">Din konkrete lisens avgjør hvilke moduler du har. Logg inn direkte hos kilden eller gjennom bibliotekportalen.</p></div>`,`<div class="modalfoot"><button class="primary" data-action="close-modal">Lukk</button></div>`);
@@ -297,7 +296,6 @@ document.addEventListener('click',async e=>{
   if(w)state.profile.weight=String(wn*.45359237);if(h)state.profile.height=String(hn*2.54);
   markChanged();$('#modal').close();route('renal');toast('Vekt og høyde er omregnet til kg og cm.');
  }
- if(a==='about')about();
  if(a==='institution')institution();
  if(a==='calibration')calibration();
  if(a==='download-calibration')download('IMM-sammenligning-UpToDate.txt',calibrationText());

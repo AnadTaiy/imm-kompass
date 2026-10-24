@@ -13,7 +13,7 @@ function render(){
  document.querySelectorAll('[data-icon]').forEach(n=>n.innerHTML=icon(n.dataset.icon));updateSaveStatus();renderSyncStatus();requestAnimationFrame(drawInteractionLines);
 }
 function route(to){page=to;if(page==='lrp'){page='workspace';step=2;}if(activeReview&&!dirty&&!saveError&&!resourceOnly)persistCurrent();$('#tools-menu').open=false;render();window.scrollTo({top:0,behavior:'instant'});}
-function footer(){return `<footer class="footnote"><span>Laget av Mohanad Taiy · Til eget bruk · 2026 | FEST: ${esc(festDateLabel())} <button class="small" data-action="sync-details">Datastatus</button></span><span id="sync-status" aria-live="polite"></span><button class="quiet small" data-action="about">Om verktøyet</button></footer>`;}
+function footer(){return `<footer class="footnote"><span>Laget av <a href="./om-meg.html" title="Om verktøyet og Mohanad Taiy">Mohanad Taiy</a> · Til eget bruk · 2026 | FEST: ${esc(festDateLabel())} <button class="small" data-action="sync-details">Datastatus</button></span><span id="sync-status" aria-live="polite"></span></footer>`;}
 function panelDetails(title,content,sub=''){return `<details class="panel sectiongap"><summary class="panelhead"><div><h2>${title}</h2>${sub?`<p class="smalltext muted">${sub}</p>`:''}</div><span aria-hidden="true">${icon('chevronDown')}</span></summary><div class="panelbody">${content}</div></details>`;}
 function renderLms(){
  const p=state.profile;
