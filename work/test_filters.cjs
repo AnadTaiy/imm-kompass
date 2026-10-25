@@ -77,3 +77,12 @@ check('same version does not reload',run("!syncCanApply({phase:'current',revisio
 run("globalThis.modalText='';modal=(title,body)=>{globalThis.modalText=body;};syncDetails();");
 check('Datastatus and footer agree on the loaded data date',run('modalText.includes(festDateLabel())&&footer().includes(festDateLabel())'));
 console.log('PASS: 7 startup update and date consistency checks.');
+
+run("filters={q:'',topic:'',tags:['nyre']};sourceContext={atc:'N03AX16'};");
+check('renal icon deep link exposes CrCl source',run("renalSourcePanel().includes('Grunnlag for CrCl-kontrollpunktet')"));
+check('renal topic exposes source',run("filters.tags=[];filters.topic='nyre';renalSourcePanel().includes('metodevalg')"));
+check('renal query exposes source',run("filters.topic='';filters.q='kidney';renalSourcePanel().includes('metodevalg')"));
+check('clearing renal context removes method panel',run("filters.q='';renalSourcePanel()===''"));
+check('failure never advertised as available update',run("!syncUpdateAvailable({phase:'error',revision:'different'})"));
+check('unknown update phase is never applied',run("!syncUpdateAvailable({phase:'unknown',revision:'different'})"));
+console.log('PASS: 6 renal source and sync-error presentation checks.');

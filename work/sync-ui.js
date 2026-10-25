@@ -8,8 +8,14 @@ function syncLabel(s){
  if(s.revision&&s.revision!==(window.IMM_WEB_VERSION||DATA.catalog.meta.syncRevision))return 'Nye, kontrollerte referansedata er klare.';
  return 'Referansedata kontrollert '+localTime(s.checked)+'.';
 }
-function renderSyncStatus(){const el=document.getElementById('sync-status');if(!el)return;const update=syncStatus?.revision&&syncStatus.revision!==(window.IMM_WEB_VERSION||DATA.catalog.meta.syncRevision);el.innerHTML=update?'<span>Nye referansedata er klare.</span><button class="small" data-action="sync-reload">Ta i bruk oppdateringen</button>':(syncStatus?.phase==='error'||(syncStatus?.checked&&Date.now()-Date.parse(syncStatus.checked)>30*60*60*1000))?'<span>Oppdateringskontroll mislyktes – se Datastatus.</span>':'';}
-function syncCanApply(s){return Boolean(s?.revision&&s.revision!==(window.IMM_WEB_VERSION||DATA.catalog.meta.syncRevision)&&!['checking','validating','error'].includes(s.phase)&&syncUntouched&&!syncReloading&&!resourceOnly&&!document.hidden&&!document.getElementById('modal')?.open);}
+function syncUpdateAvailable(s){return Boolean(s?.revision&&s.revision!==(window.IMM_WEB_VERSION||DATA.catalog.meta.syncRevision)&&['current','updated'].includes(s.phase));}
+function renderSyncStatus(){
+ const el=document.getElementById('sync-status');if(!el)return;
+ if(syncStatus?.phase==='error'){el.innerHTML='<span>Oppdateringskontroll mislyktes – se Datastatus.</span>';return;}
+ if(syncUpdateAvailable(syncStatus)){el.innerHTML='<span>Nye referansedata er klare.</span><button class="small" data-action="sync-reload">Ta i bruk oppdateringen</button>';return;}
+ el.innerHTML=syncStatus?.checked&&Date.now()-Date.parse(syncStatus.checked)>30*60*60*1000?'<span>Datakontrollen er eldre enn 30 timer – se Datastatus.</span>':'';
+}
+function syncCanApply(s){return syncUpdateAvailable(s)&&syncUntouched&&!syncReloading&&!resourceOnly&&!document.hidden&&!document.getElementById('modal')?.open;}
 async function pollSync(){
  if(!window.IMM_WEB_VERSION||resourceOnly)return;
  try{const response=await fetch(new URL('version.json',location.href),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!response.ok)throw new Error('Status unavailable');const s=await response.json();if(s.service!=='IMM-Kompass-sync')throw new Error('Invalid status');syncStatus=s;renderSyncStatus();if(syncCanApply(s)&&persistCurrent()){syncReloading=true;location.reload();}}catch{syncStatus={phase:'error',error:'Kunne ikke hente oppdateringsstatus. Kontroller nettforbindelsen.'};renderSyncStatus();}
