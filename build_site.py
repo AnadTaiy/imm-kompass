@@ -5,7 +5,7 @@ from urllib.request import urlopen,Request
 ROOT=Path(__file__).resolve().parent;W=ROOT/'work';OUT=ROOT/'outputs';SITE=ROOT/'site'
 sys.path.insert(0,str(W))
 from sync_engine import sync_once,read_json,write_json,run_checks,node_executable,process_options
-FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','clinical-ui.js','help.js','older-ui.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
+FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
 STATE=['catalog/fest.zip','catalog/icd.xlsx','catalog/icpc.xlsx','catalog/catalog.json','catalog/download_sources.json','catalog/refresh-meta.json','clinical-rules.json','sync-status.json','sync-cache.json','sync-cache/icd.html','sync-cache/icpc.html']
 def compact(data):return json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 

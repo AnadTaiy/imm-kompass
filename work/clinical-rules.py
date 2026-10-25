@@ -40,16 +40,20 @@ for label,codes in [
  rule('renal',label,codes,RENAL,'Kontroller legemiddelspesifikke nyrehensyn: dose/eksponering, elektrolytter eller monitorering i oppdatert preparatomtale.')
 rule('renal','SGLT2-hemmere','A10BK',KDIGO,'Nyrebeskyttende behandling med indikasjonsspesifikke nyregrenser og råd ved akutt sykdom; ikke et generelt nefrotoksisitetsvarsel.')
 
-# Only names are indexed, never copied dosing paragraphs. The index does NOT infer a toxic effect.
+# The optional name index is reviewed reference content, not part of the FEST feed.
+# A background FEST update must not depend on the availability or changed HTML of NLH.
+# For a deliberate reference review, place a verified renal-source.html beside this script.
+names=[]
 if (P/'renal-source.html').exists():
  source_html=(P/'renal-source.html').read_text(encoding='utf-8')
+ source_hash=hashlib.sha256(source_html.encode()).hexdigest()
+ for match in re.findall(r'<p[^>]*>\s*<strong[^>]*>(.*?)</strong>',source_html,re.S):
+  text=html.unescape(re.sub('<[^>]+>','',match)).strip()
+  if 2<len(text)<110 and text not in names:names.append(text)
 else:
- from urllib.request import Request,urlopen
- with urlopen(Request(RENAL,headers={'User-Agent':'IMM-Kompass reference update'}),timeout=45) as response:source_html=response.read(5000000).decode('utf-8')
-names=[]
-for match in re.findall(r'<p[^>]*>\s*<strong[^>]*>(.*?)</strong>',source_html,re.S):
- text=html.unescape(re.sub('<[^>]+>','',match)).strip()
- if 2<len(text)<110 and text not in names:names.append(text)
+ previous=json.loads((P/'clinical-rules.json').read_text(encoding='utf-8'))
+ names=previous.get('renalSourceNames') or sorted({n for e in previous['entries'] for n in e.get('renalIndex',[])})
+ source_hash=previous.get('sourceHash','')
 lookup={norm(n):n for n in names}
 def indexed(name):
  n=norm(name)
@@ -79,7 +83,7 @@ for med in CAT['meds']:
  if ids or mentions:
   e=entries.setdefault(code,dict(atc=code,name=atc.get(code,med['substance']),rules=[],renalIndex=[]))
   e['rules']=sorted(set(e['rules'])|ids);e['renalIndex']=sorted(set(e['renalIndex'])|mentions)
-data=dict(reviewed='2026-10-22',renalIndexSource=RENAL,renalIndexRevision='08.11.2021 (dato oppgitt på nettsiden)',sourceHash=hashlib.sha256(source_html.encode()).hexdigest(),rules=rules,entries=sorted(entries.values(),key=lambda e:e['atc']),coverage='Kuratert regelsett og navneindeks fra Legemiddelhåndbokas nyretabell, koblet til humane FEST-ATC-koder. Ikke komplett. Ingen automatisk doseendring eller seponering. Kliniske regler oppdateres kun etter ny faglig gjennomgang.')
+data=dict(reviewed='2026-10-22',renalIndexSource=RENAL,renalIndexRevision='08.11.2021 (dato oppgitt på nettsiden)',sourceHash=source_hash,renalSourceNames=names,rules=rules,entries=sorted(entries.values(),key=lambda e:e['atc']),coverage='Kuratert regelsett og navneindeks fra Legemiddelhåndbokas nyretabell, koblet til humane FEST-ATC-koder. Ikke komplett. Ingen automatisk doseendring eller seponering. Kliniske regler oppdateres kun etter ny faglig gjennomgang.')
 (P/'clinical-rules.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 out=io.StringIO(newline='');w=csv.writer(out,delimiter=';');w.writerow(['ATC','Virkestoff / ATC-navn','Seponeringsplan','Nyrehensyn','Omtalt i nyrekilde','Regler','Kilder'])
 rulemap={r['id']:r for r in rules}
