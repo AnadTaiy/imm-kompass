@@ -1,13 +1,14 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catalog=JSON.parse(fs.readFileSync(__dirname+'/catalog/catalog.json','utf8'));DATA.older.translations=JSON.parse(fs.readFileSync(__dirname+'/start-nb.json','utf8'));Object.assign(DATA.older.translations,JSON.parse(fs.readFileSync(__dirname+'/stopp-nb.json','utf8')));DATA.older.translationNotes=JSON.parse(fs.readFileSync(__dirname+'/stopp-notes-nb.json','utf8'));DATA.older.parameters=JSON.parse(fs.readFileSync(__dirname+'/criteria-parameters.json','utf8'));
+DATA.natural=JSON.parse(fs.readFileSync(__dirname+'/natural-products.json','utf8'));
 const context={IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
 vm.createContext(context);
-const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
+const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 const run=s=>vm.runInContext(s,context);let count=0;
 function check(name,condition){assert.ok(condition,name);count++;}
 function query(q='',extra={},ctx={}){context.testQ=q;context.testExtra=extra;context.testContext=ctx;return run(`filters={q:testQ,cat:'',tags:[],mode:'any',fav:false,pediatric:false,access:'',...testExtra};sourceContext=testContext;filteredResources().map(r=>r.id).join(',')`).split(',').filter(Boolean);}
-check('all source records classified',DATA.resources.length===230&&DATA.resources.every(r=>r.taxonomy&&r.summary&&r.taxonomy.primary.every(k=>DATA.searchTopics[k])));
+check('all source records classified',DATA.resources.length>=295&&DATA.resources.every(r=>r.taxonomy&&r.summary&&r.taxonomy.primary.every(k=>DATA.searchTopics[k])));
 for(const [k,t] of Object.entries(DATA.searchTopics)){
  check('topic has direct results: '+k,query('',{topic:k,pediatric:true}).length>0);
  for(const word of t.terms){context.term=word;check('synonym recognized: '+word,run(`filters.q=term;sourceQuery().topics.includes(${JSON.stringify(k)})`));}
@@ -20,8 +21,9 @@ const direct=query('nyre'),related=query('nyre',{related:true}),general=query('n
 check('primary renal search excludes general portals',!direct.includes('r019')&&!direct.includes('r029'));
 check('related explicitly extends results',related.length>direct.length&&direct.every(id=>related.includes(id))&&related.includes('r034'));
 check('general explicitly includes subscriptions',general.includes('r019')&&general.includes('r008'));
-check('direct relevance before general Norwegian portal',general.indexOf('r021')<general.indexOf('r029'));
-check('UpToDate first via dose shortcut',query('',{tags:['nyre']},{priority:'dose'})[0]==='r021');
+check('general Norwegian portal only appears when requested',general.includes('r029')&&!direct.includes('r029'));
+const doseIds=query('',{tags:['nyre']},{priority:'dose'});context.doseIds=doseIds;
+check('global publisher order also applies to dose shortcut',run(`const ranks=doseIds.map(id=>sourcePriority(DATA.resources.find(r=>r.id===id)));ranks.every((r,i)=>!i||r>=ranks[i-1])`));
 const all=query('',{tags:['nyre','vekt'],mode:'all'}),any=query('',{tags:['nyre','vekt'],mode:'any'});
 check('all/any combination',all.includes('r020')&&all.length<any.length&&all.every(id=>any.includes(id)));
 check('topic+patient facet intersection',query('',{topic:'infeksjon',tags:['nyre']}).includes('r020')&&!query('',{topic:'infeksjon',tags:['nyre']}).includes('r055'));

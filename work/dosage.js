@@ -1,7 +1,8 @@
 /* LMS D47439 v2.02: exact, conservative notation conversion. No dose inference. */
 (function(root){
  const DAYS=[['man','mandag'],['tir','tirsdag'],['ons','onsdag'],['tors','torsdag'],['fre','fredag'],['lør','lørdag'],['søn','søndag']];
- const PRESETS=[['1x1','Én daglig'],['1+0','Morgen'],['0+1','Kveld'],['0+1+0+0','Formiddag'],['0+0+1+0','Ettermiddag'],['1+1','Morgen og kveld'],['2+2','To morgen og kveld'],['1x3','Tre ganger daglig'],['1+1+2','Morgen, middag og to kveld'],['1→ x 3','Inntil tre ganger daglig'],['1u','Ukentlig – velg dag'],['vb','Ved behov'],['eo','Etter liste / ordinasjon'],['e.a','Etter avtale'],['bil','Bilateralt'],['h øye','Høyre øye'],['v øye','Venstre øye'],['0','Pauset'],['S','Seponert']];
+ const PRESETS=[['1x1','Én daglig'],['1+0','Morgen'],['0+1','Kveld'],['0+1+0+0','Formiddag'],['0+0+1+0','Ettermiddag'],['1+1','Morgen og kveld'],['2+2','To morgen og kveld'],['1x3','Tre ganger daglig'],['1+1+2','Morgen, middag og to kveld'],['1→ x 3','Inntil tre ganger daglig'],['1u','Ukentlig – velg dag'],['vb','Ved behov'],['uregelmessig','Uregelmessig bruk'],['eo','Etter liste / ordinasjon'],['e.a','Etter avtale'],['bil','Bilateralt'],['h øye','Høyre øye'],['v øye','Venstre øye'],['0','Pauset'],['S','Seponert']];
+ const INITIATIVES=[['not-doctor','Ikke initiert av lege'],['patient','Initiert av pasient']];
  const UNITS={tablett:['tablett','tabletter'],kapsel:['kapsel','kapsler'],dråpe:['dråpe','dråper'],dose:['dose','doser'],puff:['puff','puff'],plaster:['plaster','plastre'],mg:['mg','mg'],'µg':['µg','µg'],ml:['ml','ml'],IE:['IE','IE'],enhet:['enhet','enheter']};
  const numeric='(?:\\d+(?:[,.]\\d+)?|[½¼¾])';
  function clean(s){return String(s??'').trim().toLocaleLowerCase('nb').replace(/\s+/g,' ');}
@@ -12,8 +13,8 @@
   const original=String(raw??'').trim();let s=clean(raw).replace(/×/g,'x');
   const words=UNITS[unit]||UNITS.enhet,quantity=n=>fmt(n)+' '+words[n===1?0:1];
   const done=(code,text,extra={})=>({code,text,recognized:true,...extra});
-  const literal={'vb':'Ved behov – dose og faktisk forbruk må presiseres','eo':'Etter liste / ordinasjon','e.a':'Etter avtale','bil':'Bilateralt','h øye':'Høyre øye','v øye':'Venstre øye','0':'Pauset (nullet)','s':'Seponert (avsluttet)'};
-  if(s in literal)return done(s==='s'?'S':s,literal[s]);
+  const literal={'uregelmessig':'Uregelmessig bruk – oppgi dose og faktisk forbruk','uregelmessig bruk':'Uregelmessig bruk – oppgi dose og faktisk forbruk','vb':'Ved behov – dose og faktisk forbruk må presiseres','eo':'Etter liste / ordinasjon','e.a':'Etter avtale','bil':'Bilateralt','h øye':'Høyre øye','v øye':'Venstre øye','0':'Pauset (nullet)','s':'Seponert (avsluttet)'};
+  if(s in literal)return done(s==='s'?'S':s==='uregelmessig bruk'?'uregelmessig':s,literal[s]);
   if(['ved behov','etter liste','etter ordinasjon','etter avtale','bilateralt','høyre øye','venstre øye'].includes(s)){
    const codes={'ved behov':'vb','etter liste':'eo','etter ordinasjon':'eo','etter avtale':'e.a','bilateralt':'bil','høyre øye':'h øye','venstre øye':'v øye'};return parse(codes[s],unit);
   }
@@ -34,5 +35,5 @@
   if(s.includes('+')){const parts=s.split('+').map(x=>x.trim());if([2,3,4].includes(parts.length)&&parts.every(x=>new RegExp('^'+numeric+'$').test(x))){const values=parts.map(number),labels={2:['morgen','kveld'],3:['morgen','middag','kveld'],4:['morgen','formiddag','ettermiddag','kveld']}[parts.length];if(values.some(n=>n>0))return done(values.map(fmt).join('+'),values.map((n,i)=>n?quantity(n)+' '+labels[i]:'').filter(Boolean).join(', '));}}
   return {code:original,text:original,recognized:false};
  }
- const api={DAYS,PRESETS,UNITS,parse,inferUnit};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(root)root.IMMDose=api;
+ const api={DAYS,PRESETS,INITIATIVES,UNITS,parse,inferUnit};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(root)root.IMMDose=api;
 })(typeof window!=='undefined'?window:null);

@@ -47,6 +47,9 @@ for wrapper in root.findall('KatLegemiddelMerkevare/OppfLegemiddelMerkevare'):
  spc=attr(e,'Preparatomtaleavsnitt/Lenke/Www')
  use=sorted(set(x.get('V') for x in e.findall('AdministreringLegemiddel/BruksomradeEtikett')))
  ingredient_ids=list(dict.fromkeys(strengths.get(x.text) for x in e.findall('SortertVirkestoffMedStyrke/RefVirkestoffMedStyrke') if substances.get(strengths.get(x.text),'')))
+ # Herbal products often declare substance references without a strength record.
+ # Preserve these exact FEST IDs; do not infer ingredients from the trade name.
+ ingredient_ids=list(dict.fromkeys(ingredient_ids+[x.text for x in e.findall('SortertVirkestoffUtenStyrke/RefVirkestoff') if substances.get(x.text)]))
  meds.append({'id':medid,'name':e.findtext('NavnFormStyrke',''),'brand':e.findtext('Varenavn',''),
   'form':e.findtext('LegemiddelformLang',''),'producer':e.findtext('ProduktInfo/Produsent',''),'atc':code,'substance':attr(e,'Atc','DN'),
   'type':ptype,'typeLabel':attr(e,'Preparattype','DN'),'spc':spc,'uses':use,
@@ -65,7 +68,7 @@ sources=json.loads((P/'download_sources.json').read_text())
 publication=re.search(r'(\d{4})(\d{2})(\d{2})',z.namelist()[0])
 publication='-'.join(publication.groups()) if publication else root.findtext('HentetDato','')[:10]
 provenance=json.loads((P/'refresh-meta.json').read_text()) if (P/'refresh-meta.json').exists() else {'downloaded':'2026-10-21','diagnosisYear':2026}
-data={'meta':{'downloaded':provenance['downloaded'],'festPublication':publication,'festExtracted':root.findtext('HentetDato'),'diagnosisYear':provenance['diagnosisYear'],
+data={'meta':{'parserVersion':2,'downloaded':provenance['downloaded'],'festPublication':publication,'festExtracted':root.findtext('HentetDato'),'diagnosisYear':provenance['diagnosisYear'],
  'sources':sources,'coverage':'Alle aktive humane merkevareoppføringer i FEST Rekvirent 2.5.1. ATC omfatter humane koder som brukes i FEST og deres overordnede nivåer, ikke hele WHOs internasjonale register. Godkjente preparater som ikke er markedsført kan mangle.',
  'hashes':{f:hashlib.sha256((P/f).read_bytes()).hexdigest() for f in ['fest.zip','icd.xlsx','icpc.xlsx']}},
  'meds':meds,'atc':atc,'uses':label_codes,'diagnoses':diagnoses}

@@ -47,7 +47,7 @@ function startNewReview(imported=null,importedDrafts={}){
 function captureDraft(target){
  const form=target.closest?.('#med-form, #lrp-form');if(!form)return;
  const kind=form.id==='med-form'?'med':'lrp',id=form.dataset.id||'';
- const values=Object.fromEntries(new FormData(form));if(kind==='lrp')values.implemented=form.elements.implemented?.checked?'on':'';
+ const values=Object.fromEntries(new FormData(form));if(kind==='med')values.naturalMode=form.elements.naturalMode?.checked?'on':'';if(kind==='lrp')values.implemented=form.elements.implemented?.checked?'on':'';
  drafts[`${kind}:${id}`]={kind,id,values};
  markChanged();
 }

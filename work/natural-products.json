@@ -1,0 +1,852 @@
+{
+  "checked": "2026-10-26",
+  "entries": [
+    {
+      "id": "johannesurt",
+      "name": "Johannesurt / prikkperikum",
+      "english": "St John’s wort",
+      "aliases": "Hypericum perforatum",
+      "ingredientTerms": [
+        "johannesurt",
+        "st john’s wort"
+      ],
+      "festGroup": "Johannesurt",
+      "atc": "N06AX25",
+      "sources": [
+        {
+          "title": "NCCIH – St John’s wort",
+          "url": "https://www.nccih.nih.gov/health/st-johns-wort"
+        }
+      ]
+    },
+    {
+      "id": "ginkgo",
+      "name": "Ginkgo biloba",
+      "english": "Ginkgo biloba",
+      "aliases": "tempeltre ginkgoblad",
+      "ingredientTerms": [
+        "ginkgo biloba",
+        "ginkgo biloba"
+      ],
+      "festGroup": "Ginkgo",
+      "atc": "N06DX02",
+      "sources": [
+        {
+          "title": "NCCIH – Ginkgo biloba",
+          "url": "https://www.nccih.nih.gov/health/ginkgo"
+        }
+      ]
+    },
+    {
+      "id": "hvitlok",
+      "name": "Hvitløk – konsentrert tilskudd",
+      "english": "Garlic",
+      "aliases": "Allium sativum",
+      "ingredientTerms": [
+        "hvitløk",
+        "garlic"
+      ],
+      "festGroup": "Hvitløk",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Garlic",
+          "url": "https://www.nccih.nih.gov/health/garlic"
+        }
+      ]
+    },
+    {
+      "id": "ginseng",
+      "name": "Ginseng (Panax)",
+      "english": "Asian ginseng",
+      "aliases": "Panax ginseng ginsenosider",
+      "ingredientTerms": [
+        "ginseng (panax)",
+        "asian ginseng"
+      ],
+      "festGroup": "Ginseng",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Asian ginseng",
+          "url": "https://www.nccih.nih.gov/health/asian-ginseng"
+        }
+      ]
+    },
+    {
+      "id": "tranebaerjuice",
+      "name": "Tranebærjuice",
+      "english": "Cranberry juice",
+      "aliases": "Vaccinium macrocarpon",
+      "ingredientTerms": [
+        "tranebærjuice",
+        "cranberry juice"
+      ],
+      "festGroup": "Tranebærjuice",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Cranberry juice",
+          "url": "https://www.nccih.nih.gov/health/cranberry"
+        }
+      ]
+    },
+    {
+      "id": "tranebaer",
+      "name": "Tranebærekstrakt",
+      "english": "Cranberry extract",
+      "aliases": "Vaccinium macrocarpon",
+      "ingredientTerms": [
+        "tranebærekstrakt",
+        "cranberry extract"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Cranberry extract",
+          "url": "https://www.nccih.nih.gov/health/cranberry"
+        }
+      ]
+    },
+    {
+      "id": "gronn-te",
+      "name": "Grønn te-ekstrakt",
+      "english": "Green tea extract",
+      "aliases": "Camellia sinensis",
+      "ingredientTerms": [
+        "grønn te-ekstrakt",
+        "green tea extract"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Green tea extract",
+          "url": "https://www.nccih.nih.gov/health/green-tea"
+        }
+      ]
+    },
+    {
+      "id": "goldenseal",
+      "name": "Goldenseal / hydrastis",
+      "english": "Goldenseal",
+      "aliases": "Hydrastis canadensis",
+      "ingredientTerms": [
+        "goldenseal",
+        "goldenseal"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Goldenseal",
+          "url": "https://www.nccih.nih.gov/health/goldenseal"
+        }
+      ]
+    },
+    {
+      "id": "berberin",
+      "name": "Berberin",
+      "english": "Berberine",
+      "aliases": "",
+      "ingredientTerms": [
+        "berberin",
+        "berberine"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Berberine",
+          "url": "https://www.nccih.nih.gov/health/berberine-and-weight-loss-what-you-need-to-know"
+        }
+      ]
+    },
+    {
+      "id": "lakris",
+      "name": "Lakrisrot / glykyrrhizin",
+      "english": "Licorice root",
+      "aliases": "Glycyrrhiza glabra",
+      "ingredientTerms": [
+        "lakrisrot",
+        "licorice root"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Licorice root",
+          "url": "https://www.nccih.nih.gov/health/licorice-root"
+        }
+      ]
+    },
+    {
+      "id": "ashwagandha",
+      "name": "Ashwagandha",
+      "english": "Ashwagandha",
+      "aliases": "Withania somnifera",
+      "ingredientTerms": [
+        "ashwagandha",
+        "ashwagandha"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Ashwagandha",
+          "url": "https://www.nccih.nih.gov/health/ashwagandha"
+        }
+      ]
+    },
+    {
+      "id": "solhatt",
+      "name": "Solhatt / echinacea",
+      "english": "Echinacea",
+      "aliases": "",
+      "ingredientTerms": [
+        "solhatt",
+        "echinacea"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Echinacea",
+          "url": "https://www.nccih.nih.gov/health/echinacea"
+        }
+      ]
+    },
+    {
+      "id": "valeriana",
+      "name": "Valerianarot / vendelrot",
+      "english": "Valerian",
+      "aliases": "Valeriana officinalis valerianae radix",
+      "ingredientTerms": [
+        "valerianarot",
+        "valerian"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Valerian",
+          "url": "https://www.nccih.nih.gov/health/valerian"
+        }
+      ]
+    },
+    {
+      "id": "kava",
+      "name": "Kava",
+      "english": "Kava",
+      "aliases": "Piper methysticum",
+      "ingredientTerms": [
+        "kava",
+        "kava"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Kava",
+          "url": "https://www.nccih.nih.gov/health/kava"
+        }
+      ]
+    },
+    {
+      "id": "kamille",
+      "name": "Kamille – konsentrert tilskudd",
+      "english": "Chamomile",
+      "aliases": "Matricaria recutita",
+      "ingredientTerms": [
+        "kamille",
+        "chamomile"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Chamomile",
+          "url": "https://www.nccih.nih.gov/health/chamomile"
+        }
+      ]
+    },
+    {
+      "id": "ingefaer",
+      "name": "Ingefær – konsentrert tilskudd",
+      "english": "Ginger",
+      "aliases": "Zingiber officinale",
+      "ingredientTerms": [
+        "ingefær",
+        "ginger"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Ginger",
+          "url": "https://www.nccih.nih.gov/health/ginger"
+        }
+      ]
+    },
+    {
+      "id": "gurkemeie",
+      "name": "Gurkemeie / kurkumin",
+      "english": "Turmeric",
+      "aliases": "Curcuma longa curcumin",
+      "ingredientTerms": [
+        "gurkemeie",
+        "turmeric"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Turmeric",
+          "url": "https://www.nccih.nih.gov/health/turmeric"
+        }
+      ]
+    },
+    {
+      "id": "rod-gjaerris",
+      "name": "Rød gjærris",
+      "english": "Red yeast rice",
+      "aliases": "Monascus purpureus monakolin",
+      "ingredientTerms": [
+        "rød gjærris",
+        "red yeast rice"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Red yeast rice",
+          "url": "https://www.nccih.nih.gov/health/red-yeast-rice"
+        }
+      ]
+    },
+    {
+      "id": "bukkehorn",
+      "name": "Bukkehornkløver",
+      "english": "Fenugreek",
+      "aliases": "Trigonella foenum-graecum",
+      "ingredientTerms": [
+        "bukkehornkløver",
+        "fenugreek"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Fenugreek",
+          "url": "https://www.nccih.nih.gov/health/fenugreek"
+        }
+      ]
+    },
+    {
+      "id": "bitterappelsin",
+      "name": "Bitterappelsin / synefrin",
+      "english": "Bitter orange",
+      "aliases": "Citrus aurantium",
+      "ingredientTerms": [
+        "bitterappelsin",
+        "bitter orange"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Bitter orange",
+          "url": "https://www.nccih.nih.gov/health/bitter-orange"
+        }
+      ]
+    },
+    {
+      "id": "hagtorn",
+      "name": "Hagtorn",
+      "english": "Hawthorn",
+      "aliases": "Crataegus",
+      "ingredientTerms": [
+        "hagtorn",
+        "hawthorn"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Hawthorn",
+          "url": "https://www.nccih.nih.gov/health/hawthorn"
+        }
+      ]
+    },
+    {
+      "id": "linfro",
+      "name": "Linfrø / linfrøolje",
+      "english": "Flaxseed",
+      "aliases": "Linum usitatissimum",
+      "ingredientTerms": [
+        "linfrø",
+        "flaxseed"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Flaxseed",
+          "url": "https://www.nccih.nih.gov/health/flaxseed-and-flaxseed-oil"
+        }
+      ]
+    },
+    {
+      "id": "kanel",
+      "name": "Kanel (Cassia)",
+      "english": "Cinnamon",
+      "aliases": "Cinnamomum cassia",
+      "ingredientTerms": [
+        "kanel (cassia)",
+        "cinnamon"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Cinnamon",
+          "url": "https://www.nccih.nih.gov/health/cinnamon"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "name": "Koenzym Q10",
+      "english": "Coenzyme Q10",
+      "aliases": "ubikinon",
+      "ingredientTerms": [
+        "koenzym q10",
+        "coenzyme q10"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Coenzyme Q10",
+          "url": "https://www.nccih.nih.gov/health/coenzyme-q10"
+        }
+      ]
+    },
+    {
+      "id": "glukosamin",
+      "name": "Glukosamin",
+      "english": "Glucosamine",
+      "aliases": "",
+      "ingredientTerms": [
+        "glukosamin",
+        "glucosamine"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Glucosamine",
+          "url": "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know"
+        }
+      ]
+    },
+    {
+      "id": "kondroitin",
+      "name": "Kondroitin",
+      "english": "Chondroitin",
+      "aliases": "",
+      "ingredientTerms": [
+        "kondroitin",
+        "chondroitin"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Chondroitin",
+          "url": "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know"
+        }
+      ]
+    },
+    {
+      "id": "psyllium",
+      "name": "Psyllium / loppefrø",
+      "english": "Psyllium",
+      "aliases": "ispaghula Plantago ovata",
+      "ingredientTerms": [
+        "psyllium",
+        "psyllium"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "UC San Diego – tilskudd og warfarin",
+          "url": "https://health.ucsd.edu/for-health-care-professionals/anticoagulation-guidelines/warfarin/supplement-interactions/"
+        }
+      ]
+    },
+    {
+      "id": "matrem",
+      "name": "Matrem",
+      "english": "Feverfew",
+      "aliases": "Tanacetum parthenium",
+      "ingredientTerms": [
+        "matrem",
+        "feverfew"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Feverfew",
+          "url": "https://www.nccih.nih.gov/health/feverfew"
+        }
+      ]
+    },
+    {
+      "id": "dong-quai",
+      "name": "Dong quai",
+      "english": "Dong quai",
+      "aliases": "Angelica sinensis",
+      "ingredientTerms": [
+        "dong quai",
+        "dong quai"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "UC San Diego – tilskudd og warfarin",
+          "url": "https://health.ucsd.edu/for-health-care-professionals/anticoagulation-guidelines/warfarin/supplement-interactions/"
+        }
+      ]
+    },
+    {
+      "id": "peppermynte",
+      "name": "Peppermynteolje",
+      "english": "Peppermint oil",
+      "aliases": "Mentha piperita",
+      "ingredientTerms": [
+        "peppermynteolje",
+        "peppermint oil"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Peppermint oil",
+          "url": "https://www.nccih.nih.gov/health/peppermint-oil"
+        }
+      ]
+    },
+    {
+      "id": "pasjonsblomst",
+      "name": "Pasjonsblomst",
+      "english": "Passionflower",
+      "aliases": "Passiflora incarnata",
+      "ingredientTerms": [
+        "pasjonsblomst",
+        "passionflower"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Passionflower",
+          "url": "https://www.nccih.nih.gov/health/passionflower"
+        }
+      ]
+    },
+    {
+      "id": "solvlys",
+      "name": "Sølvlys",
+      "english": "Black cohosh",
+      "aliases": "Cimicifuga Actaea racemosa",
+      "ingredientTerms": [
+        "sølvlys",
+        "black cohosh"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Black cohosh",
+          "url": "https://www.nccih.nih.gov/health/black-cohosh"
+        }
+      ]
+    },
+    {
+      "id": "hestekastanje",
+      "name": "Hestekastanje",
+      "english": "Horse chestnut",
+      "aliases": "Aesculus hippocastanum",
+      "ingredientTerms": [
+        "hestekastanje",
+        "horse chestnut"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NCCIH – Horse chestnut",
+          "url": "https://www.nccih.nih.gov/health/horse-chestnut"
+        }
+      ]
+    },
+    {
+      "id": "vitamin-k",
+      "name": "Vitamin K (K1/K2)",
+      "english": "Vitamin K",
+      "aliases": "fytomenadion menakinon",
+      "ingredientTerms": [
+        "vitamin k (k1/k2)"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Vitamin K (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "kalsium",
+      "name": "Kalsium",
+      "english": "Calcium",
+      "aliases": "kalsiumkarbonat kalsiumsitrat",
+      "ingredientTerms": [
+        "kalsium"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Calcium (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "magnesium",
+      "name": "Magnesium",
+      "english": "Magnesium",
+      "aliases": "",
+      "ingredientTerms": [
+        "magnesium"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Magnesium (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "jern",
+      "name": "Jern",
+      "english": "Iron",
+      "aliases": "ferrosulfat ferro fumarat",
+      "ingredientTerms": [
+        "jern"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Iron (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "sink",
+      "name": "Sink",
+      "english": "Zinc",
+      "aliases": "",
+      "ingredientTerms": [
+        "sink"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Zinc (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "kalium",
+      "name": "Kalium",
+      "english": "Potassium",
+      "aliases": "",
+      "ingredientTerms": [
+        "kalium"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Potassium (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "jod",
+      "name": "Jod / kelp",
+      "english": "Iodine",
+      "aliases": "",
+      "ingredientTerms": [
+        "jod"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Iodine (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "vitamin-d",
+      "name": "Vitamin D",
+      "english": "Vitamin D",
+      "aliases": "kolekalsiferol ergokalsiferol",
+      "ingredientTerms": [
+        "vitamin d"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Vitamin D (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "folat",
+      "name": "Folsyre / folat",
+      "english": "Folic acid",
+      "aliases": "",
+      "ingredientTerms": [
+        "folsyre"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Folic acid (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "biotin",
+      "name": "Biotin",
+      "english": "Biotin",
+      "aliases": "vitamin B7",
+      "ingredientTerms": [
+        "biotin"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Biotin (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "vitamin-e",
+      "name": "Vitamin E",
+      "english": "Vitamin E",
+      "aliases": "tokoferol",
+      "ingredientTerms": [
+        "vitamin e"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Vitamin E (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "omega-3",
+      "name": "Omega-3 / fiskeolje",
+      "english": "Omega-3 fatty acids",
+      "aliases": "tran omega 3 EPA DHA",
+      "ingredientTerms": [
+        "omega-3"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Omega-3 fatty acids (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "krom",
+      "name": "Krom",
+      "english": "Chromium",
+      "aliases": "krompikolinat",
+      "ingredientTerms": [
+        "krom"
+      ],
+      "festGroup": "",
+      "atc": "",
+      "sources": [
+        {
+          "title": "NIH ODS – Chromium (helsepersonell)",
+          "url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "RELIS – legemidler, naturmidler og kosttilskudd",
+      "url": "https://relis.no/",
+      "access": "Åpen"
+    },
+    {
+      "title": "DMP – interaksjonsdatabasens dekning",
+      "url": "https://www.dmp.no/bivirkninger-og-sikkerhet/interaksjonsdata-fra-dmp/inklusjonskriterier",
+      "access": "Åpen"
+    },
+    {
+      "title": "Stockley’s Herbal Medicines Interactions",
+      "url": "https://www.pharmaceuticalpress.com/content/stockleys-herbal-medicines-interactions/",
+      "access": "Skole / arbeidsplass / konto"
+    },
+    {
+      "title": "MSK About Herbs – monografier for helsepersonell",
+      "url": "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs",
+      "access": "Åpen"
+    },
+    {
+      "title": "NatMed / Natural Medicines",
+      "url": "https://naturalmedicines.therapeuticresearch.com/",
+      "access": "Skole / arbeidsplass / konto"
+    },
+    {
+      "title": "NCCIH – herb–drug interactions, vitenskapelig oversikt",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science",
+      "access": "Åpen"
+    }
+  ]
+}

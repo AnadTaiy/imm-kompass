@@ -693,6 +693,50 @@
         "calculation",
         "beregning"
       ]
+    },
+    "artrose": {
+      "label": "Artrose",
+      "terms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ]
+    },
+    "naturmidler": {
+      "label": "Kosttilskudd og naturmidler",
+      "terms": [
+        "kosttilskudd",
+        "naturmidler",
+        "naturmedisin",
+        "herbal",
+        "herbs",
+        "supplements",
+        "dietary supplements",
+        "herb drug interactions"
+      ]
+    },
+    "akutt": {
+      "label": "Akuttmedisin og traume",
+      "terms": [
+        "akuttmedisin",
+        "traume",
+        "trauma",
+        "emergency medicine"
+      ]
+    },
+    "urologi": {
+      "label": "Urologi",
+      "terms": [
+        "urologi",
+        "urology"
+      ]
     }
   },
   "searchPhrases": {
@@ -733,7 +777,10 @@
     "anticholinergic burden": "antikolinerg",
     "qt prolongation": "qt",
     "antibiotic resistance": "resistens",
-    "drug stability": "iv"
+    "drug stability": "iv",
+    "dietary supplements": "naturmidler",
+    "herb drug interactions": "naturmidler",
+    "emergency medicine": "akutt"
   },
   "resources": [
     {
@@ -1985,7 +2032,8 @@
       },
       "summary": "Dosering av antiinfektiva ved nyresykdom, dialyse og overvekt.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -2207,7 +2255,8 @@
       },
       "summary": "Seponering om seponering og nedtrapping, smerte og opioider, rus og avhengighet.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -2384,7 +2433,9 @@
       },
       "summary": "Retningslinje / fagstoff om antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [],
+      "region": "Norway"
     },
     {
       "ids": [
@@ -2887,7 +2938,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -2959,7 +3011,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -3018,7 +3071,14 @@
       },
       "summary": "Retningslinje / fagstoff om osteoporose.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "osteoporose",
+        "osteoporosis",
+        "bone",
+        "bein",
+        "benskjorhet"
+      ]
     },
     {
       "ids": [
@@ -3079,7 +3139,14 @@
       },
       "summary": "Kalkulator om fall og bruddrisiko, osteoporose, kalkulatorer og beregning.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "osteoporose",
+        "osteoporosis",
+        "bone",
+        "bein",
+        "benskjorhet"
+      ]
     },
     {
       "ids": [
@@ -3106,14 +3173,46 @@
       ],
       "codes": {
         "atc": [
-          "C",
-          "B01"
+          "C02",
+          "C03",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "B01AC"
         ],
         "icd": [
-          "I"
+          "I10",
+          "I11",
+          "I12",
+          "I13",
+          "I15",
+          "I20",
+          "I21",
+          "I22",
+          "I23",
+          "I24",
+          "I25",
+          "I63",
+          "I65",
+          "I66",
+          "I70",
+          "I71",
+          "I72",
+          "I73",
+          "I74",
+          "E78"
         ],
         "icpc": [
-          "K"
+          "K74",
+          "K75",
+          "K76",
+          "K86",
+          "K87",
+          "K89",
+          "K90",
+          "K91",
+          "T93"
         ],
         "label": "Kardiovaskulær forebygging",
         "general": false,
@@ -3133,7 +3232,8 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -3196,7 +3296,14 @@
       },
       "summary": "Retningslinje / fagstoff om blodtrykk, hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hypertensjon",
+        "blodtrykk",
+        "hypertension",
+        "pressure"
+      ]
     },
     {
       "ids": [
@@ -3259,7 +3366,14 @@
       },
       "summary": "Retningslinje / fagstoff om blodtrykk, hjerte og kar.",
       "currentHttp": 403,
-      "currentTechnical": "blocked"
+      "currentTechnical": "blocked",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hypertensjon",
+        "blodtrykk",
+        "hypertension",
+        "pressure"
+      ]
     },
     {
       "ids": [
@@ -3318,7 +3432,14 @@
       },
       "summary": "Retningslinje / fagstoff om atrieflimmer, hjerte og kar, antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "atrieflimmer",
+        "af",
+        "atrial",
+        "fibrillation"
+      ]
     },
     {
       "ids": [
@@ -3381,7 +3502,17 @@
       },
       "summary": "Seponering om seponering og nedtrapping, refluks og syrehemming.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "refluks",
+        "reflux",
+        "gerd",
+        "ppi",
+        "protonpumpehemmer",
+        "protonpumpehemmere",
+        "ulcus",
+        "ulcer"
+      ]
     },
     {
       "ids": [
@@ -3436,7 +3567,8 @@
       },
       "summary": "Retningslinje / fagstoff om terapikontroll og laboratorieprøver, psykiatri og psykofarmaka.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -4658,7 +4790,9 @@
       },
       "summary": "Retningslinje / fagstoff om antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -4714,7 +4848,9 @@
       },
       "summary": "Retningslinje / fagstoff om antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -5062,7 +5198,8 @@
       },
       "summary": "Retningslinje / fagstoff om smerte og opioider.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -5091,16 +5228,10 @@
       ],
       "codes": {
         "atc": [
-          "N02",
-          "M01"
+          "N02A"
         ],
-        "icd": [
-          "R52",
-          "Z515"
-        ],
-        "icpc": [
-          "A01"
-        ],
+        "icd": [],
+        "icpc": [],
         "label": "Smerte og palliasjon",
         "general": false,
         "basis": "Lokal emneindeksering etter kildens tittel og tema. Ikke en validert kobling mellom ATC og godkjent indikasjon."
@@ -5176,7 +5307,8 @@
       },
       "summary": "Administrasjon om lunge og inhalasjon, legemiddelhåndtering.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -5233,7 +5365,8 @@
       },
       "summary": "Administrasjon om lunge og inhalasjon, legemiddelhåndtering.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7060,7 +7193,7 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01"
         ],
         "icd": [
           "A",
@@ -7105,7 +7238,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7131,7 +7265,7 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01"
         ],
         "icd": [
           "A",
@@ -7176,7 +7310,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7201,7 +7336,11 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01",
+          "J02",
+          "J04",
+          "J05",
+          "P01"
         ],
         "icd": [
           "A",
@@ -7245,7 +7384,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7273,7 +7413,11 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01",
+          "J02",
+          "J04",
+          "J05",
+          "P01"
         ],
         "icd": [
           "A",
@@ -7314,7 +7458,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7370,7 +7515,8 @@
       },
       "summary": "Dosering av antimikrobielle legemidler ved nyreerstattende behandling.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7487,7 +7633,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7553,7 +7700,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7578,7 +7726,7 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01"
         ],
         "icd": [
           "A",
@@ -7620,7 +7768,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika, antibiotikaresistens.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7645,7 +7794,7 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01"
         ],
         "icd": [
           "A",
@@ -7687,7 +7836,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika, antibiotikaresistens.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -7943,7 +8093,12 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika, tuberkulose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "tuberkulose",
+        "tuberculosis",
+        "tb"
+      ]
     },
     {
       "ids": [
@@ -7999,7 +8154,12 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika, hiv.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hiv",
+        "aids"
+      ]
     },
     {
       "ids": [
@@ -8057,7 +8217,11 @@
       },
       "summary": "Interaksjonssøk om interaksjoner, hiv, infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "hiv",
+        "aids"
+      ]
     },
     {
       "ids": [
@@ -8115,7 +8279,13 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika, hepatitt, lever.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hepatitt",
+        "hepatitis",
+        "hep"
+      ]
     },
     {
       "ids": [
@@ -8174,7 +8344,12 @@
       },
       "summary": "Interaksjonssøk om interaksjoner, hepatitt, infeksjon og antibiotika, lever.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "hepatitt",
+        "hepatitis",
+        "hep"
+      ]
     },
     {
       "ids": [
@@ -8200,7 +8375,7 @@
       ],
       "codes": {
         "atc": [
-          "J"
+          "J01"
         ],
         "icd": [
           "A",
@@ -8241,7 +8416,8 @@
       },
       "summary": "Retningslinje / fagstoff om infeksjon og antibiotika.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -8496,14 +8672,46 @@
       ],
       "codes": {
         "atc": [
-          "C",
-          "B01"
+          "C02",
+          "C03",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "B01AC"
         ],
         "icd": [
-          "I"
+          "I10",
+          "I11",
+          "I12",
+          "I13",
+          "I15",
+          "I20",
+          "I21",
+          "I22",
+          "I23",
+          "I24",
+          "I25",
+          "I63",
+          "I65",
+          "I66",
+          "I70",
+          "I71",
+          "I72",
+          "I73",
+          "I74",
+          "E78"
         ],
         "icpc": [
-          "K"
+          "K74",
+          "K75",
+          "K76",
+          "K86",
+          "K87",
+          "K89",
+          "K90",
+          "K91",
+          "T93"
         ],
         "label": "Hjerte og kar",
         "general": false,
@@ -8523,7 +8731,8 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -8548,14 +8757,46 @@
       ],
       "codes": {
         "atc": [
-          "C",
-          "B01"
+          "C02",
+          "C03",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "B01AC"
         ],
         "icd": [
-          "I"
+          "I10",
+          "I11",
+          "I12",
+          "I13",
+          "I15",
+          "I20",
+          "I21",
+          "I22",
+          "I23",
+          "I24",
+          "I25",
+          "I63",
+          "I65",
+          "I66",
+          "I70",
+          "I71",
+          "I72",
+          "I73",
+          "I74",
+          "E78"
         ],
         "icpc": [
-          "K"
+          "K74",
+          "K75",
+          "K76",
+          "K86",
+          "K87",
+          "K89",
+          "K90",
+          "K91",
+          "T93"
         ],
         "label": "Hjerte og kar",
         "general": false,
@@ -8575,7 +8816,8 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -9470,7 +9712,9 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar.",
       "currentHttp": 403,
-      "currentTechnical": "blocked"
+      "currentTechnical": "blocked",
+      "diagnosisTerms": [],
+      "scope": "book"
     },
     {
       "ids": [
@@ -9526,7 +9770,9 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisTerms": [],
+      "scope": "book"
     },
     {
       "ids": [
@@ -9590,7 +9836,15 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar, koronarsykdom.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "koronarsykdom",
+        "koronarsyndrom",
+        "coronary",
+        "acs",
+        "angina"
+      ]
     },
     {
       "ids": [
@@ -9651,7 +9905,15 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar, koronarsykdom.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "koronarsykdom",
+        "koronarsyndrom",
+        "coronary",
+        "acs",
+        "angina"
+      ]
     },
     {
       "ids": [
@@ -9714,7 +9976,14 @@
       },
       "summary": "Retningslinje / fagstoff om blodtrykk, hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hypertensjon",
+        "blodtrykk",
+        "hypertension",
+        "pressure"
+      ]
     },
     {
       "ids": [
@@ -9773,7 +10042,14 @@
       },
       "summary": "Retningslinje / fagstoff om atrieflimmer, hjerte og kar, antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "atrieflimmer",
+        "af",
+        "atrial",
+        "fibrillation"
+      ]
     },
     {
       "ids": [
@@ -9832,7 +10108,9 @@
       },
       "summary": "Retningslinje / fagstoff om antikoagulasjon og trombose.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [],
+      "region": "Norway"
     },
     {
       "ids": [
@@ -9888,7 +10166,14 @@
       },
       "summary": "Kalkulator om atrieflimmer, hjerte og kar, antikoagulasjon og trombose, kalkulatorer og beregning.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "atrieflimmer",
+        "af",
+        "atrial",
+        "fibrillation"
+      ],
+      "diagnosisOnly": true
     },
     {
       "ids": [
@@ -9944,7 +10229,14 @@
       },
       "summary": "Kalkulator om atrieflimmer, hjerte og kar, antikoagulasjon og trombose, kalkulatorer og beregning.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "atrieflimmer",
+        "af",
+        "atrial",
+        "fibrillation"
+      ],
+      "diagnosisOnly": true
     },
     {
       "ids": [
@@ -10008,7 +10300,13 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar, hjerneslag.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hjerneslag",
+        "stroke",
+        "tia"
+      ]
     },
     {
       "ids": [
@@ -10062,7 +10360,17 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar, lipider.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "lipid",
+        "lipider",
+        "lipids",
+        "kolesterol",
+        "cholesterol",
+        "dyslipidemi",
+        "dyslipidaemia",
+        "dyslipidemia"
+      ]
     },
     {
       "ids": [
@@ -10118,7 +10426,8 @@
       },
       "summary": "Retningslinje / fagstoff om smerte og opioider.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -10177,7 +10486,8 @@
       },
       "summary": "Seponering om smerte og opioider, seponering og nedtrapping, rus og avhengighet.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -10208,17 +10518,11 @@
         }
       ],
       "codes": {
-        "atc": [
-          "N02",
-          "M01"
-        ],
+        "atc": [],
         "icd": [
-          "R52",
           "Z515"
         ],
-        "icpc": [
-          "A01"
-        ],
+        "icpc": [],
         "label": "Smerte og palliasjon",
         "general": false,
         "basis": "Lokal emneindeksering etter kildens tittel og tema. Ikke en validert kobling mellom ATC og godkjent indikasjon."
@@ -10239,7 +10543,9 @@
       },
       "summary": "Retningslinje / fagstoff om palliasjon, smerte og opioider, kreft.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -10582,7 +10888,16 @@
       },
       "summary": "Retningslinje / fagstoff om diabetes.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "diabetes",
+        "diabetic",
+        "dm2",
+        "dm1",
+        "antidiabetika",
+        "glycemic",
+        "glykemisk"
+      ]
     },
     {
       "ids": [
@@ -10641,7 +10956,17 @@
       },
       "summary": "Retningslinje / fagstoff om diabetes, hjerte og kar.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "diabetes",
+        "diabetic",
+        "dm2",
+        "dm1",
+        "antidiabetika",
+        "glycemic",
+        "glykemisk"
+      ]
     },
     {
       "ids": [
@@ -10703,7 +11028,16 @@
       },
       "summary": "Oppfølging og forsiktighetsregler ved diabetes og lav GFR.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "diabetes",
+        "diabetic",
+        "dm2",
+        "dm1",
+        "antidiabetika",
+        "glycemic",
+        "glykemisk"
+      ]
     },
     {
       "ids": [
@@ -10762,7 +11096,16 @@
       },
       "summary": "Forskning om diabetes, forskning.",
       "currentHttp": 203,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "diabetes",
+        "diabetic",
+        "dm2",
+        "dm1",
+        "antidiabetika",
+        "glycemic",
+        "glykemisk"
+      ]
     },
     {
       "ids": [
@@ -10824,7 +11167,16 @@
       },
       "summary": "Forskning om diabetes, eldre og skrøpelighet, forskning.",
       "currentHttp": 203,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "diabetes",
+        "diabetic",
+        "dm2",
+        "dm1",
+        "antidiabetika",
+        "glycemic",
+        "glykemisk"
+      ]
     },
     {
       "ids": [
@@ -10888,7 +11240,15 @@
       },
       "summary": "Retningslinje / fagstoff om osteoporose.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "osteoporose",
+        "osteoporosis",
+        "bone",
+        "bein",
+        "benskjorhet"
+      ]
     },
     {
       "ids": [
@@ -10952,7 +11312,15 @@
       },
       "summary": "Retningslinje / fagstoff om fall og bruddrisiko, osteoporose.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "osteoporose",
+        "osteoporosis",
+        "bone",
+        "bein",
+        "benskjorhet"
+      ]
     },
     {
       "ids": [
@@ -11017,7 +11385,9 @@
       },
       "summary": "Retningslinje / fagstoff om fall og bruddrisiko, eldre og skrøpelighet.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -11081,7 +11451,14 @@
       },
       "summary": "Retningslinje / fagstoff om osteoporose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "osteoporose",
+        "osteoporosis",
+        "bone",
+        "bein",
+        "benskjorhet"
+      ]
     },
     {
       "ids": [
@@ -11146,7 +11523,9 @@
       },
       "summary": "Retningslinje / fagstoff om fall og bruddrisiko, eldre og skrøpelighet.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -11203,7 +11582,15 @@
       },
       "summary": "Retningslinje / fagstoff om epilepsi, nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "epilepsi",
+        "epilepsy",
+        "epileptic",
+        "seizure",
+        "seizures",
+        "antiepileptika"
+      ]
     },
     {
       "ids": [
@@ -11268,7 +11655,8 @@
       },
       "summary": "Retningslinje / fagstoff om nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -11329,7 +11717,8 @@
       },
       "summary": "Retningslinje / fagstoff om nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -11387,7 +11776,15 @@
       },
       "summary": "Retningslinje / fagstoff om epilepsi, nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "epilepsi",
+        "epilepsy",
+        "epileptic",
+        "seizure",
+        "seizures",
+        "antiepileptika"
+      ]
     },
     {
       "ids": [
@@ -11442,7 +11839,12 @@
       },
       "summary": "Retningslinje / fagstoff om nevrologi, parkinson.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "parkinson",
+        "parkinsons"
+      ]
     },
     {
       "ids": [
@@ -11502,7 +11904,14 @@
       },
       "summary": "Retningslinje / fagstoff om demens og delirium, nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "demens",
+        "dementia",
+        "delirium",
+        "delir"
+      ]
     },
     {
       "ids": [
@@ -11557,7 +11966,12 @@
       },
       "summary": "Retningslinje / fagstoff om nevrologi, multippel sklerose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ms",
+        "multiplesclerosis"
+      ]
     },
     {
       "ids": [
@@ -11611,7 +12025,8 @@
       },
       "summary": "Retningslinje / fagstoff om nevrologi, myasthenia gravis.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -11669,7 +12084,16 @@
       },
       "summary": "Retningslinje / fagstoff om depresjon og antidepressiva, psykiatri og psykofarmaka.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "depresjon",
+        "depression",
+        "antidepressiva",
+        "antidepressant",
+        "antidepressants",
+        "ssri"
+      ]
     },
     {
       "ids": [
@@ -11727,7 +12151,15 @@
       },
       "summary": "Seponering om depresjon og antidepressiva, psykiatri og psykofarmaka, seponering og nedtrapping.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "depresjon",
+        "depression",
+        "antidepressiva",
+        "antidepressant",
+        "antidepressants",
+        "ssri"
+      ]
     },
     {
       "ids": [
@@ -11785,7 +12217,15 @@
       },
       "summary": "Seponering om depresjon og antidepressiva, psykiatri og psykofarmaka, seponering og nedtrapping.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisTerms": [
+        "depresjon",
+        "depression",
+        "antidepressiva",
+        "antidepressant",
+        "antidepressants",
+        "ssri"
+      ]
     },
     {
       "ids": [
@@ -11849,7 +12289,15 @@
       },
       "summary": "Retningslinje / fagstoff om psykose og antipsykotika, psykiatri og psykofarmaka.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "psykose",
+        "psychosis",
+        "antipsykotika",
+        "antipsychotic",
+        "antipsychotics"
+      ]
     },
     {
       "ids": [
@@ -11914,7 +12362,14 @@
       },
       "summary": "Seponering om psykose og antipsykotika, psykiatri og psykofarmaka, seponering og nedtrapping.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": [
+        "psykose",
+        "psychosis",
+        "antipsykotika",
+        "antipsychotic",
+        "antipsychotics"
+      ]
     },
     {
       "ids": [
@@ -11943,16 +12398,30 @@
       ],
       "codes": {
         "atc": [
-          "N05",
-          "N06A",
-          "N06B",
-          "N07B"
+          "N02A",
+          "N05BA",
+          "N05CD",
+          "N05CF",
+          "N06BA",
+          "N07BB",
+          "N07BC"
         ],
         "icd": [
-          "F"
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19"
         ],
         "icpc": [
-          "P"
+          "P15",
+          "P18",
+          "P19"
         ],
         "label": "Psykiatri og rus",
         "general": false,
@@ -11973,7 +12442,8 @@
       },
       "summary": "Seponering om rus og avhengighet, seponering og nedtrapping.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12029,15 +12499,22 @@
       },
       "summary": "Retningslinje / fagstoff om demens og delirium, nevrologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "demens",
+        "dementia",
+        "delirium",
+        "delir"
+      ]
     },
     {
       "ids": [
         205
       ],
-      "title": "Vanedannende legemidler – nasjonal veileder",
+      "title": "Avhengighetsskapende legemidler – nasjonal veileder",
       "category": "Psykiatri og rus",
-      "url": "https://www.helsedirektoratet.no/veiledere/vanedannende-legemidler",
+      "url": "https://www.helsedirektoratet.no/veiledere/avhengighetsskapende-legemidler",
       "note": "Erstatter gammel seksjonslenke med feil tegnkoding. Oppslag om opioider, benzodiazepiner, Z-hypnotika og avslutning.",
       "verification": "content",
       "evidence": [
@@ -12058,16 +12535,30 @@
       ],
       "codes": {
         "atc": [
-          "N05",
-          "N06A",
-          "N06B",
-          "N07B"
+          "N02A",
+          "N05BA",
+          "N05CD",
+          "N05CF",
+          "N06BA",
+          "N07BB",
+          "N07BC"
         ],
         "icd": [
-          "F"
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19"
         ],
         "icpc": [
-          "P"
+          "P15",
+          "P18",
+          "P19"
         ],
         "label": "Psykiatri og rus",
         "general": false,
@@ -12088,7 +12579,8 @@
       },
       "summary": "Seponering om rus og avhengighet, seponering og nedtrapping.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12121,10 +12613,23 @@
           "N07B"
         ],
         "icd": [
-          "F"
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19"
         ],
         "icpc": [
-          "P"
+          "P15",
+          "P16",
+          "P17",
+          "P18",
+          "P19"
         ],
         "label": "Psykiatri og rus",
         "general": false,
@@ -12144,7 +12649,9 @@
       },
       "summary": "Retningslinje / fagstoff om rus og avhengighet.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12180,8 +12687,22 @@
           "M05",
           "M06",
           "M07",
-          "M1",
-          "M3"
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M30",
+          "M31",
+          "M32",
+          "M33",
+          "M34",
+          "M35",
+          "M36",
+          "M45",
+          "M46"
         ],
         "icpc": [
           "L88",
@@ -12206,7 +12727,9 @@
       },
       "summary": "Retningslinje / fagstoff om revmatologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12243,8 +12766,22 @@
           "M05",
           "M06",
           "M07",
-          "M1",
-          "M3"
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M30",
+          "M31",
+          "M32",
+          "M33",
+          "M34",
+          "M35",
+          "M36",
+          "M45",
+          "M46"
         ],
         "icpc": [
           "L88",
@@ -12269,7 +12806,9 @@
       },
       "summary": "Retningslinje / fagstoff om revmatologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12305,8 +12844,22 @@
           "M05",
           "M06",
           "M07",
-          "M1",
-          "M3"
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M30",
+          "M31",
+          "M32",
+          "M33",
+          "M34",
+          "M35",
+          "M36",
+          "M45",
+          "M46"
         ],
         "icpc": [
           "L88",
@@ -12331,7 +12884,9 @@
       },
       "summary": "Retningslinje / fagstoff om revmatologi.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12367,8 +12922,22 @@
           "M05",
           "M06",
           "M07",
-          "M1",
-          "M3"
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M30",
+          "M31",
+          "M32",
+          "M33",
+          "M34",
+          "M35",
+          "M36",
+          "M45",
+          "M46"
         ],
         "icpc": [
           "L88",
@@ -12393,7 +12962,9 @@
       },
       "summary": "Retningslinje / fagstoff om revmatologi.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12448,7 +13019,14 @@
       },
       "summary": "Retningslinje / fagstoff om astma, lunge og inhalasjon.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "astma",
+        "asthma",
+        "asthmatic",
+        "gina"
+      ]
     },
     {
       "ids": [
@@ -12510,7 +13088,8 @@
       "technicalVerificationBeforeUser": "unverified",
       "technicalNoteBeforeUser": "Samme tittel gjenfunnet i Helse Bergens offentlige kvalitetssystem. PDF funnet i søk, men direkte henting feilet; kontroller dokumentets gyldighet og lokal prosedyre før klinisk bruk. Ny teknisk kontroll traff en omdirigeringsfeil; hent gjeldende prosedyre via Helse Bergens e-håndbok.",
       "currentHttp": 302,
-      "currentTechnical": "error"
+      "currentTechnical": "error",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12573,7 +13152,8 @@
       "technicalVerificationBeforeUser": "unverified",
       "technicalNoteBeforeUser": "Original prosedyre-ID er bevart med HTTPS. Innhold/gyldighet kunne ikke verifiseres automatisk; ikke tolkes som bekreftet aktuell anbefaling.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12627,7 +13207,13 @@
       },
       "summary": "Retningslinje / fagstoff om kols, lunge og inhalasjon.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "kols",
+        "copd",
+        "gold"
+      ]
     },
     {
       "ids": [
@@ -12682,7 +13268,9 @@
       },
       "summary": "Retningslinje / fagstoff om lunge og inhalasjon, sarkoidose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12737,7 +13325,9 @@
       },
       "summary": "Retningslinje / fagstoff om lunge og inhalasjon, cystisk fibrose.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12791,7 +13381,9 @@
       },
       "summary": "Retningslinje / fagstoff om kreft, lunge og inhalasjon.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12852,7 +13444,18 @@
       "technicalVerificationBeforeUser": "unverified",
       "technicalNoteBeforeUser": "HTTPS-adresse med samme prosedyre-ID. eHåndbok-siden svarer, men selve prosedyreinnholdet/gyldigheten kunne ikke verifiseres i automatisk henting.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "refluks",
+        "reflux",
+        "gerd",
+        "ppi",
+        "protonpumpehemmer",
+        "protonpumpehemmere",
+        "ulcus",
+        "ulcer"
+      ]
     },
     {
       "ids": [
@@ -12906,7 +13509,18 @@
       },
       "summary": "Retningslinje / fagstoff om mage og tarm, refluks og syrehemming.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "refluks",
+        "reflux",
+        "gerd",
+        "ppi",
+        "protonpumpehemmer",
+        "protonpumpehemmere",
+        "ulcus",
+        "ulcer"
+      ]
     },
     {
       "ids": [
@@ -12960,7 +13574,9 @@
       },
       "summary": "Retningslinje / fagstoff om kreft, lunge og inhalasjon.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -12987,17 +13603,11 @@
         }
       ],
       "codes": {
-        "atc": [
-          "N02",
-          "M01"
-        ],
+        "atc": [],
         "icd": [
-          "R52",
           "Z515"
         ],
-        "icpc": [
-          "A01"
-        ],
+        "icpc": [],
         "label": "Smerte og palliasjon",
         "general": false,
         "basis": "Lokal emneindeksering etter kildens tittel og tema. Ikke en validert kobling mellom ATC og godkjent indikasjon."
@@ -13017,7 +13627,9 @@
       },
       "summary": "Retningslinje / fagstoff om palliasjon, smerte og opioider.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -13076,7 +13688,8 @@
       },
       "summary": "Retningslinje / fagstoff om kreft.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -13138,7 +13751,8 @@
       },
       "summary": "Retningslinje / fagstoff om kreft.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -13165,10 +13779,16 @@
       ],
       "codes": {
         "atc": [],
-        "icd": [],
-        "icpc": [],
+        "icd": [
+          "N7",
+          "N8",
+          "N9"
+        ],
+        "icpc": [
+          "X"
+        ],
         "label": "Tverrgående fagkilde",
-        "general": true,
+        "general": false,
         "basis": "Lokal emneindeksering etter kildens tittel og tema. Ikke en validert kobling mellom ATC og godkjent indikasjon."
       },
       "taxonomy": {
@@ -13187,7 +13807,9 @@
       },
       "summary": "Retningslinje / fagstoff om gynekologi.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -13216,10 +13838,14 @@
       ],
       "codes": {
         "atc": [],
-        "icd": [],
-        "icpc": [],
+        "icd": [
+          "O"
+        ],
+        "icpc": [
+          "W"
+        ],
         "label": "Tverrgående fagkilde",
-        "general": true,
+        "general": false,
         "basis": "Lokal emneindeksering etter kildens tittel og tema. Ikke en validert kobling mellom ATC og godkjent indikasjon."
       },
       "taxonomy": {
@@ -13236,7 +13862,9 @@
       },
       "summary": "Retningslinje / fagstoff om graviditet og amming.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "diagnosisOnly": true,
+      "diagnosisTerms": []
     },
     {
       "ids": [
@@ -13521,7 +14149,13 @@
       },
       "summary": "Retningslinje / fagstoff om hjerte og kar, hjertesvikt.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "hjertesvikt",
+        "heartfailure",
+        "hf"
+      ]
     },
     {
       "id": "r218",
@@ -13568,7 +14202,13 @@
       },
       "summary": "Retningslinje / fagstoff om kols, lunge og inhalasjon.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "kols",
+        "copd",
+        "gold"
+      ]
     },
     {
       "id": "r219",
@@ -14083,6 +14723,3229 @@
       "summary": "Seponering om seponering og nedtrapping.",
       "currentHttp": null,
       "currentTechnical": "Kontrollert via fagkilde / søk"
+    },
+    {
+      "id": "mb001",
+      "title": "Revmatologi (NRF) – Metodebok",
+      "url": "https://metodebok.no/revmatologi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/revmatologi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "revmatologi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M05",
+          "M06",
+          "M07",
+          "M08",
+          "M09",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M30",
+          "M31",
+          "M32",
+          "M33",
+          "M34",
+          "M35",
+          "M36",
+          "M45",
+          "M46",
+          "M80",
+          "M81",
+          "M82"
+        ],
+        "icpc": [
+          "L88",
+          "L89",
+          "L90",
+          "L91",
+          "L95"
+        ],
+        "general": false,
+        "label": "Revmatologi (NRF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb002",
+      "title": "Endokrinologi (NEF) – Metodebok",
+      "url": "https://metodebok.no/bok/endokrinologi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/endokrinologi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "endokrinologi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "E00",
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24",
+          "E25",
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30",
+          "E31",
+          "M80",
+          "M81"
+        ],
+        "icpc": [
+          "T85",
+          "T86",
+          "T87",
+          "T89",
+          "T90"
+        ],
+        "general": false,
+        "label": "Endokrinologi (NEF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb003",
+      "title": "Infeksjonsmedisin (NFIM) – Metodebok",
+      "url": "https://metodebok.no/bok/infeksjonous",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/infeksjonous"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "infeksjon"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "A",
+          "B",
+          "J00",
+          "J01",
+          "J02",
+          "J03",
+          "J04",
+          "J05",
+          "J06",
+          "J09",
+          "J10",
+          "J11",
+          "J12",
+          "J13",
+          "J14",
+          "J15",
+          "J16",
+          "J17",
+          "J18",
+          "J20",
+          "J21",
+          "J22",
+          "N30",
+          "N390"
+        ],
+        "icpc": [
+          "A70",
+          "A71",
+          "A72",
+          "A73",
+          "A74",
+          "A75",
+          "A76",
+          "A77",
+          "A78",
+          "R72",
+          "R75",
+          "R76",
+          "R77",
+          "R78",
+          "R81",
+          "R83",
+          "U71",
+          "U72"
+        ],
+        "general": false,
+        "label": "Infeksjonsmedisin (NFIM) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "infeksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb004",
+      "title": "Fødselshjelp (NGF) – Metodebok",
+      "url": "https://metodebok.no/bok/fodselshjelp",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/fodselshjelp"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "graviditet"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "O"
+        ],
+        "icpc": [
+          "W"
+        ],
+        "general": false,
+        "label": "Fødselshjelp (NGF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "graviditet"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb005",
+      "title": "Gynekologi (NGF) – Metodebok",
+      "url": "https://metodebok.no/bok/gynekologi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/gynekologi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "gynekologi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "N70",
+          "N71",
+          "N72",
+          "N73",
+          "N74",
+          "N75",
+          "N76",
+          "N77",
+          "N80",
+          "N81",
+          "N82",
+          "N83",
+          "N84",
+          "N85",
+          "N86",
+          "N87",
+          "N88",
+          "N89",
+          "N90",
+          "N91",
+          "N92",
+          "N93",
+          "N94",
+          "N95",
+          "N96",
+          "N97",
+          "N98"
+        ],
+        "icpc": [
+          "X70",
+          "X71",
+          "X72",
+          "X73",
+          "X74",
+          "X75",
+          "X76",
+          "X77",
+          "X78",
+          "X79",
+          "X80",
+          "X81",
+          "X82",
+          "X83",
+          "X84",
+          "X85",
+          "X86",
+          "X87",
+          "X88",
+          "X89",
+          "X90",
+          "X91",
+          "X92",
+          "X99"
+        ],
+        "general": false,
+        "label": "Gynekologi (NGF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "gynekologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb006",
+      "title": "Antibiotika i sykehus (HDIR) – Metodebok",
+      "url": "https://metodebok.no/bok/hdi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/hdi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "infeksjon"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "A",
+          "B",
+          "J00",
+          "J01",
+          "J02",
+          "J03",
+          "J04",
+          "J05",
+          "J06",
+          "J12",
+          "J13",
+          "J14",
+          "J15",
+          "J16",
+          "J17",
+          "J18",
+          "J20",
+          "N30",
+          "N390"
+        ],
+        "icpc": [
+          "A78",
+          "R72",
+          "R75",
+          "R76",
+          "R77",
+          "R78",
+          "R81",
+          "R83",
+          "U71",
+          "U72"
+        ],
+        "general": false,
+        "label": "Antibiotika i sykehus (HDIR) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "infeksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb007",
+      "title": "Antibiotika i primærhelsetjenesten (HDIR) – Metodebok",
+      "url": "https://metodebok.no/bok/antibiotika",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/antibiotika"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "infeksjon"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "A",
+          "B",
+          "J00",
+          "J01",
+          "J02",
+          "J03",
+          "J04",
+          "J05",
+          "J06",
+          "J12",
+          "J13",
+          "J14",
+          "J15",
+          "J16",
+          "J17",
+          "J18",
+          "J20",
+          "N30",
+          "N390"
+        ],
+        "icpc": [
+          "A78",
+          "R72",
+          "R75",
+          "R76",
+          "R77",
+          "R78",
+          "R81",
+          "R83",
+          "U71",
+          "U72"
+        ],
+        "general": false,
+        "label": "Antibiotika i primærhelsetjenesten (HDIR) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "infeksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb008",
+      "title": "Kreft – handlingsprogram og pakkeforløp (HDIR) – Metodebok",
+      "url": "https://metodebok.no/bok/krefthdir",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/krefthdir"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "kreft"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "C",
+          "D00",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D09"
+        ],
+        "icpc": [
+          "A79",
+          "B72",
+          "B73",
+          "B74",
+          "R84"
+        ],
+        "general": false,
+        "label": "Kreft – handlingsprogram og pakkeforløp (HDIR) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "kreft"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb009",
+      "title": "Traumeplan (NKT) – Metodebok",
+      "url": "https://metodebok.no/bok/traumeplan",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/traumeplan"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "traume"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "S",
+          "T00",
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14"
+        ],
+        "icpc": [
+          "A80"
+        ],
+        "general": false,
+        "label": "Traumeplan (NKT) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb010",
+      "title": "Kreft hos eldre (NFG) – Metodebok",
+      "url": "https://metodebok.no/bok/geriatriskonkologi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/geriatriskonkologi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "kreft"
+      ],
+      "minAge": 65,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "C",
+          "D00",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D09"
+        ],
+        "icpc": [
+          "A79",
+          "B72",
+          "B73",
+          "B74",
+          "R84"
+        ],
+        "general": false,
+        "label": "Kreft hos eldre (NFG) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "kreft"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb011",
+      "title": "CBRNE-medisin (Hdir) – Metodebok",
+      "url": "https://metodebok.no/bok/cbrne",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/cbrne"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "forgiftning"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "T51",
+          "T52",
+          "T53",
+          "T54",
+          "T55",
+          "T56",
+          "T57",
+          "T58",
+          "T59",
+          "T60",
+          "T61",
+          "T62",
+          "T63",
+          "T64",
+          "T65"
+        ],
+        "icpc": [
+          "A84",
+          "A86",
+          "A87"
+        ],
+        "general": false,
+        "label": "CBRNE-medisin (Hdir) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb012",
+      "title": "Transfusjonshåndbok (NFIT) – Metodebok",
+      "url": "https://metodebok.no/bok/transfusjonshandbok",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/transfusjonshandbok"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Transfusjonshåndbok (NFIT) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb013",
+      "title": "Medisinsk biokjemi (Nasjonal brukerhåndbok) – Metodebok",
+      "url": "https://metodebok.no/bok/biokjemi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/biokjemi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Medisinsk biokjemi (Nasjonal brukerhåndbok) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb014",
+      "title": "Kliniske studier (NorCRIN) – Metodebok",
+      "url": "https://metodebok.no/norcrin",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/norcrin"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kliniske studier (NorCRIN) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "forskning"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb015",
+      "title": "Cerebral parese (NorCP) – Metodebok",
+      "url": "https://metodebok.no/cp",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/cp"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "cerebral parese"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "G80"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Cerebral parese (NorCP) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "nevrologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb016",
+      "title": "Tourettes syndrom (Retningslinje) – Metodebok",
+      "url": "https://metodebok.no/bok/nevsomtourettes",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/nevsomtourettes"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "tourettes"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "F95"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Tourettes syndrom (Retningslinje) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "nevrologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb017",
+      "title": "Klinisk nevrofysiologi (KNF) – Metodebok",
+      "url": "https://metodebok.no/bok/nevrofysiologi/klinisk-nevrofysiologi-(knf)",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/nevrofysiologi/klinisk-nevrofysiologi-(knf)"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er bekreftet; lenken går til et emne",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Klinisk nevrofysiologi (KNF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb018",
+      "title": "Indremedisin (OUS) – Metodebok",
+      "url": "https://metodebok.no/bok/indremed",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/indremed"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Indremedisin (OUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb019",
+      "title": "Akutt indremedisin (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/indremedhus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/indremedhus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Akutt indremedisin (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb020",
+      "title": "Traumemanualen (OUS) – Metodebok",
+      "url": "https://metodebok.no/traume",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/traume"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "traume"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "S",
+          "T00",
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14"
+        ],
+        "icpc": [
+          "A80"
+        ],
+        "general": false,
+        "label": "Traumemanualen (OUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb021",
+      "title": "Traumemanualen (UNN Tromsø) – Metodebok",
+      "url": "https://metodebok.no/index.php?action=book&book=traumeunn",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/index.php?action=book&book=traumeunn"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "traume"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "S",
+          "T00",
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14"
+        ],
+        "icpc": [
+          "A80"
+        ],
+        "general": false,
+        "label": "Traumemanualen (UNN Tromsø) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb022",
+      "title": "Traumemanualen (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/traumehus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/traumehus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "traume"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "S",
+          "T00",
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14"
+        ],
+        "icpc": [
+          "A80"
+        ],
+        "general": false,
+        "label": "Traumemanualen (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb023",
+      "title": "Organdonasjon (NOROD/OUS) – Metodebok",
+      "url": "https://metodebok.no/bok/organdonasjon",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/organdonasjon"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Organdonasjon (NOROD/OUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb024",
+      "title": "Akutt organsvikt (UiB) – Metodebok",
+      "url": "https://metodebok.no/bok/uibakuttorgansvikt",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/uibakuttorgansvikt"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Akutt organsvikt (UiB) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb025",
+      "title": "Anestesi og intensiv (UNN) – Metodebok",
+      "url": "https://metodebok.no/bok/anestesiunn",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/anestesiunn"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Anestesi og intensiv (UNN) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb026",
+      "title": "Anestesi (HUS) – Metodebok",
+      "url": "https://metodebok.no/index.php?action=book&book=anestesihus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/index.php?action=book&book=anestesihus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Anestesi (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb027",
+      "title": "Gastrokirurgi (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/gastrohus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/gastrohus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "gastrokirurgi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "K"
+        ],
+        "icpc": [
+          "D"
+        ],
+        "general": false,
+        "label": "Gastrokirurgi (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "mage"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb028",
+      "title": "Brannskadebehandling (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/brannskadehus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/brannskadehus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "brannskade"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "T20",
+          "T21",
+          "T22",
+          "T23",
+          "T24",
+          "T25",
+          "T26",
+          "T27",
+          "T28",
+          "T29",
+          "T30",
+          "T31",
+          "T32"
+        ],
+        "icpc": [
+          "S14"
+        ],
+        "general": false,
+        "label": "Brannskadebehandling (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "akutt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb029",
+      "title": "Intensiv (HUS) – Metodebok",
+      "url": "https://metodebok.no/kskhus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/kskhus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Samleside / emneside; finn aktuell bok. Boken er omtalt under denne avdelingen",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Intensiv (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb030",
+      "title": "Urologi (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/urologihus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/urologihus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "urologi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "N20",
+          "N21",
+          "N22",
+          "N23",
+          "N30",
+          "N31",
+          "N32",
+          "N33",
+          "N34",
+          "N35",
+          "N36",
+          "N37",
+          "N39",
+          "N40",
+          "N41",
+          "N42",
+          "N43",
+          "N44",
+          "N45",
+          "N46",
+          "N47",
+          "N48",
+          "N49",
+          "N50"
+        ],
+        "icpc": [
+          "U71",
+          "U95",
+          "Y85"
+        ],
+        "general": false,
+        "label": "Urologi (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "urologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb031",
+      "title": "Ortopedi (OUS, Ullevål) – Metodebok",
+      "url": "https://metodebok.no/bok/ousortopedi",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/ousortopedi"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ortopedi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23",
+          "M24",
+          "M25",
+          "S42",
+          "S52",
+          "S62",
+          "S72",
+          "S82",
+          "S92"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91",
+          "L72",
+          "L73",
+          "L74",
+          "L75",
+          "L76"
+        ],
+        "general": false,
+        "label": "Ortopedi (OUS, Ullevål) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb032",
+      "title": "Ortopedisk kirurgi (HUS) – Metodebok",
+      "url": "https://metodebok.no/ortohus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/ortohus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ortopedi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23",
+          "M24",
+          "M25",
+          "S42",
+          "S52",
+          "S62",
+          "S72",
+          "S82",
+          "S92"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91",
+          "L72",
+          "L73",
+          "L74",
+          "L75",
+          "L76"
+        ],
+        "general": false,
+        "label": "Ortopedisk kirurgi (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb033",
+      "title": "Håndkirurgi (UNN) – Metodebok",
+      "url": "https://metodebok.no/bok/handkirunn",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/handkirunn"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "håndkirurgi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M18",
+          "S62",
+          "G56"
+        ],
+        "icpc": [
+          "L74",
+          "N93"
+        ],
+        "general": false,
+        "label": "Håndkirurgi (UNN) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb034",
+      "title": "Ortopedisk postoperativ (OUS) – Metodebok",
+      "url": "https://metodebok.no/bok/ousortoposyk",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/ousortoposyk"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Ortopedisk postoperativ (OUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb035",
+      "title": "Ortopedi (Ahus) – Metodebok",
+      "url": "https://metodebok.no/bok/ortopediahus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/ortopediahus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ortopedi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23",
+          "M24",
+          "M25",
+          "S42",
+          "S52",
+          "S62",
+          "S72",
+          "S82",
+          "S92"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91",
+          "L72",
+          "L73",
+          "L74",
+          "L75",
+          "L76"
+        ],
+        "general": false,
+        "label": "Ortopedi (Ahus) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb036",
+      "title": "Barneortopedi (VV) – Metodebok",
+      "url": "https://metodebok.no/bok/vestrevikenbarneorto",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": true,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/vestrevikenbarneorto"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ortopedi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23",
+          "M24",
+          "M25",
+          "S42",
+          "S52",
+          "S62",
+          "S72",
+          "S82",
+          "S92"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91",
+          "L72",
+          "L73",
+          "L74",
+          "L75",
+          "L76"
+        ],
+        "general": false,
+        "label": "Barneortopedi (VV) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb037",
+      "title": "Skadepoliklinikken (HUS) – Metodebok",
+      "url": "https://metodebok.no/bok/skadelegevaktenibergen",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/skadelegevaktenibergen"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Skadepoliklinikken (HUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb038",
+      "title": "Martina Hansens Hospital – Metodebok",
+      "url": "https://metodebok.no/bok/martinah",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/martinah"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "ortopedi"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23",
+          "M24",
+          "M25"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Martina Hansens Hospital – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb039",
+      "title": "Obstetrikk (SSHF) – Metodebok",
+      "url": "https://metodebok.no/bok/sskobstetrikk",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/sskobstetrikk"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "graviditet"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "O"
+        ],
+        "icpc": [
+          "W"
+        ],
+        "general": false,
+        "label": "Obstetrikk (SSHF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "graviditet"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb040",
+      "title": "Sykehjemsmedisin (Bergen) – Metodebok",
+      "url": "https://metodebok.no/sykehjemsmedisin",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/sykehjemsmedisin"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Sykehjemsmedisin (Bergen) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb041",
+      "title": "Lindrende behandling (Lindring i Nord) – Metodebok",
+      "url": "https://metodebok.no/bok/lindrende",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/lindrende"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "palliasjon"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Lindrende behandling (Lindring i Nord) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "palliasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb042",
+      "title": "Asker og Bærum legevakt – Metodebok",
+      "url": "https://metodebok.no/bok/ablegevakt",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/ablegevakt"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Asker og Bærum legevakt – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb043",
+      "title": "Oslo legevakt – Metodebok",
+      "url": "https://metodebok.no/bok/oslolegevakt",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/oslolegevakt"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Oslo legevakt – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb044",
+      "title": "Smertebehandling (ReKs/HSØ) – Metodebok",
+      "url": "https://metodebok.no/bok/smerteous",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/smerteous"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "smerte"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "R52"
+        ],
+        "icpc": [
+          "A01"
+        ],
+        "general": false,
+        "label": "Smertebehandling (ReKs/HSØ) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "smerte"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb045",
+      "title": "Laboratoriebok (Ahus) – Metodebok",
+      "url": "https://metodebok.no/bok/ahuslab",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/ahuslab"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Laboratoriebok (Ahus) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb046",
+      "title": "Laboratorietjenester (OUS) – Metodebok",
+      "url": "https://metodebok.no/book/labous",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/book/labous"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Laboratorietjenester (OUS) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb047",
+      "title": "Laboratoriebok (SSHF) – Metodebok",
+      "url": "https://metodebok.no/bok/sorlandetlab",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/sorlandetlab"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Laboratoriebok (SSHF) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb048",
+      "title": "Laboratoriebok (SiV) – Metodebok",
+      "url": "https://metodebok.no/bok/labfagsiv/laboratoriebok-(siv)",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/labfagsiv/laboratoriebok-(siv)"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er bekreftet; lenken går til et emne",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Laboratoriebok (SiV) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb049",
+      "title": "Laboratoriehåndbok (Vestre Viken) – Metodebok",
+      "url": "https://metodebok.no/emne/N74WvPGs/medisinsk-biokjemi/laboratorieh%C3%A5ndbok-%28vestre-viken%29",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/emne/N74WvPGs/medisinsk-biokjemi/laboratorieh%C3%A5ndbok-%28vestre-viken%29"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Samleside / emneside; finn aktuell bok. Boken er bekreftet; lenken går til et emne",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Laboratoriehåndbok (Vestre Viken) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb050",
+      "title": "Psykiatri – VIP (Ahus/SØ) – Metodebok",
+      "url": "https://metodebok.no/bok/vap",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/vap"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "psykiatri"
+      ],
+      "minAge": null,
+      "summary": "Samleside / emneside; finn aktuell bok. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "F"
+        ],
+        "icpc": [
+          "P"
+        ],
+        "general": false,
+        "label": "Psykiatri – VIP (Ahus/SØ) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "psykiatri"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb051",
+      "title": "Lommerus (Helse Bergen) – Metodebok",
+      "url": "https://metodebok.no/bok/lommerus",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/lommerus"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "rus"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Boken er oppført i fagområdets bokliste",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "F10",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F15",
+          "F16",
+          "F17",
+          "F18",
+          "F19"
+        ],
+        "icpc": [
+          "P15",
+          "P16",
+          "P17",
+          "P18",
+          "P19"
+        ],
+        "general": false,
+        "label": "Lommerus (Helse Bergen) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "rus"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb052",
+      "title": "Brukerveiledere og prosessbeskrivelser (HSØ) – Metodebok",
+      "url": "https://metodebok.no/bok/brukerveilhso",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/brukerveilhso"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Brukerveiledere og prosessbeskrivelser (HSØ) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb053",
+      "title": "Brukerveiledere (Helse Vest) – Metodebok",
+      "url": "https://metodebok.no/bok/brukerveilhv",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/brukerveilhv"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Brukerveiledere (Helse Vest) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "mb054",
+      "title": "Elektrolyttveileder (Diakonhjemmet) – Metodebok",
+      "url": "https://metodebok.no/bok/elektrolytt/elektrolyttveileder-(diakonhjemmet)",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/bok/elektrolytt/elektrolyttveileder-(diakonhjemmet)"
+      ],
+      "scope": "book",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "elektrolytter"
+      ],
+      "minAge": null,
+      "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "E87",
+          "E83"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Elektrolyttveileder (Diakonhjemmet) – Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "oa-hdir",
+      "title": "Artrose – Helsedirektoratets faglige råd",
+      "url": "https://www.helsedirektoratet.no/faglige-rad/fysisk-aktivitet-i-forebygging-og-behandling/sykdommer-og-tilstander/artrose",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsedirektoratet.no/faglige-rad/fysisk-aktivitet-i-forebygging-og-behandling/sykdommer-og-tilstander/artrose"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ],
+      "minAge": null,
+      "summary": "Grunnbehandling med aktivitet, trening, informasjon og oppfølging.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Artrose – Helsedirektoratets faglige råd",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "artrose"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "oa-nrf",
+      "title": "Artrose – NRF / Metodebok",
+      "url": "https://metodebok.no/emne/PKq4Ba6n/artrose/revmatologi-(nrf)",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://metodebok.no/emne/PKq4Ba6n/artrose/revmatologi-(nrf)"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ],
+      "minAge": null,
+      "summary": "Behandling og oppfølging av hånd-, kne- og hofteartrose; farmakologiske og ikke-farmakologiske tiltak.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Artrose – NRF / Metodebok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "artrose",
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "oa-nlh",
+      "title": "Artrose – Norsk legemiddelhåndbok",
+      "url": "https://www.legemiddelhandboka.no/muskel-og-skjelettsykdommer/degenerative-leddsykdommer-og-blotdelssykdommer/degenerative-leddsykdommer/artrose",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/muskel-og-skjelettsykdommer/degenerative-leddsykdommer-og-blotdelssykdommer/degenerative-leddsykdommer/artrose"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ],
+      "minAge": null,
+      "summary": "Diagnostikk og behandlingsmuligheter ved artrose.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Artrose – Norsk legemiddelhåndbok",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "artrose"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "oa-nice",
+      "title": "Osteoarthritis – NICE NG226",
+      "url": "https://www.nice.org.uk/guidance/ng226",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.nice.org.uk/guidance/ng226"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ],
+      "minAge": null,
+      "summary": "Vurdering, behandling og oppfølging av artrose hos voksne.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Osteoarthritis – NICE NG226",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "artrose"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "oa-referral",
+      "title": "Artroser – prioriteringsveileder, Helsedirektoratet",
+      "url": "https://www.helsedirektoratet.no/veiledere/prioriteringsveiledere/revmatologi/tilstander-for-revmatologi/artroser",
+      "category": "Retningslinjer",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsedirektoratet.no/veiledere/prioriteringsveiledere/revmatologi/tilstander-for-revmatologi/artroser"
+      ],
+      "scope": "referral",
+      "diagnosisOnly": true,
+      "diagnosisTerms": [
+        "artrose",
+        "artroser",
+        "osteoarthritis",
+        "slitasjegikt",
+        "gonartrose",
+        "coxartrose",
+        "koksartrose",
+        "hofteartrose",
+        "kneartrose",
+        "håndartrose"
+      ],
+      "minAge": null,
+      "summary": "Henvisning og prioritering i spesialisthelsetjenesten. Ikke en veileder for legemiddelvalg.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19"
+        ],
+        "icpc": [
+          "L89",
+          "L90",
+          "L91"
+        ],
+        "general": false,
+        "label": "Artroser – prioriteringsveileder, Helsedirektoratet",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "artrose"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Henvisning / prioritering",
+        "purposes": [
+          "Henvisning / prioritering"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-0",
+      "title": "RELIS – legemidler, naturmidler og kosttilskudd",
+      "url": "https://relis.no/",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://relis.no/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "RELIS – legemidler, naturmidler og kosttilskudd",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-1",
+      "title": "DMP – interaksjonsdatabasens dekning",
+      "url": "https://www.dmp.no/bivirkninger-og-sikkerhet/interaksjonsdata-fra-dmp/inklusjonskriterier",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.dmp.no/bivirkninger-og-sikkerhet/interaksjonsdata-fra-dmp/inklusjonskriterier"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "DMP – interaksjonsdatabasens dekning",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-2",
+      "title": "Stockley’s Herbal Medicines Interactions",
+      "url": "https://www.pharmaceuticalpress.com/content/stockleys-herbal-medicines-interactions/",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Skole / arbeidsplass / konto",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.pharmaceuticalpress.com/content/stockleys-herbal-medicines-interactions/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Stockley’s Herbal Medicines Interactions",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-3",
+      "title": "MSK About Herbs – monografier for helsepersonell",
+      "url": "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "MSK About Herbs – monografier for helsepersonell",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-4",
+      "title": "NatMed / Natural Medicines",
+      "url": "https://naturalmedicines.therapeuticresearch.com/",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Skole / arbeidsplass / konto",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://naturalmedicines.therapeuticresearch.com/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "NatMed / Natural Medicines",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "natural-source-5",
+      "title": "NCCIH – herb–drug interactions, vitenskapelig oversikt",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science",
+      "category": "Kosttilskudd og naturmidler",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-10-26",
+      "verification": "content",
+      "evidence": [
+        "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "minAge": null,
+      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "NCCIH – herb–drug interactions, vitenskapelig oversikt",
+        "basis": "Manuelt avgrenset emnekobling; ikke en behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "naturmidler",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Interaksjonssøk",
+        "purposes": [
+          "Interaksjonssøk"
+        ],
+        "reviewed": "2026-10-26"
+      }
     }
   ],
   "audit": [

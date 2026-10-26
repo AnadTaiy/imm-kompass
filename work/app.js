@@ -252,7 +252,7 @@ document.addEventListener('click',async e=>{
   try{localStorage.setItem('imm-theme-v1',theme);}catch{}
  }
  if(a.startsWith('journal-')){await journalAction(a,t);return;}
- if(a==='route')route(t.dataset.page);
+ if(a==='route'){if(t.dataset.page==='library'){sourceContext={};filters={q:'',cat:'',tags:[],mode:'any',fav:false,pediatric:false,access:''};}route(t.dataset.page);}
 
  
  if(a==='close-modal')$('#modal').close();

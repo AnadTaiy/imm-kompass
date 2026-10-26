@@ -5,7 +5,7 @@ from urllib.request import urlopen,Request
 ROOT=Path(__file__).resolve().parent;W=ROOT/'work';OUT=ROOT/'outputs';SITE=ROOT/'site'
 sys.path.insert(0,str(W))
 from sync_engine import sync_once,read_json,write_json,run_checks,node_executable,process_options
-FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
+FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
 STATE=['catalog/fest.zip','catalog/icd.xlsx','catalog/icpc.xlsx','catalog/catalog.json','catalog/download_sources.json','catalog/refresh-meta.json','clinical-rules.json','sync-status.json','sync-cache.json','sync-cache/icd.html','sync-cache/icpc.html']
 def compact(data):return json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 
@@ -40,7 +40,7 @@ def catalog_guard(parts):
 /* IMM_CATALOG_READY */
 """
 def build_data():
- data=read_json(W/'data.json');data['documents']=[];data['older']['translations']={**read_json(W/'start-nb.json'),**read_json(W/'stopp-nb.json')};data['older']['translationNotes']=read_json(W/'stopp-notes-nb.json');data['older']['parameters']=read_json(W/'criteria-parameters.json');data['catalog']=read_json(W/'catalog/catalog.json');data['clinical']=read_json(W/'clinical-rules.json');return data
+ data=read_json(W/'data.json');data['natural']=read_json(W/'natural-products.json');data['documents']=[];data['older']['translations']={**read_json(W/'start-nb.json'),**read_json(W/'stopp-nb.json')};data['older']['translationNotes']=read_json(W/'stopp-notes-nb.json');data['older']['parameters']=read_json(W/'criteria-parameters.json');data['catalog']=read_json(W/'catalog/catalog.json');data['clinical']=read_json(W/'clinical-rules.json');return data
 def monolith(data):
  html=(W/'index.template.html').read_text(encoding='utf-8').replace('/*LOGO_INTRO*/',(W/'logo-intro.js').read_text(encoding='utf-8'))
  html=re.sub(r'<style>.*?</style>',lambda m:'<style>'+(W/'style-v2.css').read_text(encoding='utf-8')+'</style>',html,count=1,flags=re.S)
@@ -56,6 +56,11 @@ def main():
  if args.sync and (ROOT/'.state/catalog/catalog.json').exists():
   cached=read_json(ROOT/'.state/catalog/catalog.json');seed=read_json(W/'catalog/catalog.json')
   if cached['meta']['festExtracted']>=seed['meta']['festExtracted'] and cached['meta']['diagnosisYear']>=seed['meta']['diagnosisYear']:cache_copy(ROOT/'.state',W)
+ # Upgrade locally cached reference parsing even when network data are unchanged.
+ old_catalog=read_json(W/'catalog/catalog.json')
+ if old_catalog['meta'].get('parserVersion',0)<2:
+  subprocess.run([sys.executable,str(W/'catalog/build_catalog.py')],check=True,timeout=180,**process_options())
+  upgraded=read_json(W/'catalog/catalog.json');upgraded['meta']={**old_catalog['meta'],'parserVersion':2};write_json(W/'catalog/catalog.json',upgraded)
  page=OUT/'index.html';page.write_text(monolith(build_data()),encoding='utf-8')
  if args.sync:
   try:

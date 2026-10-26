@@ -128,7 +128,7 @@ def replace_app_data(app,data):
  return (text[:m.start(1)]+payload+text[m.end(1):]).encode('utf-8')
 def run_checks(work):
  node=node_executable()
- for name in ['test_v3.cjs','test_filters.cjs','test_calculators.cjs','test_persistence.cjs','test_renal_policy.cjs','test_patient_context.cjs','test_stopp_context.cjs']:
+ for name in ['test_v3.cjs','test_filters.cjs','test_calculators.cjs','test_persistence.cjs','test_renal_policy.cjs','test_patient_context.cjs','test_stopp_context.cjs','test_natural_sources.cjs']:
   subprocess.run([node,str(work/name)],check=True,capture_output=True,encoding='utf-8',timeout=90,**process_options())
 @contextmanager
 def sync_lock(work):
@@ -174,7 +174,7 @@ def _sync_once(work,app,status):
  with staging_directory(work) as tmp:
   stage=Path(tmp)/'work';cat=stage/'catalog';cat.mkdir(parents=True);(stage.parent/'outputs').mkdir()
   for name in ['fest.zip','icd.xlsx','icpc.xlsx']:shutil.copy2(work/'catalog'/name,cat/name)
-  sources=read_json(work/'catalog/download_sources.json');fest=update_fest(cat/'fest.zip',cache,sources['fest.zip'],old['meta']['festExtracted']);changed=fest['changed'];received=fest['bytes']
+  sources=read_json(work/'catalog/download_sources.json');fest=update_fest(cat/'fest.zip',cache,sources['fest.zip'],old['meta']['festExtracted']);changed=fest['changed'] or old['meta'].get('parserVersion',0)<2;received=fest['bytes']
   year=datetime.datetime.now().year
   for system in ['icd','icpc']:
    page='https://www.helsedirektoratet.no/digitalisering-og-e-helse/helsefaglige-kodeverk/'+system
