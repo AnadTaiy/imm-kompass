@@ -1,0 +1,19 @@
+{
+  "STOPP-B11": "Norsk versjon gjør unntak når andre antihypertensiver har gitt intoleranse eller utilstrekkelig effekt. Dette må avklares før kriteriet bekreftes.",
+  "STOPP-B16": "Originalen bruker alder ≥ 85 år; norsk nettside skriver «eldre enn 85 år». Aldersgrensen i appen følger originalen. Skrøpelighet, primærforebygging og prognose må også være bekreftet.",
+  "STOPP-B20": "Norsk versjon unntar ACE-hemmere og angiotensinreseptorblokkere. Appens legemiddelfilter følger dette norske unntaket.",
+  "STOPP-C4": "Originalen omtaler koronarstenose, mens norsk nettside omtaler karotisstenose i unntaket. Forskjellen avgjøres ikke automatisk. Kontroller aktuell indikasjon og gjeldende retningslinje for kombinert antitrombotisk behandling.",
+  "STOPP-C5": "Norsk versjon presiserer at indikasjonen for antikoagulasjon må avklares. En kombinasjon alene er ikke nok til å konkludere.",
+  "STOPP-C9": "Norsk nettside angir over seks måneder; originalen angir over tolv. Appen avgjør ikke behandlingsvarighet automatisk. Bruk gjeldende retningslinje og individuell vurdering av tilbakefall og blødning.",
+  "STOPP-C11": "Norsk nettside bruker kreatininclearance under 15 ml/min; originalen bruker eGFR under 15 ml/min/1,73 m². Disse målene er ikke direkte utskiftbare. Nyrefunksjon, klaffesykdom og preparatomtale må vurderes manuelt.",
+  "STOPP-D8": "Norsk versjon omtaler gradvis nedtrapping allerede etter mer enn to ukers bruk. Ikke avslutt regelmessig benzodiazepinbruk brått; vurder en individuell nedtrappingsplan.",
+  "STOPP-D16": "Norsk versjon beholder unntaket for psykose, men ikke unntaket for demenssymptomer. Bruk norsk fagkilde ved vurderingen.",
+  "STOPP-D18": "Norsk versjon omtaler kombinasjonen med pulssenkende legemidler uten samme uttrykkelige pulsgrense. Appen foreslår avklaring ved kombinasjonen; faktisk puls og symptomer må vurderes.",
+  "STOPP-D21": "Norsk versjon har en snevrere unntaksliste enn originalen. Kontroller den konkrete indikasjonen i norsk fagkilde.",
+  "STOPP-E1": "Originalen bruker minst 125 mikrogram/døgn; norsk nettside skriver over 125 mikrogram. Appens tallgrense følger originalen. Kontroll av plasmakonsentrasjon inngår i den manuelle vurderingen.",
+  "STOPP-F2": "Norsk versjon omtaler også erosiv refluksøsofagitt. Kontroller diagnose, alvorlighetsgrad og vedlikeholdsbehov før dosen endres.",
+  "STOPP-G3": "Norsk versjon omfatter også korttidsvirkende inhalerte antimuskariner, blant annet ipratropium. Appens ATC-oppslag omfatter begge gruppene.",
+  "STOPP-H1": "Norsk versjon unntar ikke selektive COX-2-hemmere fra legemiddelgruppen. Appens oppslag følger den norske gruppen; sykdomshistorie og syrehemmende behandling må avklares.",
+  "STOPP-H7": "Norsk versjon avgrenser kriteriet til kombinasjon uten protonpumpehemmer. Appen bruker dette unntaket. En registrert PPI utelukker ikke andre risikoer ved kombinasjonen.",
+  "STOPP-L1": "Norsk versjon omfatter opioider mer generelt, også kodein. Oppslaget omfatter derfor opioidgruppen, men indikasjon, administrasjonsform og tidligere behandling må kontrolleres."
+}
