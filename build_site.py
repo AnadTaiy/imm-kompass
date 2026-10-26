@@ -5,7 +5,7 @@ from urllib.request import urlopen,Request
 ROOT=Path(__file__).resolve().parent;W=ROOT/'work';OUT=ROOT/'outputs';SITE=ROOT/'site'
 sys.path.insert(0,str(W))
 from sync_engine import sync_once,read_json,write_json,run_checks,node_executable,process_options
-FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
+FILES=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
 STATE=['catalog/fest.zip','catalog/icd.xlsx','catalog/icpc.xlsx','catalog/catalog.json','catalog/download_sources.json','catalog/refresh-meta.json','clinical-rules.json','sync-status.json','sync-cache.json','sync-cache/icd.html','sync-cache/icpc.html']
 def compact(data):return json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 
@@ -40,9 +40,9 @@ def catalog_guard(parts):
 /* IMM_CATALOG_READY */
 """
 def build_data():
- data=read_json(W/'data.json');data['documents']=[];data['catalog']=read_json(W/'catalog/catalog.json');data['clinical']=read_json(W/'clinical-rules.json');return data
+ data=read_json(W/'data.json');data['documents']=[];data['older']['translations']=read_json(W/'start-nb.json');data['older']['parameters']=read_json(W/'criteria-parameters.json');data['catalog']=read_json(W/'catalog/catalog.json');data['clinical']=read_json(W/'clinical-rules.json');return data
 def monolith(data):
- html=(W/'index.template.html').read_text(encoding='utf-8')
+ html=(W/'index.template.html').read_text(encoding='utf-8').replace('/*LOGO_INTRO*/',(W/'logo-intro.js').read_text(encoding='utf-8'))
  html=re.sub(r'<style>.*?</style>',lambda m:'<style>'+(W/'style-v2.css').read_text(encoding='utf-8')+'</style>',html,count=1,flags=re.S)
  return html.replace('/*DATA*/','const DATA='+compact(data)+';').replace('/*APP*/','\n'.join((W/f).read_text(encoding='utf-8') for f in FILES))
 def cache_copy(source,destination):

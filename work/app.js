@@ -114,7 +114,7 @@ function auditResults(){
  return `<div class="resultbar">${rows.length} lenkeoppføringer</div>${rows.map(x=>`<details class="auditrow"><summary><span><b>#${x.id}</b> · ${esc(x.title)}</span><span class="nowrap">${esc(x.outcome)}</span></summary><div class="statusline">${x.sources.map(s=>`${esc(DATA.documents[s.doc-1].short)}, s. ${s.page}`).join(' · ')}<br>Originalkontroll: ${esc(x.http?`HTTP ${x.http}`:x.originalStatus)} · Valgt inngang: ${esc(x.currentHttp?'HTTP '+x.currentHttp:x.currentTechnical||'Se merknad')} · Fagkontroll: ${esc(verifyLabels[x.verification]||'Begrenset')}</div><p>${esc(x.note)}</p><div class="url"><strong>Opprinnelig:</strong> ${isWeb(x.original)?external(x.original,x.original):esc(x.original)}</div><div class="url"><strong>Valgt inngang / alternativ:</strong> ${isWeb(x.current)?external(x.current,x.current):esc(x.current)}</div></details>`).join('')||'<div class="empty">Ingen treff.</div>'}`;
 }
 function modal(title,body,footerHtml=''){
- const d=$('#modal');d.innerHTML=`<div class="modalhead"><h2 id="modal-title">${esc(title)}</h2><button class="iconbtn quiet" data-action="close-modal" aria-label="Lukk">${icon('close')}</button></div>${body}${footerHtml}`;d.showModal();
+ const d=$('#modal');d.innerHTML=`<div class="modalhead"><h2 id="modal-title">${esc(title)}</h2><button class="iconbtn quiet" data-action="close-modal" aria-label="Lukk">${icon('close')}</button></div>${body}${footerHtml}`;d.showModal();d.scrollTop=0;requestAnimationFrame(()=>{d.scrollTop=0;});
 }
 function modalField(label,name,value='',type='text',options=[]){
  let i=type==='textarea'?`<textarea name="${name}" rows="3">${esc(value)}</textarea>`:type==='select'?`<select name="${name}">${options.map(o=>{const [v,t]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${v===value?'selected':''}>${esc(t)}</option>`;}).join('')}</select>`:`<input name="${name}" type="${type}" value="${esc(value)}" autocomplete="off">`;
@@ -177,7 +177,7 @@ function updateBound(target){
  }
  if(path==='lms.reporterId'){for(const m of state.meds)m.reconciliation='Ikke avklart';state.lms.confirmed=false;markChanged();render();}
  if(path.startsWith('meds.')){state.lms.confirmed=false;markChanged();const row=target.closest('tr'),m=state.meds[Number(path.split('.')[1])];row?.classList.toggle('unresolved-row',discrepancy(m).different&&m.reconciliation!=='Avklart');const c=$('[data-bind="lms.confirmed"]');if(c)c.checked=false;}
- if(/^meds\.\d+\.(status|schedule)$/.test(path)){refreshRenalMarkers();refreshStart();}
+ if(/^meds\.\d+\.(status|schedule)$/.test(path)){refreshRenalMarkers();refreshStart();refreshCha();refreshCriterionCandidates();}
  if(path.startsWith('lrps.')&&path.endsWith('.implemented')){const section=target.closest('.journal-entry')?.querySelector('.journal-measure');if(section)section.hidden=!target.checked;}
  if($('#journal-live'))$('#journal-live').textContent=journalText();
  if(path.startsWith('journal.entries.')&&path.endsWith('.implemented')){
@@ -185,8 +185,10 @@ function updateBound(target){
   if(section)section.hidden=!target.checked;
  }
  if(['profile.age','profile.fall','profile.endOfLife','profile.frailAdl','profile.frailIrreversible','profile.frailPrognosis'].includes(path))refreshOlder();
+ if(path.startsWith('clinicalFacts.')){refreshRenalMarkers();refreshStart();refreshCriterionCandidates();}
+ if(path.startsWith('chaReview.'))refreshCha();
  if(path.startsWith('profile.')){
-  refreshRenalMarkers();
+  refreshCha();refreshStart();refreshRenalMarkers();refreshCriterionCandidates();
   const ef=$('[data-bind="profile.egfr"]');if(ef&&path!=='profile.egfr')ef.value=state.profile.egfr;
   if($('#egfr-badge'))$('#egfr-badge').innerHTML=renalBadge(state.profile.egfr);
   if($('#egfr-method'))$('#egfr-method').textContent=state.profile.egfrMethod||'Ikke angitt';

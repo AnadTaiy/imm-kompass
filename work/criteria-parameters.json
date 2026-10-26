@@ -1,0 +1,1723 @@
+{
+  "STOPP-A1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-A2": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-A3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B6": {
+    "parameters": [
+      "alder",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "nyrefunksjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B10": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B11": {
+    "parameters": [
+      "alder",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B12": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B13": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B14": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B15": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling",
+      "blodtrykk/puls/EKG",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B16": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B17": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B18": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B19": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B20": {
+    "parameters": [
+      "alder",
+      "blodtrykk/puls/EKG",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-B21": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C6": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C10": {
+    "parameters": [
+      "alder",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C11": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "nyrefunksjon",
+      "laboratorieverdier",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C12": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "laboratorieverdier",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C13": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C14": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C15": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-C16": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D3": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D10": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D11": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D12": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D13": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D14": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D15": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D16": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler",
+      "fall/synkope",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D17": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D18": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D19": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D20": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D21": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D22": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D23": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D24": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-D25": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E1": {
+    "parameters": [
+      "alder",
+      "dose",
+      "varighet/tidligere behandling",
+      "nyrefunksjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E2": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E3": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E4": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E5": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E6": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E7": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E8": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E9": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-E10": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F4": {
+    "parameters": [
+      "alder",
+      "dose",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-F8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-G1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-G2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-G3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-G4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-H9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I6": {
+    "parameters": [
+      "alder",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-I8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J9": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-J10": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K10": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "fall/synkope",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K11": {
+    "parameters": [
+      "alder",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-K12": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L2": {
+    "parameters": [
+      "alder",
+      "varighet/tidligere behandling",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-L6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "STOPP-M1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/stopp-2"
+  },
+  "START-A1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "samtidige legemidler",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B7": {
+    "parameters": [
+      "alder",
+      "nyrefunksjon",
+      "samtidige legemidler",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "samtidige legemidler"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B9": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B10": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-B11": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-C1": {
+    "parameters": [
+      "alder",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-C2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "nyrefunksjon",
+      "laboratorieverdier",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-D7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-E1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "nyrefunksjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-E2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "nyrefunksjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-E3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "nyrefunksjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-E4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "nyrefunksjon",
+      "blodtrykk/puls/EKG",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F6": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-F7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-G1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-G2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-G3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "laboratorieverdier"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "laboratorieverdier",
+      "fall/synkope"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H6": {
+    "parameters": [
+      "alder",
+      "dose",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H7": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "varighet/tidligere behandling"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H8": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-H9": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-I1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "blodtrykk/puls/EKG",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-I2": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-I3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-I4": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-I5": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "skrøpelighet/funksjon/behandlingsmål",
+      "anatomi/kjønn"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-J1": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon",
+      "dose",
+      "nyrefunksjon",
+      "blodtrykk/puls/EKG",
+      "laboratorieverdier",
+      "samtidige legemidler",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-K1": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-K2": {
+    "parameters": [
+      "alder",
+      "varighet/tidligere behandling",
+      "kontraindikasjoner/unntak"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-K3": {
+    "parameters": [
+      "alder",
+      "diagnose/indikasjon"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-L1": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-L2": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-L3": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  },
+  "START-L4": {
+    "parameters": [
+      "alder"
+    ],
+    "review": "Kliniske vilkår må bekreftes hvis de ikke er uttrykkelig modellert. Ukjente data gir ikke positivt STOPP-treff.",
+    "source": "https://www.legemiddelhandboka.no/start-v3"
+  }
+}

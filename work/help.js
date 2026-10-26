@@ -4,7 +4,7 @@ function showHelp(section=''){
  [interactionSymbol(2),'Forholdsregler bør tas','Oransje trekant viser et interaksjonsfunn som krever nærmere vurdering. Linjen til høyre kobler de to legemidlene; den kan også klikkes.'],
  [icon('kidney'),'Nyrekontrollpunkter','Vises når registrert nyrefunksjon og et konkret legemiddeltreff gir grunn til kildekontroll. «Avklar CrCl» betyr at metodegrunnlaget mangler. Hold pekeren over symbolet for begrunnelsen, og klikk for fagkilder.'],
  [icon('taper'),'Seponeringsplan','Vurder nedtrapping og oppfølging hvis behandlingen skal avsluttes. Symbolet betyr ikke at legemiddelet skal seponeres.'],
- [icon('warning'),'Eldrehensyn','Åpner STOPP, STOPPFall eller STOPPFrail for valgt målgruppe. Kontroller vilkårene i hvert treff.'],
+ [icon('warning'),'Eldrehensyn','STOPP vises når kjente vilkår passer, eller etter at resterende vilkår er bekreftet. Uavklarte kriterier finnes under «Avklar vilkår for STOPP / START». STOPPFall og STOPPFrail krever riktig målgruppe. Klikk symbolet for fagkilder.'],
  [icon('plus'),'START – mulig manglende behandling','Gjennomgå aktuelle kriterier, begrunn vurderingen og registrer et problem hvis det er relevant.'],
  ['<span class="help-difference">≠</span>','Avvik mellom kilder','Markert dosering avviker fra pasientens eller pårørendes oppgitte bruk. Velg avklaringsstatus og skriv beslutningen i oversikten.']
  ];

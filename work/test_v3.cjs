@@ -1,8 +1,8 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catalog=JSON.parse(fs.readFileSync(__dirname+'/catalog/catalog.json','utf8'));
+const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catalog=JSON.parse(fs.readFileSync(__dirname+'/catalog/catalog.json','utf8'));DATA.older.translations=JSON.parse(fs.readFileSync(__dirname+'/start-nb.json','utf8'));DATA.older.parameters=JSON.parse(fs.readFileSync(__dirname+'/criteria-parameters.json','utf8'));
 const context={IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
 vm.createContext(context);
-const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
+const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 let count=0;const check=(name,script)=>{assert.equal(vm.runInContext(script,context),true,name);count++;};
 const run=s=>vm.runInContext(s,context);
@@ -96,7 +96,7 @@ check('paused actual use does not trigger START',`state.meds[0].actualUses.patie
 run(`state.meds[0].actualUses.patient.dose='1+1';state.meds.push({id:'lax',name:'Movicol',atc:'A06AD65',schedule:'Fast'});`);
 check('existing laxative shown without declaring omission',`startPanel().includes('Registrert innen den brede legemiddelgruppen: Movicol')&&startPanel().includes('Dette er ikke et automatisk funn')`);
 check('clinical confirmation required before LRP',`startPanel().includes('data-id="START-K2" disabled')`);
-check('confirmed START enables LRP',`state.startChecks['START-K2']='review';!startPanel().includes('data-id="START-K2" disabled')`);
+check('confirmed START enables LRP',`state.startChecks['START-K2']='review';state.startReviews['START-K2']=criterionFingerprint();!startPanel().includes('data-id="START-K2" disabled')`);
 check('contraindication prevents START LRP action',`state.startChecks['START-K2']='contra';startPanel().includes('data-id="START-K2" disabled')`);
 check('all START criteria available manually',`DATA.older.criteria.filter(r=>r.tool==='START').every(r=>startPanel().includes('value="'+r.id+'"'))`);
 run(`state.startChecks={};state.meds=[{name:'Prolia',atc:'M05BX04',status:'Uendret',schedule:'Fast'}];`);
