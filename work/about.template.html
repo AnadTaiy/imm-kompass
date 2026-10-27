@@ -11,8 +11,8 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('imm-theme-v1')||'light';}catch{}</script>
 <link rel="stylesheet" href="/*STYLE*/">
 <style>
-.about-page{max-width:920px;margin:0 auto;padding:56px 28px 36px;min-height:0}.about-nav{max-width:1080px}.about-nav .brand{text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:12px}.about-card{display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;align-items:start}.about-portrait{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}.about-copy{max-width:620px}.about-kicker{letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.about-copy h1{font-size:clamp(30px,4vw,40px);margin-bottom:24px}.about-copy p{font-size:16px;line-height:1.7;margin:0 0 18px}.about-copy .about-kicker{font-size:12px;line-height:1.5;margin-bottom:12px}.about-copy .about-credit{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:24px}.about-storage{margin:22px 0;color:var(--muted);font-size:13px}.about-storage summary{cursor:pointer;color:var(--ink)}.about-storage p{font-size:13px;margin:10px 0 0}.about-copy .button{margin-top:4px}.about-footer{text-align:center;color:var(--muted);font-size:12px;padding:24px;border-top:1px solid var(--line);margin-top:28px}.about-nav #theme-toggle{min-width:86px}
-@media(max-width:680px){.about-page{padding:28px 22px}.about-nav{padding:16px 22px}.about-nav .brand{font-size:23px}.about-card{grid-template-columns:1fr;gap:24px}.about-portrait{max-width:112px}.about-copy h1{font-size:32px}.about-footer{margin-top:16px}}
+.about-page{max-width:780px;margin:0 auto;padding:48px 28px 32px;min-height:0}.about-nav{max-width:1080px}.about-nav .brand{text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:12px}.about-copy h1{font-size:clamp(30px,4vw,40px);margin:0 0 24px}.about-copy h2{font-size:28px;margin:0 0 16px}.about-copy p{font-size:16px;line-height:1.7;margin:0 0 18px}.about-copy .about-kicker{font-size:12px;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}.about-person{border-top:1px solid var(--line);margin-top:36px;padding-top:32px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:26px;align-items:start}.about-portrait{display:block;width:96px;height:auto;border-radius:10px;border:1px solid var(--line)}.about-copy .about-credit{font-size:13px;color:var(--muted);margin:20px 0 0}.about-storage{margin:22px 0;color:var(--muted);font-size:13px}.about-storage summary{cursor:pointer;color:var(--ink)}.about-storage p{font-size:13px;margin:10px 0 0}.about-copy .button{margin-top:4px}.about-footer{text-align:center;color:var(--muted);font-size:12px;padding:24px;border-top:1px solid var(--line);margin-top:28px}.about-nav #theme-toggle{min-width:86px}
+@media(max-width:680px){.about-page{padding:28px 22px}.about-nav{padding:16px 22px}.about-nav .brand{font-size:23px}.about-person{grid-template-columns:72px minmax(0,1fr);gap:18px}.about-portrait{width:72px}.about-copy h1{font-size:32px}.about-copy h2{font-size:26px}.about-footer{margin-top:16px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Om verktøyet og meg – IMM Kompass","url":"https://anadtaiy.github.io/imm-kompass/om-meg.html","inLanguage":"nb","mainEntity":{"@type":"Person","name":"Mohanad Taiy","image":"https://anadtaiy.github.io/imm-kompass/assets/mohanad.png"},"about":{"@type":"LearningResource","name":"IMM Kompass","url":"https://anadtaiy.github.io/imm-kompass/"}}</script>
 </head>
@@ -20,17 +20,21 @@
 <a href="#about-main" class="screenreader">Gå til hovedinnhold</a>
 <header class="app-header"><div class="header-inner about-nav"><a class="brand" href="./" aria-label="IMM Kompass – til start"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16 8-2 6-6 2 2-6z"/></svg>IMM Kompass</a><button id="theme-toggle" type="button" aria-pressed="false">Mørk modus</button></div></header>
 <main id="about-main" class="about-page">
-<article class="about-card">
-<img class="about-portrait" src="assets/mohanad.png" alt="Mohanad Taiy" width="532" height="733">
-<div class="about-copy">
+<article class="about-copy">
+<section aria-labelledby="about-tool-title">
 <p class="about-kicker">IMM Kompass</p>
-<h1>Om verktøyet og meg</h1>
-<p>IMM Kompass samler legemiddelsamstemming, legemiddelgjennomgang og journalutkast etter prinsippene i Integrated Medicines Management (IMM). Målet er å gjøre læring i klinisk farmasi mer systematisk, med fagkilder og beregningsverktøy tilgjengelig underveis.</p>
-<p>Jeg er Mohanad Taiy, farmasøyt og masterstudent ved UiT – Norges arktiske universitet. Jeg har utviklet IMM Kompass for å knytte farmasifaglig kunnskap til systematisk arbeid med legemidler.</p>
-<details class="about-storage"><summary>Lagring og personvern</summary><p>Gjennomganger lagres automatisk i denne nettleseren. Bruk fiktive kasus uten identifiserende opplysninger; initialer alene gjør ikke et kasus anonymt. Eksporter en sikkerhetskopi før du sletter nettleserdata eller bytter nettleser.</p></details>
-<p class="about-credit">Laget av Mohanad Taiy, 2026 – Til egen læring. Et selvstendig studentprosjekt; ikke et offisielt UiT-verktøy eller klinisk beslutningsstøtte.</p>
+<h1 id="about-tool-title">Om verktøyet</h1>
+<p>IMM Kompass er et lærings- og oppslagsverktøy som hjelper farmasøyter og farmasistudenter å strukturere faglige spørsmål og finne relevante, pålitelige kilder. Arbeidsflyten bygger på Integrated Medicines Management (IMM).</p>
+<p>Appen er ikke beregnet for klinisk pasientarbeid eller som grunnlag for behandlingsbeslutninger. Formålet er å støtte læring, kildeoppslag og faglig refleksjon.</p>
+<details class="about-storage"><summary>Lagring og personvern</summary><p>Gjennomganger lagres automatisk i nettleseren på denne enheten. Innholdet sendes ikke automatisk til GitHub eller fagkildene. Bruk fiktive eller tilstrekkelig anonymiserte øvingskasus og et selvvalgt pasientnummer. Ikke registrer navn, initialer, fødselsnummer eller journalnummer. Et løpenummer alene anonymiserer ikke fritekst eller en kombinasjon av kliniske opplysninger.</p><p>Du kan slette gjennomganger under «Gjennomganger». Eksporterte filer og kopiert tekst håndteres separat. Nettleserdata kan forsvinne ved sletting eller i privat modus; eksporter ved behov før du bytter nettleser.</p></details>
 <a class="button" href="./">Åpne IMM Kompass <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
-</div>
+</section>
+<section class="about-person" aria-labelledby="about-person-title">
+<img class="about-portrait" src="assets/mohanad.png" alt="Mohanad Taiy" width="532" height="733">
+<div><h2 id="about-person-title">Om meg</h2>
+<p>Jeg er Mohanad Taiy, farmasøyt og masterstudent ved UiT – Norges arktiske universitet. Jeg har utviklet IMM Kompass for å knytte farmasifaglig kunnskap til systematisk arbeid med legemidler.</p>
+<p class="about-credit">Laget av Mohanad Taiy, 2026 – Til egen læring. Et selvstendig studentprosjekt; ikke et offisielt UiT-verktøy.</p>
+</div></section>
 </article>
 </main>
 <footer class="about-footer"><a href="./om-meg.html" aria-current="page">Mohanad Taiy</a> · 2026</footer>

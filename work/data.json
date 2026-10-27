@@ -1627,11 +1627,13 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Søk på legemiddel, virkestoff eller ATC. Samme interaksjonsgrunnlag som Felleskatalogen.",
       "technicalVerificationBeforeUser": "search",
       "technicalNoteBeforeUser": "Offisiell interaksjonsdatabase bekreftet av DMP og i søk. Automatisk HTTPS-kontroll fikk sertifikatfeil; dette dokumenterer ikke at siden er død.",
       "currentHttp": null,
-      "currentTechnical": "unverified"
+      "currentTechnical": "unverified",
+      "interactionDatabase": true,
+      "interactionDataSource": "DMP / FEST"
     },
     {
       "ids": [
@@ -1682,9 +1684,11 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Svensk interaksjonsdatabase. Riskprofil supplerer med samlet farmakodynamisk risiko.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "interactionDatabase": true,
+      "interactionDataSource": "Janusmed"
     },
     {
       "ids": [
@@ -1734,9 +1738,12 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Interaksjonsanalyse via institusjonens UpToDate/Lexidrug-abonnement. Velg interaksjonsverktøyet etter innlogging.",
       "currentHttp": 403,
-      "currentTechnical": "blocked"
+      "currentTechnical": "blocked",
+      "interactionDatabase": true,
+      "interactionDataSource": "UpToDate Lexidrug",
+      "directUrl": "https://online.lexi.com/"
     },
     {
       "ids": [
@@ -4269,9 +4276,11 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Dansk database for søk på kombinasjoner av legemidler og virkestoffer.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "interactionDatabase": true,
+      "interactionDataSource": "Interaktionsdatabasen"
     },
     {
       "ids": [
@@ -4316,9 +4325,12 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Interaksjonsdatabase via MedicinesComplete. Krever vanligvis institusjonslisens.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "interactionDatabase": true,
+      "interactionDataSource": "Stockley’s",
+      "directUrl": "https://www.medicinescomplete.com/log-in/"
     },
     {
       "ids": [
@@ -8215,13 +8227,15 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner, hiv, infeksjon og antibiotika.",
+      "summary": "Spesialisert interaksjonssøk for legemidler mot HIV.",
       "currentHttp": 200,
       "currentTechnical": "ok",
       "diagnosisTerms": [
         "hiv",
         "aids"
-      ]
+      ],
+      "interactionDatabase": true,
+      "interactionDataSource": "Liverpool HIV"
     },
     {
       "ids": [
@@ -8342,14 +8356,16 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner, hepatitt, infeksjon og antibiotika, lever.",
+      "summary": "Spesialisert interaksjonssøk for legemidler mot viral hepatitt.",
       "currentHttp": 200,
       "currentTechnical": "ok",
       "diagnosisTerms": [
         "hepatitt",
         "hepatitis",
         "hep"
-      ]
+      ],
+      "interactionDatabase": true,
+      "interactionDataSource": "Liverpool HEP"
     },
     {
       "ids": [
@@ -14246,9 +14262,11 @@
         ],
         "reviewed": "2026-10-23"
       },
-      "summary": "Interaksjonssøk om interaksjoner.",
+      "summary": "Åpent interaksjonssøk med data fra DMP/FEST. Samme datagrunnlag som DMPs interaksjonssøk.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "interactionDatabase": true,
+      "interactionDataSource": "DMP / FEST"
     },
     {
       "id": "r220",
@@ -17807,7 +17825,7 @@
       "diagnosisOnly": false,
       "diagnosisTerms": [],
       "minAge": null,
-      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "summary": "Søkbart oppslagsverk om interaksjoner med plantebaserte midler. Tilgang via institusjon.",
       "codes": {
         "atc": [],
         "icd": [],
@@ -17828,7 +17846,9 @@
           "Interaksjonssøk"
         ],
         "reviewed": "2026-10-26"
-      }
+      },
+      "interactionDatabase": true,
+      "interactionDataSource": "Stockley’s Herbal"
     },
     {
       "id": "natural-source-3",
@@ -17885,7 +17905,7 @@
       "diagnosisOnly": false,
       "diagnosisTerms": [],
       "minAge": null,
-      "summary": "Oppslag om innholdsstoffer, dokumentasjon og mulige interaksjoner.",
+      "summary": "Database om naturmidler og kosttilskudd, med interaksjonsverktøy. Krever abonnement.",
       "codes": {
         "atc": [],
         "icd": [],
@@ -17906,7 +17926,9 @@
           "Interaksjonssøk"
         ],
         "reviewed": "2026-10-26"
-      }
+      },
+      "interactionDatabase": true,
+      "interactionDataSource": "NatMed"
     },
     {
       "id": "natural-source-5",

@@ -1,6 +1,23 @@
 /* One atomic localStorage value per review. Never overwrite a newer revision. */
 class IMMReviewStore {
  constructor(storage){this.storage=storage;this.prefix='imm-review-v1:';this.activeKey='imm-active-review-v1';}
+ // Retired identifiers are not renamed to patientNumber: initials remain identifying.
+ static withoutRetiredFields(state){
+  if(!state?.profile)return state;
+  const profile={...state.profile};
+  for(const key of ['initials','admittedFrom','admittedDate','bed'])delete profile[key];
+  return {...state,profile};
+ }
+ migratePrivacy(){
+  const keys=Array.from({length:this.storage.length},(_,i)=>this.storage.key(i)).filter(k=>k?.startsWith(this.prefix));
+  for(const key of keys){
+   let record;try{record=this.read(key.slice(this.prefix.length));}catch{continue;}
+   if(!record||!['initials','admittedFrom','admittedDate','bed'].some(k=>Object.hasOwn(record.state.profile||{},k)))continue;
+   const next={...record,state:IMMReviewStore.withoutRetiredFields(record.state),revision:record.revision+1};
+   // One atomic write per review; errors propagate so removal is never silently claimed.
+   this.storage.setItem(key,JSON.stringify(next));
+  }
+ }
  read(id){
   const text=this.storage.getItem(this.prefix+id);
   if(text===null)return null;
@@ -26,7 +43,7 @@ class IMMReviewStore {
   if(expectedRevision===null?old!==null:old?.revision!==expectedRevision){
    const e=Error('Gjennomgangen er endret eller slettet i en annen fane. Lagre arbeidet som en ny gjennomgang.');e.code='CONFLICT';throw e;
   }
-  const next={...record,format:'IMM-local-review',version:1,revision:(expectedRevision??0)+1};
+  const next={...record,state:IMMReviewStore.withoutRetiredFields(record.state),format:'IMM-local-review',version:1,revision:(expectedRevision??0)+1};
   this.storage.setItem(this.prefix+next.id,JSON.stringify(next));
   // A failed active-pointer write must not invalidate the saved review itself.
   try{this.select(next.id);}catch{}

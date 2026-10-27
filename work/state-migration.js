@@ -8,6 +8,7 @@ function cleanImported(raw,preserveIds=false){
  b.criterionChecks=preserveIds&&s.criterionChecks&&typeof s.criterionChecks==='object'?JSON.parse(JSON.stringify(s.criterionChecks)):{};
  const indices=(v,n)=>Array.isArray(v)?[...new Set(v.filter(x=>Number.isInteger(x)&&x>=0&&x<n))]:[];
  for(const k of Object.keys(b.profile))b.profile[k]=typeof b.profile[k]==='boolean'?s.profile?.[k]===true:str(s.profile?.[k]);
+ if(!/^\d{0,6}$/.test(b.profile.patientNumber))b.profile.patientNumber='';
  if(!['umol','mgdl'].includes(b.profile.scrUnit))b.profile.scrUnit='umol';if(!['','female','male'].includes(b.profile.sex))b.profile.sex='';
  if(!['','stable','unstable'].includes(b.profile.stability))b.profile.stability='';if(!['','actual','ideal','adjusted','other'].includes(b.profile.cgWeightType))b.profile.cgWeightType='';
  for(const k of ['sources','discrepancies','notes'])b.lms[k]=str(s.lms?.[k]);

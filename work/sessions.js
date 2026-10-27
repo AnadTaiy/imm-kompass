@@ -32,6 +32,7 @@ function restoreReview(record){
 function initReviewStorage(){
  try{
   reviewStore=new IMMReviewStore(localStorage);
+  reviewStore.migratePrivacy();
   const active=reviewStore.active();
   const record=active?reviewStore.read(active):reviewStore.list().find(r=>!r.corrupt);
   if(record)restoreReview(record);
