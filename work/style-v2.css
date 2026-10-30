@@ -55,3 +55,30 @@
 .natural-search-area{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.initiative-note:empty{display:none}.initiative-note{margin-top:8px}.source-scope{margin-bottom:16px}
 
 .interaction-database-filter{border:1px solid var(--control);background:var(--accent-soft);border-radius:6px;padding:12px 14px}.interaction-database-filter .hint{margin-left:27px}.interaction-database-filter:has(input:checked){border-color:var(--accent)}
+
+/* Numbered interaction pairs: one anchor per finding and non-overlapping lanes. */
+.comparison-layout.with-pairs{grid-template-columns:minmax(0,1fr) clamp(68px,var(--rail-width,68px),28%)}
+.interaction-rail-viewport{grid-column:2;min-width:0;overflow-x:auto;overflow-y:hidden;background:var(--surface);scrollbar-width:thin;scrollbar-gutter:stable;z-index:3}
+.comparison-layout .interaction-rail{position:static;display:block;max-width:none;width:auto;overflow:hidden;background:var(--surface)}
+.interaction-rail a{pointer-events:auto;cursor:pointer;outline:none}
+.interaction-rail path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;opacity:1;transition:opacity .12s,stroke-width .12s}
+.interaction-rail .pair-hit{stroke:transparent;stroke-width:13;pointer-events:stroke}
+.interaction-rail .pair-halo{stroke:var(--surface);stroke-width:6;pointer-events:none}
+.interaction-rail .pair-line{stroke-width:2.2;pointer-events:none}
+.interaction-rail .level-2 .pair-line{stroke-dasharray:5 3}
+.interaction-rail .pair-endpoint{fill:var(--surface);stroke:currentColor;stroke-width:1.6}
+.interaction-rail .pair-number{fill:currentColor;stroke:none;font:600 10px var(--font);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.interaction-rail a:hover .pair-line,.interaction-rail a:focus .pair-line,.interaction-rail .pair-active .pair-line{stroke-width:3.8}
+.interaction-rail a:hover .pair-halo,.interaction-rail a:focus .pair-halo,.interaction-rail .pair-active .pair-halo{stroke-width:8}
+.interaction-rail a:hover .pair-hit,.interaction-rail a:focus .pair-hit{stroke-width:13}
+.interaction-pair{display:flex;gap:5px;align-items:center;margin-bottom:8px}
+.interaction-pair .interaction-flag{flex:1;min-width:0;margin:0;max-width:none}
+.interaction-pair .pair-marker{flex:none;width:25px;height:28px;min-height:28px;padding:0;font-size:11px;font-weight:700;color:inherit;border-color:currentColor;border-radius:5px;background:var(--surface)}
+.interaction-pair .pair-marker.pair-active{outline:2px solid currentColor;outline-offset:2px;background:var(--soft)}
+.interaction-pair .pair-marker[aria-pressed=true]{box-shadow:inset 0 -4px currentColor}
+.has-active-pair .interaction-rail a:not(.pair-active){opacity:.22}
+.has-active-pair .interaction-rail .pair-active .pair-endpoint{stroke-width:3}
+.pair-row .med-name-cell{background:var(--soft)}
+.interaction-line-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 15px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);background:var(--surface)}
+.interaction-line-toolbar strong{color:var(--ink);font-weight:600}.interaction-line-toolbar button{margin-left:auto}
+@media print{.comparison-layout.with-pairs{grid-template-columns:minmax(0,1fr) var(--rail-width,68px)}.interaction-rail-viewport{overflow:visible}.has-active-pair .interaction-rail a:not(.pair-active){opacity:1}}

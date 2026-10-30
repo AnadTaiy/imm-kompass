@@ -128,7 +128,7 @@ def replace_app_data(app,data):
  return (text[:m.start(1)]+payload+text[m.end(1):]).encode('utf-8')
 def run_checks(work):
  node=node_executable()
- for name in ['test_v3.cjs','test_filters.cjs','test_calculators.cjs','test_persistence.cjs','test_renal_policy.cjs','test_patient_context.cjs','test_stopp_context.cjs','test_natural_sources.cjs','test_privacy_sources.cjs']:
+ for name in ['test_v3.cjs','test_filters.cjs','test_calculators.cjs','test_persistence.cjs','test_renal_policy.cjs','test_patient_context.cjs','test_stopp_context.cjs','test_natural_sources.cjs','test_privacy_sources.cjs','test_interaction_layout.cjs']:
   subprocess.run([node,str(work/name)],check=True,capture_output=True,encoding='utf-8',timeout=90,**process_options())
 @contextmanager
 def sync_lock(work):

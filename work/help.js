@@ -1,7 +1,7 @@
 function showHelp(section=''){
  const rows=[
  [interactionSymbol(1),'Bør unngås','Rødt kryss viser en kombinasjon som bør unngås, eller er kontraindisert når dette står i kilden. Klikk for konsekvens, vilkår og håndtering.'],
- [interactionSymbol(2),'Forholdsregler bør tas','Oransje trekant viser et interaksjonsfunn som krever nærmere vurdering. Linjen til høyre kobler de to legemidlene; den kan også klikkes.'],
+ [interactionSymbol(2),'Forholdsregler bør tas','Oransje trekant viser et interaksjonsfunn som krever nærmere vurdering. Samme nummer står ved begge legemidlene. Velg nummeret for å markere paret og linjen til høyre; velg «Fjern markering» for å vise alle like tydelig. Røde forbindelser er heltrukne, oransje er stiplede. Trykk på varselet eller linjen for å åpne fagkilden.'],
  [icon('kidney'),'Nyrekontrollpunkter','Vises når registrert nyrefunksjon og et konkret legemiddeltreff gir grunn til kildekontroll. «Avklar CrCl» betyr at metodegrunnlaget mangler. Hold pekeren over symbolet for begrunnelsen, og klikk for fagkilder.'],
  [icon('taper'),'Seponeringsplan','Vurder nedtrapping og oppfølging hvis behandlingen skal avsluttes. Symbolet betyr ikke at legemiddelet skal seponeres.'],
  [icon('warning'),'Eldrehensyn','STOPP vises når kjente vilkår passer, eller etter at resterende vilkår er bekreftet. Uavklarte kriterier finnes under «Avklar vilkår for STOPP / START». STOPPFall og STOPPFrail krever riktig målgruppe. Klikk symbolet for fagkilder.'],
