@@ -129,7 +129,7 @@ function reportModal(){modal('Samlet arbeidsnotat',`<div class="modalbody"><p cl
 function download(name,content,type='text/plain;charset=utf-8'){
  const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);
 }
-function toast(t){$('#toast').textContent=t;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').textContent='',4500);}
+function toast(t,withUndo=false){$('#toast').innerHTML=`<span>${esc(t)}</span>${withUndo?undoButton():''}`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').textContent='',withUndo?12000:4500);}
 function jumpCategory(cat){filters={q:'',cat,tags:[],mode:'any',fav:false,pediatric:false,access:''};route('library');}
 function contextSearch(){
  const p=state.profile,tags=[];if(IMMCalc.number(p.age)>=65||p.frail)tags.push('alder');if(p.weight)tags.push('vekt');if(p.egfr||p.creatinine||p.dialysis)tags.push('nyre');if(p.fall)tags.push('fall');if(p.sonde)tags.push('sonde');
@@ -246,6 +246,7 @@ function importJson(){
 document.addEventListener('click',async e=>{
  const t=e.target.closest('[data-action]');if(!t)return;
  const a=t.dataset.action,id=t.dataset.id;
+ if(a==='explain-warnings'){const m=state.meds.find(m=>m.id===id);if(m)explainWarnings(m);return;}
  if(await workflowAction(a,t))return;
  if(sessionAction(a,t))return;
  if(a==='theme'){
@@ -275,7 +276,7 @@ document.addEventListener('click',async e=>{
  if(a==='remove-lrp'){
   modal('Fjern dette LRP?',`<div class="modalbody"><p>Oppføringen fjernes fra denne arbeidsøkten.</p></div>`,`<div class="modalfoot"><button data-action="close-modal">Avbryt</button><button class="danger" data-action="confirm-remove-lrp" data-id="${id}">Fjern LRP</button></div>`);
  }
- if(a==='confirm-remove-lrp'){state.lrps=state.lrps.filter(x=>x.id!==id);delete drafts['lrp:'+id];markChanged();$('#modal').close();render();}
+ if(a==='confirm-remove-lrp'){state.lrps=state.lrps.filter(x=>x.id!==id);delete drafts['lrp:'+id];markChanged();$('#modal').close();render();toast('LRP er fjernet.',true);}
  if(a==='report')reportModal();
  if(a==='export-text')download('IMM-arbeidsnotat.txt',noteText());
  if(a==='copy-note')await copyNote();

@@ -3,6 +3,26 @@ const clinicalRules=new Map(DATA.clinical.rules.map(e=>[e.id,e]));
 function medicationSignals(m){const e=clinicalIndex.get(String(m.atc||'').toUpperCase());const rules=(e?.rules||[]).map(id=>clinicalRules.get(id));return {taper:rules.filter(r=>r.kind==='taper'),renal:rules.filter(r=>r.kind==='renal'),index:e?.renalIndex||[]};}
 function renalAssessment(m){const candidates=medicationSignals(m).renal;return window.IMMRenal.assess(m,state.profile,candidates,IMMCalc.evaluate(state.profile).values.cg);}
 function renalFlag(m){const r=renalAssessment(m);return r?`<a class="risk-flag renal ${r.kind==='missing'?'renal-missing':''}" title="${esc(r.reason)}" aria-label="${esc(r.label+' for '+m.name+'. '+r.reason)}" href="${esc(drugSourceUrl(m,'nyre'))}" target="_blank" rel="noopener noreferrer">${icon('kidney')}${esc(r.label)}</a>`:'';}
+function warningExplanations(m){
+ const rows=[],renal=renalAssessment(m),signals=medicationSignals(m);
+ for(const p of interactionPairs().filter(p=>p.a===m.id||p.b===m.id)){
+  const other=state.meds.find(x=>x.id===(p.a===m.id?p.b:p.a));
+  const conditions=[...new Set(p.ids.map(id=>interactionIndex.get(id)?.condition).filter(Boolean))];
+  rows.push({kind:conditions.length?'Databasetreff – avklar vilkår':'Databasetreff',title:`${m.name} + ${other?.name||'annet legemiddel'}`,text:'Begge legemidlene er registrert i listen, og kombinasjonen har et treff i DMP / FEST. '+(conditions.length?'Situasjonskriterium: '+conditions.join(' '):'Vurder faktisk samtidig bruk, dose og formulering.'),note:'Treffet viser en mulig interaksjon, ikke at en klinisk konsekvens har oppstått.',url:interactionSourceUrl(p.ids),level:p.level});
+ }
+ if(renal)rows.push({kind:renal.kind==='missing'?'Mangler opplysninger':'Kontrollpunkt',title:renal.label,text:renal.reason,url:drugSourceUrl(m,'nyre')});
+ if(signals.taper.length)rows.push({kind:'Relevant ved planlagt avslutning',title:'Seponeringsplan',text:signals.taper.map(r=>r.label).join(' · '),note:'Markeringen betyr ikke at behandlingen skal avsluttes. Åpne kildene hvis seponering vurderes.',url:drugSourceUrl(m,'seponering')});
+ for(const r of olderHits(m)){
+  const grounds=r.tool==='STOPP'?criterionKnownChecks(r,m).filter(c=>c.pass===true).map(c=>c.label).join(' · '):r.tool==='STOPPFall'?'Alder fra 65 år og høy fallrisiko er registrert. Legemiddelgruppen inngår i STOPPFall.':'Alder fra 65 år og alle tre målgruppevilkårene for STOPPFrail er registrert. Legemiddelgruppen inngår i kriteriet.';
+  rows.push({kind:'Kontrollpunkt',title:[r.id||r.tool,r.label].filter(Boolean).join(' · '),text:grounds||'Kriteriet passer registrerte opplysninger og avklarte vilkår.',note:'Kontroller hele kriteriet og unntakene i fagkilden før et LRP registreres.',url:olderUrl(m,[r])});
+ }
+ return rows;
+}
+function warningExplanationButton(m){return warningExplanations(m).length?`<button class="small warning-explain-button" data-action="explain-warnings" data-id="${esc(m.id)}">Hvorfor markert?</button>`:'';}
+function explainWarnings(m){
+ const rows=warningExplanations(m);if(!rows.length){toast('Ingen aktuelle markeringer for dette legemiddelet.');return;}
+ modal('Hvorfor er legemiddelet markert?',`<div class="modalbody"><p><strong>${esc(m.name)}</strong></p><div class="warning-explanations sectiongap">${rows.map(r=>`<section class="warning-explanation-item"><span class="warning-kind ${r.level?'level-'+r.level:''}">${r.level?interactionSymbol(r.level):''}${r.level===1?'Bør unngås · ':r.level===2?'Forholdsregler bør tas · ':''}${esc(r.kind)}</span><h3>${esc(r.title)}</h3><p class="preserve">${esc(r.text)}</p>${r.note?`<p class="hint">${esc(r.note)}</p>`:''}<a class="button small" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Åpne fagkilder ${icon('out')}</a></section>`).join('')}</div></div>`,`<div class="modalfoot"><button class="primary" data-action="close-modal">Lukk</button></div>`);
+}
 function clinicalFlags(m){const s=medicationSignals(m);return `<div class="clinical-flags">${s.taper.length?`<a class="risk-flag taper" title="Vurder en plan ved avslutning: ${esc(s.taper.map(r=>r.label).join(', '))}. Klikk for seponeringskilder." aria-label="Seponeringsplan for ${esc(m.name)}" href="${esc(drugSourceUrl(m,'seponering'))}" target="_blank" rel="noopener noreferrer">${icon('taper')}Seponeringsplan</a>`:''}<span data-renal-med="${esc(m.id)}">${renalFlag(m)}</span></div>`;}
 function renalReviewNotice(){
  if(!activeMedicines().length)return '';
@@ -14,6 +34,7 @@ function refreshRenalMarkers(){
  document.querySelectorAll('[data-renal-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.renalMed);el.innerHTML=m?renalFlag(m):'';});
  document.querySelectorAll('[data-older-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.olderMed);el.innerHTML=m?olderFlag(m):'';});
  document.querySelectorAll('[data-renal-review-note]').forEach(el=>el.innerHTML=renalReviewNotice());
+ document.querySelectorAll('[data-warning-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.warningMed);el.innerHTML=m?warningExplanationButton(m):'';});
  requestAnimationFrame(drawInteractionLines);
 }
 function renalPolicyHelp(){return `<p>Nyremarkeringer krever voksen alder, avklart stabil nyrefunksjon og en relevant verdi. Manglende verdi, dialyse, graviditet eller akutt/skiftende funksjon gir én samlet beskjed i oversikten.</p><p class="sectiongap">«Vurder nyrehensyn» og «Vurder prøver» vises ved eGFR under 60 sammen med et kuratert legemiddeltreff. 60 er en terskel for å åpne et kontrollpunkt, ikke en universell dosegrense. Et treff fastslår verken nyresykdom, feil dose eller et LRP. Les begrunnelsen ved symbolet og kontroller konkret preparat, indikasjon, formulering og prøvetrend.</p><p class="sectiongap">«Avklar CrCl» er en nøytral påminnelse om manglende metodegrunnlag. «Kontroller nyredose» for gabapentin, pregabalin, apiksaban og ceftriakson bygger på CrCl-grenser i preparatomtalene. eGFR erstatter ikke CrCl. Andre dosekriterier, som alder, vekt og indikasjon, må vurderes separat.</p><p class="sectiongap">At et navn står i nyretabellen gir ingen markering. Protonpumpehemmere får ikke et generelt nyrevarsel bare på grunn av mulig sjelden nyrebivirkning. Pausert/seponert behandling og lokale hud-, øye- og inhalasjonspreparater inngår ikke i disse rutinemarkeringene. Fravær av symbol er ikke en fullstendig kontroll; Fagkilder er alltid tilgjengelig.</p><div class="actions sectiongap">${external(window.IMMRenal.sources.method,'Nyrefunksjon og valg av metode – NHS SPS','quicklink')}${external(window.IMMRenal.sources.kdigo,'KDIGO 2024','quicklink')}</div>`;}

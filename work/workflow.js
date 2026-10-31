@@ -51,7 +51,7 @@ function submitWorkflowForm(e){
   if(data.implemented&&!data.measure){toast('Beskriv tiltaket som er iverksatt.');return;}
  }
  const index=state[key].findIndex(x=>x.id===id),item={...data,id};if(index>=0)state[key][index]=item;else state[key].push(item);
- delete drafts[`${key==='meds'?'med':'lrp'}:${existing}`];markChanged();$('#modal').close();render();toast(key==='meds'?'Legemiddelet er lagret.':'Problemet er lagret og følger med til journalutkastet.');
+ delete drafts[`${key==='meds'?'med':'lrp'}:${existing}`];markChanged();$('#modal').close();render();toast(key==='meds'?'Legemiddelet er lagret.':'Problemet er lagret og følger med til journalutkastet.',true);
 }
 async function workflowAction(a,t){
  if(patientContextAction(a,t)||olderAction(a,t))return true;
@@ -73,9 +73,9 @@ async function workflowAction(a,t){
   const s=state.lms.sourceList.find(x=>x.id===t.dataset.id);if(!s)return true;
   modal('Fjern kilde?',`<div class="modalbody">${esc(s.name)} og opplysningene fra denne kilden fjernes fra sammenligningen.</div>`,`<div class="modalfoot"><button data-action="close-modal">Avbryt</button><button class="danger" data-action="confirm-remove-source" data-id="${esc(s.id)}">Fjern kilde</button></div>`);return true;
  }
- if(a==='confirm-remove-source'){const id=t.dataset.id;if(state.lms.reporterId===id)state.lms.reporterId='';for(const d of Object.values(drafts))if(d.values?.reporterId===id){d.values.retiredReporter='Opplysningene kom fra en fjernet kilde. Kontroller kilden før lagring.';}state.lms.sourceList=state.lms.sourceList.filter(s=>s.id!==id);for(const m of state.meds){delete m.observations?.[id];delete m.actualUses?.[id];m.reconciliation='Ikke avklart';}for(const d of Object.values(drafts))for(const pre of ['obs_','dose_','comment_'])delete d.values?.[pre+id];state.lms.confirmed=false;markChanged();$('#modal').close();render();return true;}
+ if(a==='confirm-remove-source'){const id=t.dataset.id;if(state.lms.reporterId===id)state.lms.reporterId='';for(const d of Object.values(drafts))if(d.values?.reporterId===id){d.values.retiredReporter='Opplysningene kom fra en fjernet kilde. Kontroller kilden før lagring.';}state.lms.sourceList=state.lms.sourceList.filter(s=>s.id!==id);for(const m of state.meds){delete m.observations?.[id];delete m.actualUses?.[id];m.reconciliation='Ikke avklart';}for(const d of Object.values(drafts))for(const pre of ['obs_','dose_','comment_'])delete d.values?.[pre+id];state.lms.confirmed=false;markChanged();$('#modal').close();render();toast('Kilden er fjernet.',true);return true;}
  if(a==='remove-med'){modal('Fjern legemiddel?',`<div class="modalbody">Legemiddelet og kildeopplysningene fjernes fra listen. Registrerte problemer beholdes.</div>`,`<div class="modalfoot"><button data-action="close-modal">Avbryt</button><button class="danger" data-action="confirm-remove-med" data-id="${esc(t.dataset.id)}">Fjern legemiddel</button></div>`);return true;}
- if(a==='confirm-remove-med'){state.meds=state.meds.filter(x=>x.id!==t.dataset.id);delete drafts['med:'+t.dataset.id];state.lms.confirmed=false;markChanged();$('#modal').close();render();return true;}
+ if(a==='confirm-remove-med'){state.meds=state.meds.filter(x=>x.id!==t.dataset.id);delete drafts['med:'+t.dataset.id];state.lms.confirmed=false;markChanged();$('#modal').close();render();toast('Legemiddelet er fjernet.',true);return true;}
  if(a==='med-lrp'){const m=state.meds.find(x=>x.id===t.dataset.id);lrpModal('',9,'',m?.name||'');return true;}
  if(a==='select-drug'){selectDrug(t.dataset.id);return true;}
  if(a==='select-indication'){selectIndication(Number(t.dataset.index));return true;}
