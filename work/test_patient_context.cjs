@@ -3,7 +3,7 @@ const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catal
 DATA.natural=JSON.parse(fs.readFileSync(__dirname+'/natural-products.json','utf8'));
 const context={IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
 vm.createContext(context);
-const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
+const files=['calculators.js','dosage.js','review-store.js','sessions.js','work-status.js','view-state.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 let count=0;const check=(name,script)=>{assert.equal(vm.runInContext(script,context),true,name);count++;};
 const run=s=>vm.runInContext(s,context);
@@ -56,4 +56,7 @@ check('AF search does not return incidental text matches',`diagnosisSearch('AF')
 check('renin inhibitor not falsely ACE/ARB B12',`state.profile.age='78';state.clinicalFacts.potassium='6';!olderHits({atc:'C09XA02'}).some(r=>r.id==='STOPP-B12')`);
 check('no paracetamol L6 on other analgesic combination',`state.profile.liver=true;!olderHits({atc:'N02AJ07',ingredients:'Kodein og Acetylsalisylsyre',dailyDoseMg:'3000'}).some(r=>r.id==='STOPP-L6')`);
 check('covered START status expires when therapy changes',`state.startChecks['START-C1']='covered';state.startReviews['START-C1']=criterionFingerprint();const r=olderCriteria.get('START-C1');const before=startStatus(r);state.meds.push({id:'changed',atc:'N02AA01'});before==='covered'&&startStatus(r)===''`);
+run(`state=blank();state.profile.age='78';state.meds=[{id:'med-a',name:'Legemiddel A',atc:'C10AA05'},{id:'med-b',name:'Legemiddel B',atc:'C10AA07'}];`);
+check('same criterion for different medicines has distinct disclosure identity',`(()=>{const r=olderCriteria.get('STOPP-B16');const a=criterionCheckHtml(r,state.meds[0]),b=criterionCheckHtml(r,state.meds[1]);return a.includes('data-ui-key="criterion:med:med-a:STOPP-B16"')&&b.includes('data-ui-key="criterion:med:med-b:STOPP-B16"');})()`);
+check('unscoped criterion keeps stable identity in source and START views',`criterionDetail(olderCriteria.get('START-K2')).includes('data-ui-key="criterion:START-K2"')`);
 console.log('PASS: '+count+' patient-context, criterion boundaries, translation and CHA₂DS₂-VA checks.');

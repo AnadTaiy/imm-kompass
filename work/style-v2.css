@@ -84,8 +84,12 @@
 @media print{.comparison-layout.with-pairs{grid-template-columns:minmax(0,1fr) var(--rail-width,68px)}.interaction-rail-viewport{overflow:visible}.has-active-pair .interaction-rail a:not(.pair-active){opacity:1}}
 
 /* Explanation on demand and a compact, always available undo control. */
-.warning-explain-button{margin:7px 0 3px;width:100%;background:var(--soft);font-size:12px!important}
-.warning-explanations{display:grid;gap:14px}.warning-explanation-item{padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--soft);display:grid;gap:9px}.warning-kind{display:flex;gap:7px;align-items:center;font-size:12px;font-weight:600}.warning-kind svg{width:18px;height:18px}.warning-explanation-item .button{justify-self:start}.criterion-status{font-size:13px;font-weight:600;margin:8px 0}
+.criterion-status{font-size:13px;font-weight:600;margin:8px 0}
 .save-status .actions{flex-shrink:0}.save-status button.undo-button{border:1px solid var(--control);background:var(--surface);color:var(--ink);text-decoration:none}.undo-button>span{font-size:18px;line-height:1}
 #toast{display:flex;align-items:center;gap:15px}#toast .undo-button{flex-shrink:0;background:transparent;border-color:currentColor;color:inherit;text-decoration:none}#toast:empty{display:none}
-@media(max-width:720px){.save-status{flex-wrap:wrap}.save-status>span{max-width:100%}.save-status>.actions{margin-left:auto}.warning-explanation-item{padding:12px}}
+@media(max-width:720px){.save-status{flex-wrap:wrap}.save-status>span{max-width:100%}.save-status>.actions{margin-left:auto}}
+
+/* Calm medication rows: clinical signals and connector geometry retain their existing styles. */
+.med-metadata,.med-reference{font-size:11px;color:var(--muted)}.med-reference{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.med-reference .code{font-size:11px}.med-indication{font-size:13px;margin-top:7px}.med-change-status{font-size:12px;color:var(--muted);margin-top:7px}.med-decision{margin-top:12px}.med-decision>summary{font-size:12px;color:var(--muted)}.med-more-actions>summary{padding:5px 0;text-align:center;font-size:12px;color:var(--muted);cursor:pointer}.med-more-content{display:grid;gap:6px;padding-top:7px}.med-more-content>.button,.med-more-content>button{width:100%}
+.work-status{display:flex;align-items:baseline;gap:7px 15px;flex-wrap:wrap;color:var(--muted);font-size:12px;padding:0 0 12px;margin-top:-12px}.work-status-label{font-weight:600}.work-status-items{display:flex;gap:5px 9px;flex-wrap:wrap;align-items:baseline}.work-status button{font-size:12px;border:0;padding:2px 0;background:transparent;color:var(--link);text-decoration:underline;text-underline-offset:3px}.work-status button:hover{text-decoration-thickness:2px}.work-status-separator{color:var(--muted)}
+.row-updated{animation:row-saved 2.2s ease-out}@keyframes row-saved{0%,35%{outline:2px solid var(--accent);outline-offset:-2px}100%{outline:2px solid transparent;outline-offset:-2px}}@media(prefers-reduced-motion:reduce){.row-updated{animation:none;outline:2px solid var(--accent);outline-offset:-2px}}

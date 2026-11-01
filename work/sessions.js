@@ -2,7 +2,7 @@ let reviewStore=null,activeReview=null,saveError='',drafts={};
 const undoHistory=new IMMUndoHistory();
 let undoGroup={},undoTarget=null,undoLabel='Endring',deletedReviewUndo=null;
 function undoModel(){return {state,drafts,name:activeReview?.name||''};}
-function resetUndo(){undoHistory.reset(undoModel());deletedReviewUndo=null;undoTarget=null;undoGroup={};}
+function resetUndo(){if(typeof resetWorkViews==='function')resetWorkViews();undoHistory.reset(undoModel());deletedReviewUndo=null;undoTarget=null;undoGroup={};}
 function rememberEdit(event){
  const t=event.target,a=t.closest?.('[data-action]')?.dataset.action;
  if(event.type==='click'&&!a)return;
@@ -65,7 +65,7 @@ function persistCurrent(){
   dirty=false;saveError='';updateSaveStatus();return true;
  }catch(error){dirty=true;storageError(error);return false;}
 }
-function markChanged(){if(resourceOnly)return;syncRenal();captureUndo();dirty=true;persistCurrent();}
+function markChanged(){if(resourceOnly)return;syncRenal();captureUndo();dirty=true;persistCurrent();if(typeof refreshWorkStatus==='function')refreshWorkStatus();}
 function updateSaveStatus(){
  const el=$('#save-status');if(!el||resourceOnly)return;
  el.className=`save-status ${saveError?'save-failed':''}`;

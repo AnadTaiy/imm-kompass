@@ -3,7 +3,7 @@ const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catal
 DATA.natural=JSON.parse(fs.readFileSync(__dirname+'/natural-products.json','utf8'));
 const context={IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
 vm.createContext(context);
-const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
+const files=['calculators.js','dosage.js','review-store.js','sessions.js','work-status.js','view-state.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 let count=0;
 const run=s=>vm.runInContext(s,context);

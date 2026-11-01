@@ -114,7 +114,7 @@ function auditResults(){
  return `<div class="resultbar">${rows.length} lenkeoppføringer</div>${rows.map(x=>`<details class="auditrow"><summary><span><b>#${x.id}</b> · ${esc(x.title)}</span><span class="nowrap">${esc(x.outcome)}</span></summary><div class="statusline">${x.sources.map(s=>`${esc(DATA.documents[s.doc-1].short)}, s. ${s.page}`).join(' · ')}<br>Originalkontroll: ${esc(x.http?`HTTP ${x.http}`:x.originalStatus)} · Valgt inngang: ${esc(x.currentHttp?'HTTP '+x.currentHttp:x.currentTechnical||'Se merknad')} · Fagkontroll: ${esc(verifyLabels[x.verification]||'Begrenset')}</div><p>${esc(x.note)}</p><div class="url"><strong>Opprinnelig:</strong> ${isWeb(x.original)?external(x.original,x.original):esc(x.original)}</div><div class="url"><strong>Valgt inngang / alternativ:</strong> ${isWeb(x.current)?external(x.current,x.current):esc(x.current)}</div></details>`).join('')||'<div class="empty">Ingen treff.</div>'}`;
 }
 function modal(title,body,footerHtml=''){
- const d=$('#modal');d.innerHTML=`<div class="modalhead"><h2 id="modal-title">${esc(title)}</h2><button class="iconbtn quiet" data-action="close-modal" aria-label="Lukk">${icon('close')}</button></div>${body}${footerHtml}`;d.showModal();d.scrollTop=0;requestAnimationFrame(()=>{d.scrollTop=0;});
+ const d=$('#modal');if(!d.open&&/<form id="(?:med|lrp)-form"/.test(body))startEditReturn();d.innerHTML=`<div class="modalhead"><h2 id="modal-title">${esc(title)}</h2><button class="iconbtn quiet" data-action="close-modal" aria-label="Lukk">${icon('close')}</button></div>${body}${footerHtml}`;d.showModal();d.scrollTop=0;requestAnimationFrame(()=>{d.scrollTop=0;});
 }
 function modalField(label,name,value='',type='text',options=[]){
  let i=type==='textarea'?`<textarea name="${name}" rows="3">${esc(value)}</textarea>`:type==='select'?`<select name="${name}">${options.map(o=>{const [v,t]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${v===value?'selected':''}>${esc(t)}</option>`;}).join('')}</select>`:`<input name="${name}" type="${type}" value="${esc(value)}" autocomplete="off">`;
@@ -174,7 +174,7 @@ function updateBound(target){
   state.lms.confirmed=false;
   const confirmed=$('[data-bind="lms.confirmed"]');if(confirmed)confirmed.checked=false;
   if(path.endsWith('.type')){const i=Number(path.split('.')[2]);state.lms.sourceList[i].name=SOURCE_TYPES.find(x=>x[0]===target.value)?.[1]?.replace(/^[A-Z]+ – /,'')||'Kilde';const name=$('[data-bind="lms.sourceList.'+i+'.name"]');if(name)name.value=state.lms.sourceList[i].name;}
-  const row=target.closest('.source-row'),src=state.lms.sourceList[Number(path.split('.')[2])];if(row?.querySelector('button'))row.querySelector('button').setAttribute('aria-label','Fjern kilde '+src.name);markChanged();if($('#med-comparison')){$('#med-comparison').innerHTML=medTable();requestAnimationFrame(drawInteractionLines);}if(path.endsWith('.type')||path.endsWith('.relation'))render();
+  const row=target.closest('.source-row'),src=state.lms.sourceList[Number(path.split('.')[2])];if(row?.querySelector('button'))row.querySelector('button').setAttribute('aria-label','Fjern kilde '+src.name);markChanged();if(path.endsWith('.type')||path.endsWith('.relation'))render();else if($('#med-comparison'))preserveWorkView(()=>{$('#med-comparison').innerHTML=medTable();});
  }
  if(path==='lms.reporterId'){for(const m of state.meds)m.reconciliation='Ikke avklart';state.lms.confirmed=false;markChanged();render();}
  if(path.startsWith('meds.')){state.lms.confirmed=false;markChanged();const row=target.closest('tr'),m=state.meds[Number(path.split('.')[1])];row?.classList.toggle('unresolved-row',discrepancy(m).different&&m.reconciliation!=='Avklart');const c=$('[data-bind="lms.confirmed"]');if(c)c.checked=false;}
@@ -246,7 +246,7 @@ function importJson(){
 document.addEventListener('click',async e=>{
  const t=e.target.closest('[data-action]');if(!t)return;
  const a=t.dataset.action,id=t.dataset.id;
- if(a==='explain-warnings'){const m=state.meds.find(m=>m.id===id);if(m)explainWarnings(m);return;}
+ if(a==='jump-work-status'){jumpWorkStatus(t.dataset.kind);return;}
  if(await workflowAction(a,t))return;
  if(sessionAction(a,t))return;
  if(a==='theme'){
@@ -254,7 +254,7 @@ document.addEventListener('click',async e=>{
   try{localStorage.setItem('imm-theme-v1',theme);}catch{}
  }
  if(a.startsWith('journal-')){await journalAction(a,t);return;}
- if(a==='route'){if(t.dataset.page==='library'){sourceContext={};filters={q:'',cat:'',tags:[],mode:'any',fav:false,pediatric:false,access:''};}route(t.dataset.page);}
+ if(a==='route')route(t.dataset.page);
 
  
  if(a==='close-modal')$('#modal').close();

@@ -1,9 +1,10 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catalog=JSON.parse(fs.readFileSync(__dirname+'/catalog/catalog.json','utf8'));DATA.older.translations=JSON.parse(fs.readFileSync(__dirname+'/start-nb.json','utf8'));Object.assign(DATA.older.translations,JSON.parse(fs.readFileSync(__dirname+'/stopp-nb.json','utf8')));DATA.older.translationNotes=JSON.parse(fs.readFileSync(__dirname+'/stopp-notes-nb.json','utf8'));DATA.older.parameters=JSON.parse(fs.readFileSync(__dirname+'/criteria-parameters.json','utf8'));
 DATA.natural=JSON.parse(fs.readFileSync(__dirname+'/natural-products.json','utf8'));
-const context={IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
+const clickHandlers=[];
+const context={clickHandlers,IMMCalc:require('./calculators.js'),DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(type,fn){if(type==='click')clickHandlers.push(fn);},getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};
 vm.createContext(context);
-const files=['calculators.js','dosage.js','review-store.js','sessions.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
+const files=['calculators.js','dosage.js','review-store.js','sessions.js','work-status.js','view-state.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js'];
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 const run=s=>vm.runInContext(s,context);let count=0;
 function check(name,condition){assert.ok(condition,name);count++;}
@@ -88,3 +89,12 @@ check('clearing renal context removes method panel',run("filters.q='';renalSourc
 check('failure never advertised as available update',run("!syncUpdateAvailable({phase:'error',revision:'different'})"));
 check('unknown update phase is never applied',run("!syncUpdateAvailable({phase:'unknown',revision:'different'})"));
 console.log('PASS: 6 renal source and sync-error presentation checks.');
+
+// The actual delegated menu click must retain a user's source question.
+run("filters={q:'artrose',tags:['alder'],access:'paid',interactionDatabases:true};sourceContext={scope:'all',atc:'M01AE01'};var savedFilters=JSON.stringify(filters),savedContext=JSON.stringify(sourceContext);route=to=>{page=to;};");
+run("clickHandlers.find(fn=>fn.toString().includes('await workflowAction'))({target:{closest:()=>({dataset:{action:'route',page:'library'}})}})").then(()=>{
+ check('returning to sources retains filters and context',run("page==='library'&&JSON.stringify(filters)===savedFilters&&JSON.stringify(sourceContext)===savedContext"));
+ run('resetWorkViews()');
+ check('new review restores default patient source scope',run("filters.q===''&&!filters.tags.length&&!filters.interactionDatabases&&!Object.keys(sourceContext).length"));
+ console.log('PASS: 2 source navigation and review isolation checks.');
+}).catch(error=>{console.error(error);process.exitCode=1;});
