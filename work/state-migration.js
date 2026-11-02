@@ -10,9 +10,9 @@ function cleanImported(raw,preserveIds=false){
  for(const k of Object.keys(b.profile))b.profile[k]=typeof b.profile[k]==='boolean'?s.profile?.[k]===true:str(s.profile?.[k]);
  if(!/^\d{0,6}$/.test(b.profile.patientNumber))b.profile.patientNumber='';
  if(!['umol','mgdl'].includes(b.profile.scrUnit))b.profile.scrUnit='umol';if(!['','female','male'].includes(b.profile.sex))b.profile.sex='';
- if(!['','stable','unstable'].includes(b.profile.stability))b.profile.stability='';if(!['','actual','ideal','adjusted','other'].includes(b.profile.cgWeightType))b.profile.cgWeightType='';
+ if(!['','stable','unstable'].includes(b.profile.stability))b.profile.stability='';if(!['','actual','ideal','adjusted','other','ousIdeal','ousAdjusted'].includes(b.profile.cgWeightType))b.profile.cgWeightType='';
  for(const k of ['sources','discrepancies','notes'])b.lms[k]=str(s.lms?.[k]);
- b.profile.egfrMode=s.profile?.egfrMode==='auto'?'auto':s.profile?.egfr?'manual':'auto';
+ b.profile.egfrMode=s.profile?.egfrMode==='lab'?'lab':s.profile?.egfrMode==='auto'?'auto':s.profile?.egfr?'manual':'auto';
  b.lms.confirmed=s.version===3&&s.lms?.confirmed===true;b.lms.checks=indices(s.lms?.checks,LMS_CHECKS.length);b.lms.interview=indices(s.lms?.interview,INTERVIEW.length);b.lms.supportChecks=indices(s.lms?.supportChecks,SUPPORT.length);
  for(const [id,value] of Object.entries(s.startChecks||{}))if(olderCriteria.get(id)?.tool==='START'&&['','review','covered','irrelevant','contra'].includes(value))b.startChecks[id]=value;
  const sourceIdMap=new Map();

@@ -93,3 +93,12 @@
 .med-metadata,.med-reference{font-size:11px;color:var(--muted)}.med-reference{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.med-reference .code{font-size:11px}.med-indication{font-size:13px;margin-top:7px}.med-change-status{font-size:12px;color:var(--muted);margin-top:7px}.med-decision{margin-top:12px}.med-decision>summary{font-size:12px;color:var(--muted)}.med-more-actions>summary{padding:5px 0;text-align:center;font-size:12px;color:var(--muted);cursor:pointer}.med-more-content{display:grid;gap:6px;padding-top:7px}.med-more-content>.button,.med-more-content>button{width:100%}
 .work-status{display:flex;align-items:baseline;gap:7px 15px;flex-wrap:wrap;color:var(--muted);font-size:12px;padding:0 0 12px;margin-top:-12px}.work-status-label{font-weight:600}.work-status-items{display:flex;gap:5px 9px;flex-wrap:wrap;align-items:baseline}.work-status button{font-size:12px;border:0;padding:2px 0;background:transparent;color:var(--link);text-decoration:underline;text-underline-offset:3px}.work-status button:hover{text-decoration-thickness:2px}.work-status-separator{color:var(--muted)}
 .row-updated{animation:row-saved 2.2s ease-out}@keyframes row-saved{0%,35%{outline:2px solid var(--accent);outline-offset:-2px}100%{outline:2px solid transparent;outline-offset:-2px}}@media(prefers-reduced-motion:reduce){.row-updated{animation:none;outline:2px solid var(--accent);outline-offset:-2px}}
+/* Renal worksheet uses the same light/Ayu tokens as the rest of the app. */
+.renal-lab{padding:14px;border:1px solid var(--control);border-radius:8px;background:var(--soft)}
+.renal-lab summary,.renal-dose-panel summary{cursor:pointer;font-weight:600;line-height:1.5}
+.renal-dose-panel .panelbody{padding:24px}.renal-dose-panel .field,.renal-dose-panel select{min-width:0;max-width:100%}
+.renal-dose-panel>.panelbody>details{border-top:1px solid var(--line);padding-top:20px}
+#renal-drug-suggestions:empty{display:none}#renal-dose-basis strong{display:block;overflow-wrap:anywhere}#renal-dose-basis p{margin-top:7px}
+.renal-principles li+li{margin-top:10px}
+
+@media(max-width:600px){.renal-dose-panel .panelbody{padding:16px}}

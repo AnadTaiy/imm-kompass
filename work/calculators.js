@@ -25,6 +25,32 @@
   }
   function crcl(age,sex,scr,weight){return (140-age)*weight/(72*scr)*(sex==='female'?.85:1);}
   function bsa(height,weight){return Math.sqrt(height*weight/3600);}
+  // OUS anti-infective guideline, version 5 (16 December 2024), page 1.
+  // These are optional weight estimates, never an automatic weight choice.
+  function body(p){
+    const w=number(p.weight),h=number(p.height),age=number(p.age);
+    const valid=w>0&&w<=1000&&h>0&&h<=300;
+    const area=valid?bsa(h,w):null,bmi=valid?w/Math.pow(h/100,2):null;
+    const ideal=valid&&age>=18&&age<140&&h>=152.4&&['male','female'].includes(p.sex)?(p.sex==='male'?49.9:45.4)+.89*(h-152.4):null;
+    return {bsa:area,bmi,ideal,adjusted:ideal!==null&&w>=ideal?ideal+.4*(w-ideal):null};
+  }
+  function weight(p,type,manual){
+    const n=type==='actual'?number(p.weight):type==='ousIdeal'?body(p).ideal:type==='ousAdjusted'?body(p).adjusted:number(manual);
+    return n>0&&n<=1000?n:null;
+  }
+  function renalBasis(p,key){
+    const age=number(p.age),r=evaluate(p),v=r.values,b=body(p),lab=number(p.labEgfr);
+    if(!(age>=18&&age<140)||p.stability!=='stable'||p.dialysis||p.pregnant)return null;
+    if(key==='labIndexed'||key==='labAbsolute'){
+      if(!(lab>0)||!String(p.labMethod||'').trim())return null;
+      return key==='labIndexed'?lab:b.bsa?lab*b.bsa/1.73:null;
+    }
+    if(key==='cg')return v.cg;
+    if(key==='cgIndexed')return v.cg!==null&&b.bsa?v.cg*1.73/b.bsa:null;
+    const match=/^(cr|combined|cys)(Indexed|Absolute)$/.exec(key||'');
+    if(!match||v[match[1]]===null)return null;
+    return match[2]==='Indexed'?v[match[1]]:b.bsa?v[match[1]]*b.bsa/1.73:null;
+  }
   function evaluate(p){
     const a=number(p.age),scr=scrMgDl(p.creatinine,p.scrUnit),cys=number(p.cystatin),w=number(p.weight),h=number(p.height);
     const messages=[],invalid=[],values={cr:null,combined:null,cys:null,cg:null,bsa:null};
@@ -37,8 +63,8 @@
     if(p.cystatin!==''&&p.cystatin!=null&&!(cys>0))invalid.push('Cystatin C må være et positivt tall i mg/L.');
     if(p.weight!==''&&p.weight!=null&&!(w>0&&w<=1000))invalid.push('Kontroller faktisk vekt: oppgi kg, større enn 0 og høyst 1000.');
     if(p.height!==''&&p.height!=null&&!(h>0&&h<=300))invalid.push('Kontroller høyde: oppgi cm, større enn 0 og høyst 300.');
-    const cw=p.cgWeightType==='actual'?w:number(p.cgWeight);
-    if(p.cgWeightType&&!['actual','ideal','adjusted','other'].includes(p.cgWeightType))invalid.push('Velg et gyldig vektgrunnlag.');
+    const cw=weight(p,p.cgWeightType,p.cgWeight);
+    if(p.cgWeightType&&!['actual','ideal','adjusted','other','ousIdeal','ousAdjusted'].includes(p.cgWeightType))invalid.push('Velg et gyldig vektgrunnlag.');
     if(p.cgWeightType&&!(cw>0&&cw<=1000))invalid.push('Oppgi gyldig vektgrunnlag for Cockcroft–Gault i kg.');
     if(!messages.length&&!invalid.length){
       if(a>=18&&scr)values.cr=egfrCr(a,p.sex,scr);
@@ -51,7 +77,7 @@
       valid=!messages.length&&!invalid.length;
     return {values,messages:[...messages,...invalid],warnings,scrMgDl:scr,cgWeight:cw,valid};
   }
-  const api={number,scrMgDl,egfrCr,egfrCrCys,egfrCys,crcl,bsa,evaluate};
+  const api={number,scrMgDl,egfrCr,egfrCrCys,egfrCys,crcl,bsa,evaluate,body,weight,renalBasis};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   if(root)root.IMMCalc=api;
 })(typeof window!=='undefined'?window:null);
