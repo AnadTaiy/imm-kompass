@@ -28,7 +28,7 @@ assert.equal(c.body({...p,height:'140'}).ideal,null);assert.equal(c.body({...p,w
 // Integration uses the real application modules and state migration.
 const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));DATA.catalog=JSON.parse(fs.readFileSync(__dirname+'/catalog/catalog.json','utf8'));DATA.clinical=JSON.parse(fs.readFileSync(__dirname+'/clinical-rules.json','utf8'));DATA.natural=JSON.parse(fs.readFileSync(__dirname+'/natural-products.json','utf8'));DATA.older.translations={...JSON.parse(fs.readFileSync(__dirname+'/start-nb.json','utf8')),...JSON.parse(fs.readFileSync(__dirname+'/stopp-nb.json','utf8'))};DATA.older.parameters=JSON.parse(fs.readFileSync(__dirname+'/criteria-parameters.json','utf8'));
 const context={IMMCalc:c,DATA,URLSearchParams,URL,console,crypto:require('node:crypto').webcrypto,setTimeout:()=>0,clearTimeout(){},requestAnimationFrame(){},location:{href:'http://localhost/index.html',search:''},localStorage:{getItem:()=>null,setItem(){}},document:{addEventListener(){},querySelector:()=>null,querySelectorAll:()=>[],documentElement:{dataset:{}}},window:{addEventListener(){}}};vm.createContext(context);
-const build=fs.readFileSync(__dirname+'/../build_site.py','utf8'),files=JSON.parse(build.match(/^FILES=(\[.*\])/m)[1].replaceAll("'",'"'));
+const files=JSON.parse(fs.readFileSync(__dirname+'/app-files.json','utf8'));
 let app=files.map(n=>fs.readFileSync(__dirname+'/'+n,'utf8')).join('\n');app=app.slice(0,app.lastIndexOf("if(resourceOnly){page='library'"));vm.runInContext(app,context);context.IMMDose=context.window.IMMDose;
 const check=(name,script)=>{assert.equal(vm.runInContext(script,context),true,name);count++;};
 vm.runInContext('state.profile={...profileBlank(),...'+JSON.stringify(p)+'};',context);

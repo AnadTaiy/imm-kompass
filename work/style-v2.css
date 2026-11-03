@@ -102,3 +102,12 @@
 .renal-principles li+li{margin-top:10px}
 
 @media(max-width:600px){.renal-dose-panel .panelbody{padding:16px}}
+/* Cascade flags stay separate from the red/orange FEST interaction pairs. */
+.cascade-flag{color:#67518b;background:#f2edf8;border:1px solid #c4b4d7;display:inline-flex;align-items:center;gap:.45rem;margin:.25rem 0 .5rem;max-width:100%;font-size:.85rem}
+.cascade-icon{width:1.25em;height:1.25em;flex:none}
+[data-theme="dark"] .cascade-flag{color:#d1b9f0;background:#292236;border-color:#806496}
+.cascade-detail{padding:1rem;border:1px solid var(--line);border-radius:12px}
+.cascade-detail p+p{margin-top:.65rem}
+.med-name-link{display:inline;padding:0;border:0;background:none;color:inherit;text-align:left;font:inherit;font-weight:650;box-shadow:none;min-height:0;white-space:normal;overflow-wrap:anywhere;text-decoration:underline dotted;text-underline-offset:4px;text-decoration-color:var(--muted)}
+.med-name-link:hover{background:none;color:var(--accent);text-decoration-style:solid}
+.med-name-link:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:3px}

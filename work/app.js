@@ -178,7 +178,7 @@ function updateBound(target){
  }
  if(path==='lms.reporterId'){for(const m of state.meds)m.reconciliation='Ikke avklart';state.lms.confirmed=false;markChanged();render();}
  if(path.startsWith('meds.')){state.lms.confirmed=false;markChanged();const row=target.closest('tr'),m=state.meds[Number(path.split('.')[1])];row?.classList.toggle('unresolved-row',discrepancy(m).different&&m.reconciliation!=='Avklart');const c=$('[data-bind="lms.confirmed"]');if(c)c.checked=false;}
- if(/^meds\.\d+\.(status|schedule)$/.test(path)){refreshRenalMarkers();refreshStart();refreshCha();refreshCriterionCandidates();}
+ if(/^meds\.\d+\.(status|schedule)$/.test(path)){refreshRenalMarkers();refreshStart();refreshCha();refreshCriterionCandidates();refreshCascades();}
  if(path.startsWith('lrps.')&&path.endsWith('.implemented')){const section=target.closest('.journal-entry')?.querySelector('.journal-measure');if(section)section.hidden=!target.checked;}
  if($('#journal-live'))$('#journal-live').textContent=journalText();
  if(path.startsWith('journal.entries.')&&path.endsWith('.implemented')){
@@ -189,7 +189,7 @@ function updateBound(target){
  if(path.startsWith('clinicalFacts.')){refreshRenalMarkers();refreshStart();refreshCriterionCandidates();}
  if(path.startsWith('chaReview.'))refreshCha();
  if(path.startsWith('profile.')){
-  refreshCha();refreshStart();refreshRenalMarkers();refreshCriterionCandidates();
+  refreshCascades();refreshCha();refreshStart();refreshRenalMarkers();refreshCriterionCandidates();
   const ef=$('[data-bind="profile.egfr"]');if(ef&&path!=='profile.egfr')ef.value=state.profile.egfr;
   if($('#egfr-badge'))$('#egfr-badge').innerHTML=renalBadge(state.profile.egfr);
   if($('#egfr-method'))$('#egfr-method').textContent=state.profile.egfrMethod||'Ikke angitt';
@@ -313,6 +313,6 @@ document.addEventListener('click',async e=>{
 document.addEventListener('pointerdown',e=>{const menu=$('#tools-menu');if(menu?.open&&!menu.contains(e.target))menu.open=false;});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#tools-menu'))$('#tools-menu').open=false;});
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-if(resourceOnly){page='library';document.body.classList.add('source-only');const topic=queryParams.get('topic');if(topic==='eldre'){filters.tags=olderSourceTags();}if(['seponering','nyre'].includes(topic)){filters.tags=[topic];}if(queryParams.has('interactions')){filters.cat='Interaksjoner';sourceContext.showAll=true;}}else initReviewStorage();
+if(resourceOnly){page='library';document.body.classList.add('source-only');const topic=queryParams.get('topic');if(topic==='eldre'){filters.tags=olderSourceTags();}if(topic==='bivirkning')filters.topic='bivirkning';if(['seponering','nyre'].includes(topic)){filters.tags=[topic];}if(queryParams.has('interactions')){filters.cat='Interaksjoner';sourceContext.showAll=true;}}else initReviewStorage();
 render();
 initSync();

@@ -30,11 +30,16 @@ for e in codes['7180'].findall('Element'):
 atc.sort()
 label_codes={e.findtext('Kode'):term(e) for e in codes['7488'].findall('Element')}
 packings=collections.defaultdict(list)
+package_spcs=collections.defaultdict(set)
 for wrapper in root.findall('KatLegemiddelpakning/OppfLegemiddelpakning'):
  if attr(wrapper,'Status')!='A':continue
  e=wrapper.find('Legemiddelpakning')
  for ref in e.findall('Pakningsinfo/RefLegemiddelMerkevare'):
   packings[ref.text].append({k:e.findtext('Markedsforingsinfo/'+k,'') for k in ['Markedsforingsdato','Avregistreringsdato','MidlUtgattDato']})
+  # DMP FEST implementation guide 3.6 §5.12: centrally authorised products
+  # carry SPC links on the package, connected by this exact brand reference.
+  link=attr(e,'Preparatomtaleavsnitt/Lenke/Www')
+  if link:package_spcs[ref.text].add(link)
 substances={e.findtext('Id'):e.findtext('Navn','') for e in root.findall('KatVirkestoff/OppfVirkestoff/Virkestoff')}
 substances_en={e.findtext('Id'):e.findtext('NavnEngelsk','') for e in root.findall('KatVirkestoff/OppfVirkestoff/Virkestoff')}
 strengths={e.findtext('Id'):e.findtext('RefVirkestoff') for e in root.findall('KatVirkestoff/OppfVirkestoff/VirkestoffMedStyrke')}
@@ -45,6 +50,8 @@ for wrapper in root.findall('KatLegemiddelMerkevare/OppfLegemiddelMerkevare'):
  if code.startswith('Q'):continue
  medid=e.findtext('Id');ptype=attr(e,'Preparattype')
  spc=attr(e,'Preparatomtaleavsnitt/Lenke/Www')
+ # Never guess a product from its name or choose between conflicting URLs.
+ if not spc and len(package_spcs[medid])==1:spc=next(iter(package_spcs[medid]))
  use=sorted(set(x.get('V') for x in e.findall('AdministreringLegemiddel/BruksomradeEtikett')))
  ingredient_ids=list(dict.fromkeys(strengths.get(x.text) for x in e.findall('SortertVirkestoffMedStyrke/RefVirkestoffMedStyrke') if substances.get(strengths.get(x.text),'')))
  # Herbal products often declare substance references without a strength record.
@@ -68,7 +75,7 @@ sources=json.loads((P/'download_sources.json').read_text())
 publication=re.search(r'(\d{4})(\d{2})(\d{2})',z.namelist()[0])
 publication='-'.join(publication.groups()) if publication else root.findtext('HentetDato','')[:10]
 provenance=json.loads((P/'refresh-meta.json').read_text()) if (P/'refresh-meta.json').exists() else {'downloaded':'2026-10-21','diagnosisYear':2026}
-data={'meta':{'parserVersion':2,'downloaded':provenance['downloaded'],'festPublication':publication,'festExtracted':root.findtext('HentetDato'),'diagnosisYear':provenance['diagnosisYear'],
+data={'meta':{'parserVersion':3,'downloaded':provenance['downloaded'],'festPublication':publication,'festExtracted':root.findtext('HentetDato'),'diagnosisYear':provenance['diagnosisYear'],
  'sources':sources,'coverage':'Alle aktive humane merkevareoppføringer i FEST Rekvirent 2.5.1. ATC omfatter humane koder som brukes i FEST og deres overordnede nivåer, ikke hele WHOs internasjonale register. Godkjente preparater som ikke er markedsført kan mangle.',
  'hashes':{f:hashlib.sha256((P/f).read_bytes()).hexdigest() for f in ['fest.zip','icd.xlsx','icpc.xlsx']}},
  'meds':meds,'atc':atc,'uses':label_codes,'diagnoses':diagnoses}

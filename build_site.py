@@ -5,7 +5,7 @@ from urllib.request import urlopen,Request
 ROOT=Path(__file__).resolve().parent;W=ROOT/'work';OUT=ROOT/'outputs';SITE=ROOT/'site'
 sys.path.insert(0,str(W))
 from sync_engine import sync_once,read_json,write_json,run_checks,node_executable,process_options
-FILES=['calculators.js','dosage.js','review-store.js','sessions.js','work-status.js','view-state.js','workflow.js','lms-v3.js','renal-policy.js','clinical-ui.js','renal-dose-ui.js','help.js','older-ui.js','patient-context.js','stopp-context.js','criteria-policy.js','practical-ui.js','catalog-ui.js','natural-products.js','source-context.js','journal-v3.js','substances.js','interactions.js','state-migration.js','sync-ui.js','app.js']
+FILES=json.loads((W/'app-files.json').read_text(encoding='utf-8'))
 STATE=['catalog/fest.zip','catalog/icd.xlsx','catalog/icpc.xlsx','catalog/catalog.json','catalog/download_sources.json','catalog/refresh-meta.json','clinical-rules.json','sync-status.json','sync-cache.json','sync-cache/icd.html','sync-cache/icpc.html']
 def compact(data):return json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 
@@ -58,9 +58,9 @@ def main():
   if cached['meta']['festExtracted']>=seed['meta']['festExtracted'] and cached['meta']['diagnosisYear']>=seed['meta']['diagnosisYear']:cache_copy(ROOT/'.state',W)
  # Upgrade locally cached reference parsing even when network data are unchanged.
  old_catalog=read_json(W/'catalog/catalog.json')
- if old_catalog['meta'].get('parserVersion',0)<2:
+ if old_catalog['meta'].get('parserVersion',0)<3:
   subprocess.run([sys.executable,str(W/'catalog/build_catalog.py')],check=True,timeout=180,**process_options())
-  upgraded=read_json(W/'catalog/catalog.json');upgraded['meta']={**old_catalog['meta'],'parserVersion':2};write_json(W/'catalog/catalog.json',upgraded)
+  upgraded=read_json(W/'catalog/catalog.json');upgraded['meta']={**old_catalog['meta'],'parserVersion':3};write_json(W/'catalog/catalog.json',upgraded)
  page=OUT/'index.html';page.write_text(monolith(build_data()),encoding='utf-8')
  if args.sync:
   try:
