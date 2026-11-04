@@ -124,3 +124,6 @@
 .sadman-letter{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:32px;padding:4px;border:1px solid var(--line);border-radius:6px;color:var(--link);background:var(--surface);font:600 16px var(--font)}
 .sadman-panel .bulletlist{padding-left:22px;margin-top:12px}.sadman-panel .bulletlist li+li{margin-top:10px}
 .sadman-panel .quicklink{white-space:normal}.sadman-panel h2 .icon{vertical-align:middle}
+
+.indication-group-label,.indication-empty{padding:12px;font-size:12px;background:var(--soft);color:var(--ink);border-bottom:1px solid var(--line)}
+.indication-group-label strong{font-size:13px}.indication-group-label p{margin-top:5px;color:var(--muted);line-height:1.5}
