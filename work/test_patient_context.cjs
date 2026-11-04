@@ -59,4 +59,12 @@ check('covered START status expires when therapy changes',`state.startChecks['ST
 run(`state=blank();state.profile.age='78';state.meds=[{id:'med-a',name:'Legemiddel A',atc:'C10AA05'},{id:'med-b',name:'Legemiddel B',atc:'C10AA07'}];`);
 check('same criterion for different medicines has distinct disclosure identity',`(()=>{const r=olderCriteria.get('STOPP-B16');const a=criterionCheckHtml(r,state.meds[0]),b=criterionCheckHtml(r,state.meds[1]);return a.includes('data-ui-key="criterion:med:med-a:STOPP-B16"')&&b.includes('data-ui-key="criterion:med:med-b:STOPP-B16"');})()`);
 check('unscoped criterion keeps stable identity in source and START views',`criterionDetail(olderCriteria.get('START-K2')).includes('data-ui-key="criterion:START-K2"')`);
+run(`state=blank();state.profile.age='78';state.diagnosisList=[{system:'ICD-10',code:'I48.0',text:'Paroksysmal atrieflimmer'}];`);
+check('CHA risk assessment is a keyboard-operable disclosure',`chaPanel().startsWith('<details ')&&chaPanel().includes('data-ui-key="patient:cha"')&&chaPanel().includes('<summary')`);
+let chaNode;const chaMock=(open=true,tagName='DETAILS')=>({tagName,open,querySelector:()=>({}),set outerHTML(html){chaNode=chaMock(true,html.startsWith('<details ')?'DETAILS':'DIV');}});
+chaNode=chaMock(false);context.document.querySelector=s=>s==='#cha-panel'?chaNode:null;
+run('refreshCha(true)');assert.equal(chaNode.open,false,'new diagnosis preserves collapsed CHA panel');count++;
+chaNode.open=true;run('refreshCha(true)');assert.equal(chaNode.open,true,'new diagnosis preserves expanded CHA panel');count++;
+run('state.diagnosisList=[];refreshCha(true)');assert.equal(chaNode.tagName,'DIV','irrelevant CHA panel removed');count++;
+run(`state.diagnosisList=[{system:'ICD-10',code:'I48.0',text:'Atrieflimmer'}];refreshCha(true)`);assert.equal(chaNode.open,true,'new relevant CHA panel starts expanded');count++;
 console.log('PASS: '+count+' patient-context, criterion boundaries, translation and CHA₂DS₂-VA checks.');

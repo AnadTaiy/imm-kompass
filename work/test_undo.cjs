@@ -7,7 +7,7 @@ check('typing groups into one action',()=>{assert.equal(h.entries.length,1);asse
 h.observe({age:''},'Alder',group);check('returning to original value removes no-op',()=>assert.equal(h.entries.length,0));
 for(let i=1;i<8;i++)h.observe({age:i},'Alder',{});check('bounded history',()=>assert.equal(h.entries.length,3));
 const tiny=new History(20,10);tiny.reset({text:''});tiny.observe({text:'large'},'Text',{});check('memory bounded',()=>assert.equal(tiny.entries.length,0));
-const storage=new MemoryStorage(),ctx={console,storage,document:{addEventListener(){}},window:{addEventListener(){}}};vm.createContext(ctx);
+let feedbackTimeout;const storage=new MemoryStorage(),ctx={console,storage,setTimeout(fn,ms){feedbackTimeout={fn,ms};return 1;},clearTimeout(){feedbackTimeout=null;},document:{addEventListener(){}},window:{addEventListener(){}}};vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(__dirname+'/review-store.js','utf8'),ctx);
 vm.runInContext(`let counter=0,state={profile:{age:''},meds:[],lrps:[],lms:{sourceList:[],confirmed:false}},dirty=false,page='workspace',step=1,resourceOnly=false;
 const uid=()=>String(++counter),esc=String,$=s=>s==='#modal'?{open:false,close(){}}:null;
@@ -41,4 +41,8 @@ check('draft editing clears deleted-review undo before new autosave',()=>assert.
 check('draft merge never overwrites newer draft',()=>assert.deepEqual(value(`undoDrafts({'med:':{name:'old'}},{},{'med:':{name:'new'}})`),{'med:':{name:'new'}}));
 check('draft removed during save can be recovered',()=>assert.deepEqual(value(`undoDrafts({'med:':{name:'old'}},{},{})`),{'med:':{name:'old'}}));
 check('unchanged drafts are not reverted',()=>assert.deepEqual(value(`undoDrafts({'med:':{name:'same'}},{'med:':{name:'same'}},{'med:':{name:'new'}})`),{'med:':{name:'new'}}));
+begin();change(`state.profile.age='78'`);run(`setUndoFeedback('Legemiddelet er lagret.');`);
+check('brief inline feedback preserves undo history',()=>{assert.equal(run('undoFeedback'),'Legemiddelet er lagret.');assert.equal(feedbackTimeout.ms,2500);assert.ok(run('undoHistory.peek()'));});
+feedbackTimeout.fn();check('feedback expires without removing undo',()=>{assert.equal(run('undoFeedback'),'');assert.ok(run('undoHistory.peek()'));});
+run(`setUndoFeedback('Forrige gjennomgang');resetUndo();`);check('review switch clears old feedback',()=>{assert.equal(run('undoFeedback'),'');assert.equal(feedbackTimeout,null);});
 console.log('PASS: '+checks+' undo grouping, drafts, deletion, persistence and cross-tab checks.');

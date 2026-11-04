@@ -15,7 +15,9 @@ const examples=[
 check('published table has 65 traceable entries',C.rules.length===65&&examples.length===65);
 examples.forEach((ex,i)=>{const id='PIPC-'+String(i+1).padStart(2,'0');if(!ex){check(id+' explicitly inactive',!!C.rules[i].disabled);return;}
  check(id+' clinically specified example',hits(...ex).some(h=>h.rule===id));
- check(id+' missing indication is not inferred from patient diagnoses',!C.findings([med('a',ex[0]),med('b',ex[1])],{age:78},[{text:ex[2]}]).some(h=>h.rule===id));
+ check(id+' missing indication permits labelled patient candidate',C.findings([med('a',ex[0]),med('b',ex[1])],{age:78},[{text:ex[2]}]).some(h=>h.rule===id&&h.evidenceSource==='patient'&&h.indication===''));
+ check(id+' absent evidence is not a candidate',!C.findings([med('a',ex[0]),med('b',ex[1])],{age:78}).some(h=>h.rule===id));
+ for(const text of ['Ingen '+ex[2],'Profylakse mot '+ex[2],'Tidligere '+ex[2],'Mor har '+ex[2]])check(id+' patient evidence excludes '+text,!C.findings([med('a',ex[0]),med('b',ex[1])],{age:78},[{text}]).some(h=>h.rule===id));
  for(const indication of ['Ingen '+ex[2],'Profylakse mot '+ex[2],'Tidligere '+ex[2],'Mor har '+ex[2]])check(id+' excludes '+indication,!hits(ex[0],ex[1],indication).some(h=>h.rule===id));
  for(const status of ['Pausert','Seponert'])check(id+' excludes '+status,!hits(...ex,{status}).some(h=>h.rule===id));
 });
@@ -46,6 +48,20 @@ check('trimipramine is TCA',C.groupMatch(med('a','N06AA06'),'tca'));
 check('maprotiline not silently labelled TCA',!C.groupMatch(med('a','N06AA21'),'tca'));
 check('opioid + constipation prophylaxis is not classified as inappropriate cascade',hits('N02AA05','A06AD15','Profylakse mot forstoppelse').length===0);
 check('symptom alone without treatment B not cascade',C.findings([med('a','C08CA01','HT')],{age:78},[{text:'Ødem'}]).length===0);
+const patientEdema=[{system:'ICD-10',code:'I10',text:'Essensiell hypertensjon'},{system:'ICD-10',code:'R60.0',text:'Lokalisert ødem'}];
+for(const indication of ['', 'Vanndrivende', 'Diuretikum', 'Diuretika', 'Ukjent indikasjon']){
+ const found=C.findings([med('a','C08CA01','Hypertensjon'),med('b','C03CA01',indication)],{age:78},patientEdema);
+ check('HT/edema case with '+indication,found.length===1&&found[0].evidenceSource==='patient'&&found[0].patientEvidence[0]==='Lokalisert ødem');
+}
+for(const indication of ['Hypertensjon','Hjertesvikt','Ødem ved hjertesvikt','Ingen ødem','Tidligere ødem','Forebygging av ødem','Vanndrivende ved hjertesvikt'])check('patient diagnosis does not override '+indication,C.findings([med('a','C08CA01'),med('b','C03CA01',indication)],{age:78},patientEdema).length===0);
+for(const text of ['Ødem ved hjertesvikt','Ødem pga. nyresvikt','Lungeødem','Lymfødem'])check('alternative edema cause in patient record: '+text,C.findings([med('a','C08CA01'),med('b','C03CA01','Vanndrivende')],{age:78},[{text}]).length===0);
+check('explicit indication takes precedence without duplicate flags',C.findings([med('a','C08CA01'),med('b','C03CA01','Ødem')],{age:78},patientEdema).filter(f=>f.evidenceSource==='indication').length===1);
+check('patient symptom duplicated across fields produces one candidate',C.findings([med('a','C08CA01'),med('b','C03CA01')],{age:78},[...patientEdema,{text:'Lokalisert ødem'}]).length===1);
+check('coded chronic HT alone not enough',C.findings([med('a','M01AE01'),med('b','C08CA01','Blodtrykksmedisin')],{age:78},patientEdema).length===0);
+check('new HT in patient context can qualify',C.findings([med('a','M01AE01'),med('b','C08CA01','Blodtrykksmedisin')],{age:78},[{text:'Forverret hypertensjon'}]).some(h=>h.rule==='PIPC-53'));
+check('patient diagnoses do not bypass age',C.findings([med('a','C08CA01'),med('b','C03CA01')],{age:64},patientEdema).length===0);
+check('patient diagnoses do not bypass nonuse',C.findings([med('a','C08CA01'),med('b','C03CA01','',{status:'Seponert'})],{age:78},patientEdema).length===0);
+check('patient diagnoses do not bypass chronology',C.findings([med('a','C08CA01','',{durationWeeks:'2'}),med('b','C03CA01','',{durationWeeks:'20'})],{age:78},patientEdema).length===0);
 // Source/UI integration uses the same manifest as production and staged FEST sync.
 const DATA=JSON.parse(fs.readFileSync(__dirname+'/data.json','utf8'));
 for(const [k,f] of [['catalog','catalog/catalog.json'],['clinical','clinical-rules.json'],['natural','natural-products.json']])DATA[k]=JSON.parse(fs.readFileSync(__dirname+'/'+f,'utf8'));
@@ -59,7 +75,14 @@ check('one discreet badge with escaped evidence',run(`cascadeFlag(state.meds[0])
 check('source URL has no patient or indication text',run(`const u=cascadeSourceUrl(['PIPC-05'],state.meds[0]);!u.includes('privat')&&!u.includes('patient')&&!u.includes('indication')&&u.includes('cascade=PIPC-05')`));
 check('updated indication invalidates cache',run(`state.meds[1].indication='Hypertensjon';cascadeFindings().length===0`));
 check('updated status invalidates cache',run(`state.meds[1].indication='Ødem';state.meds[0].status='Seponert';cascadeFindings().length===0`));
+run(`state.meds[0].status='Uendret';state.meds[1].indication='Vanndrivende';state.diagnosisList=[{system:'ICD-10',code:'R60.0',text:'Lokalisert ødem <privat>'}];`);
+check('new patient diagnosis invalidates cache',run(`cascadeFindings().length===1&&cascadeFindings()[0].evidenceSource==='patient'`));
+check('diagnosis badge explains evidence without exposing text in URL',run(`(()=>{const flag=cascadeFlag(state.meds[0]);const u=flag.match(/href="([^"]+)"/)[1];return flag.includes('Pasientgrunnlag:')&&flag.includes('&lt;privat&gt;')&&u.includes('basis=patient')&&!u.includes('privat')&&!u.includes('R60');})()`));
+check('removing patient diagnosis clears cached finding',run(`state.diagnosisList=[];cascadeFindings().length===0`));
+check('symptoms text in patient context also refreshes findings',run(`state.profile.symptoms='Lokalisert ødem';cascadeFindings().length===1`));
+check('negated patient symptom does not match',run(`state.profile.symptoms='Ingen ødem';cascadeFindings().length===0`));
 check('source panel cites paper and correction',run(`queryParams.set('cascade','PIPC-05');const panel=cascadeSourcePanel();panel.includes('PMC12712104')&&panel.includes('PMC12945913')&&panel.includes('legemiddelhandboka.no/virkestoff/kalsiumantagonister')`));
+check('patient-source panel does not assert a known treatment indication',run(`queryParams.set('basis','patient');cascadeSourcePanel().includes('Avklar om behandlingen faktisk gjelder dette symptomet')`));
 check('help explains scope',run(`cascadeHelp().includes('62 av 65')&&cascadeHelp().includes('65 år')`));
 check('no frequency inferred from ATC alone',run(`reviewedAdverse({atc:'C08CA01'})===null`));
 check('unreviewed product says no frequency overview',run(`adverseSummary({name:'Ukjent',atc:'C08CA01'}).includes('Kortoversikt er ikke tilgjengelig')`));

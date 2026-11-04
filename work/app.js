@@ -129,7 +129,7 @@ function reportModal(){modal('Samlet arbeidsnotat',`<div class="modalbody"><p cl
 function download(name,content,type='text/plain;charset=utf-8'){
  const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);
 }
-function toast(t,withUndo=false){$('#toast').innerHTML=`<span>${esc(t)}</span>${withUndo?undoButton():''}`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').textContent='',withUndo?12000:4500);}
+function toast(t,withUndo=false){clearTimeout(toast.timer);if(withUndo){$('#toast').textContent='';setUndoFeedback(t);return;}$('#toast').innerHTML=`<span>${esc(t)}</span>`;toast.timer=setTimeout(()=>$('#toast').textContent='',4500);}
 function jumpCategory(cat){filters={q:'',cat,tags:[],mode:'any',fav:false,pediatric:false,access:''};route('library');}
 function contextSearch(){
  const p=state.profile,tags=[];if(IMMCalc.number(p.age)>=65||p.frail)tags.push('alder');if(p.weight)tags.push('vekt');if(p.egfr||p.creatinine||p.dialysis)tags.push('nyre');if(p.fall)tags.push('fall');if(p.sonde)tags.push('sonde');

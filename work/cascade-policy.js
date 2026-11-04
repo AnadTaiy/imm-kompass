@@ -105,19 +105,40 @@ function evidence(text,event){
  return '';
 }
 function active(m){return !['Pausert','Seponert'].includes(m.status)&&m.schedule!=='Bruker ikke'&&!['0','S'].includes(String(m.actualDose??m.dose??'').trim().toUpperCase());}
+// A class label describes what a medicine does, not why this patient uses it.
+// Only absent/explicitly unclear indications and these whole labels permit a
+// patient-level candidate. A specific different indication is never replaced.
+const vagueReasons={
+ diuretic:['vanndrivende','vanndrivende middel','vanndrivende medisin','diuretikum','diuretika','diuretic'],
+ bp:['blodtrykksmedisin','blodtrykkssenkende','antihypertensivum'],
+ pain:['smertestillende','smertelindring','analgetikum'],
+ laxative:['avforende','laksativ','laksantia'],antidiarrheal:['stoppende'],
+ gastro:['syrehemmende','syredempende','magesyrehemmende'],sleep:['sovemedisin'],
+ antidepressant:['antidepressiva'],antipsychotic:['antipsykotika'],anticonvulsant:['antiepileptika'],
+ glucose:['blodsukkersenkende'],parkinson:['antiparkinsonmiddel'],antifungal:['antimykotikum']
+};
+const reasonLabel=text=>norm(text).trim().replace(/[.,;:!?]+$/g,'').replace(/\s+/g,' ');
+function vagueIndication(text,group){
+ const n=reasonLabel(text);
+ return ['', '-', '?', 'ukjent', 'uklar', 'uavklart', 'ikke angitt', 'ikke oppgitt', 'ikke avklart', 'ikke kjent', 'ukjent indikasjon', 'uklar indikasjon', 'ingen indikasjon oppgitt',groups[group]?.[0],...(vagueReasons[group]||[])].some(s=>s!==undefined&&reasonLabel(s)===n);
+}
+function alternativeEdemaCause(text){return /hjertesvikt|nyresvikt|levercirrhose|lymfodem|lungeodem|heart failure|renal failure/.test(norm(text));}
 function findings(meds,profile={},diagnoses=[]){
  const age=Number(String(profile.age??'').replace(',','.'));if(!Number.isFinite(age)||age<65||age>=140)return [];
  const current=meds.filter(active),found=[];
  for(const r of rules){if(r.disabled)continue;
   const causes=current.filter(m=>groupMatch(m,r.a));if(!causes.length)continue;
-  for(const b of current){if(!groupMatch(b,r.b))continue;const reason=evidence(b.indication,r.event);if(!reason)continue;
+  const patientEvidence=[...new Set(diagnoses.filter(d=>r.event!=='edema'||!alternativeEdemaCause(d.text)).map(d=>evidence(d.text,r.event)).filter(Boolean))];
+  for(const b of current){if(!groupMatch(b,r.b))continue;
+   const reason=evidence(b.indication,r.event),fromPatient=!reason&&vagueIndication(b.indication,r.b)&&patientEvidence.length>0;
+   if(!reason&&!fromPatient)continue;
    // Localized edema alone is not proof of a drug effect. Explicit alternatives
    // in this same indication suppress the peripheral-edema cascade.
-   if(r.event==='edema'&&/hjertesvikt|nyresvikt|levercirrhose|lymfodem|lungeodem|heart failure|renal failure/.test(norm(b.indication)))continue;
+   if(r.event==='edema'&&alternativeEdemaCause(b.indication))continue;
    for(const a of causes){if(a.id===b.id)continue;
     const da=Number(a.durationWeeks),db=Number(b.durationWeeks);
     if(a.durationWeeks!==''&&b.durationWeeks!==''&&da>0&&db>da)continue; // treatment B predates A
-    found.push({rule:r.id,a:a.id,b:b.id,event:r.event,indication:reason,corroboration:diagnoses.map(d=>evidence(d.text,r.event)).filter(Boolean)});
+    found.push({rule:r.id,a:a.id,b:b.id,event:r.event,indication:reason,evidenceSource:fromPatient?'patient':'indication',patientEvidence,corroboration:patientEvidence});
    }
   }
  }

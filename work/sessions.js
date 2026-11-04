@@ -1,8 +1,10 @@
 let reviewStore=null,activeReview=null,saveError='',drafts={};
 const undoHistory=new IMMUndoHistory();
 let undoGroup={},undoTarget=null,undoLabel='Endring',deletedReviewUndo=null;
+let undoFeedback='',undoFeedbackTimer;
+function setUndoFeedback(message){undoFeedback=message;clearTimeout(undoFeedbackTimer);updateSaveStatus();undoFeedbackTimer=setTimeout(()=>{undoFeedback='';updateSaveStatus();},2500);}
 function undoModel(){return {state,drafts,name:activeReview?.name||''};}
-function resetUndo(){if(typeof resetWorkViews==='function')resetWorkViews();undoHistory.reset(undoModel());deletedReviewUndo=null;undoTarget=null;undoGroup={};}
+function resetUndo(){if(typeof resetWorkViews==='function')resetWorkViews();undoHistory.reset(undoModel());deletedReviewUndo=null;undoTarget=null;undoGroup={};undoFeedback='';clearTimeout(undoFeedbackTimer);}
 function rememberEdit(event){
  const t=event.target,a=t.closest?.('[data-action]')?.dataset.action;
  if(event.type==='click'&&!a)return;
@@ -39,7 +41,7 @@ function undoLastChange(){
    const backup=deletedReviewUndo,selected=reviewStore.active();
    const saved=reviewStore.restore({...backup.record,updatedAt:new Date().toISOString()});
    if(backup.wasActive)restoreReview(saved);else {try{reviewStore.select(selected);}catch{}deletedReviewUndo=null;}
-   render();toast('Gjennomgangen er gjenopprettet.');return;
+   render();toast('Gjennomgangen er gjenopprettet.',true);return;
   }
   const entry=undoHistory.peek();if(!entry||!activeReview)return;
   const model=entry.value;
@@ -47,7 +49,7 @@ function undoLastChange(){
   // Save first with revision checking. A failed or conflicting write must not consume history or replace the UI.
   const saved=reviewStore.save({...activeReview,state:model.state,drafts:model.drafts,name:model.name||activeReview.name,updatedAt:new Date().toISOString(),page,step},activeReview.revision);
   state=model.state;drafts=model.drafts;activeReview=saved;dirty=false;saveError='';undoHistory.consume();undoHistory.current=JSON.stringify(undoModel());undoGroup={};undoTarget=null;
-  render();toast('Angret: '+entry.label.toLocaleLowerCase('nb-NO')+'.');
+  render();toast('Angret: '+entry.label.toLocaleLowerCase('nb-NO')+'.',true);
  }catch(error){toast(error.message);}
 }
 const localTime=value=>value?new Date(value).toLocaleString('nb-NO',{dateStyle:'short',timeStyle:'short'}):'Ukjent tidspunkt';
@@ -71,7 +73,7 @@ function updateSaveStatus(){
  el.className=`save-status ${saveError?'save-failed':''}`;
  el.innerHTML=saveError
   ?`<div role="alert"><strong>Ikke lagret lokalt</strong><p>${esc(saveError)}</p></div><div class="actions">${undoButton()}<button class="small" data-action="retry-save">Prøv igjen</button><button class="small" data-action="save-as-new">Lagre som ny</button><button class="small" data-action="export-json">Eksporter arbeidsøkt</button></div>`
-  :`<span>${activeReview?`<strong>${esc(activeReview.name)}</strong> · Lagret lokalt ${esc(localTime(activeReview.updatedAt))}`:'Automatisk lokal lagring starter når du skriver.'}</span><div class="actions">${undoButton()}<button class="small" data-action="route" data-page="sessions">Gjennomganger</button></div>`;
+  :`<span>${activeReview?`<strong>${esc(activeReview.name)}</strong> · Lagret lokalt ${esc(localTime(activeReview.updatedAt))}`:'Automatisk lokal lagring starter når du skriver.'}<span class="undo-feedback" role="status">${esc(undoFeedback)}</span></span><div class="actions">${undoButton()}<button class="small" data-action="route" data-page="sessions">Gjennomganger</button></div>`;
 }
 function restoreReview(record){
  state=cleanImported({format:'IMM-Kompass',version:1,state:record.state},true);

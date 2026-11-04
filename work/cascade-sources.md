@@ -1,6 +1,6 @@
 # Prescribing cascades and adverse-effect lookup
 
-Reviewed 2026-11-02. Norwegian labels and matching logic are local adaptations,
+Reviewed 2026-11-04. Norwegian labels and matching logic are local adaptations,
 not a validated clinical algorithm. The module does not make treatment changes.
 
 ## Primary sources
@@ -50,18 +50,27 @@ Lithium, maprotiline, beta-3 bladder agonists and sacubitril/valsartan do not
 inherit unrelated antipsychotic, TCA, antimuscarinic or CCB rules.
 
 PIPC concerns older adults. The local automatic screen requires age >=65 and
-<140; blank/invalid age does not trigger it. The rule needs two active medicines
-and a positive symptom in treatment B's existing indication. Patient diagnoses
-can corroborate a match but never assign an indication to an unrelated drug.
-No extra clinical input fields were added. ICD/ICPC labels are treated as text;
-the screen does not invent a diagnosis from a code or an ATC.
+<140; blank/invalid age does not trigger it. Two active medicines are required.
+The first evidence path uses a positive symptom in medicine B's indication.
+The second permits a labelled **patient-context candidate** when B's indication
+is absent, explicitly unknown, or a whole generic medicine-class label such as
+“vanndrivende”. Diagnoses and symptoms already entered in the patient background
+are then checked for the same event. A specific different indication is not
+replaced. These are local screening rules, not a diagnostic algorithm from PIPC.
+The flag identifies which evidence path was used. Diagnosis text is never copied
+into the medicine's indication, and source URLs carry only the public rule/ATC/
+FEST IDs plus the non-identifying `basis=patient` flag. No patient text is sent.
+ICD/ICPC labels are matched as recorded text, not guessed from an ATC or code.
 
-Negation, historical/family context and prophylaxis are excluded conservatively.
-For depression, hypertension, arrhythmia, hyperglycaemia, cognitive impairment,
-psychosis, heart failure, osteoporosis and seizures, the same indication must
-also describe new, worsening or drug-related problems. This reduces routine
-co-prescribing alerts at the cost of missed cases. A different explicit cause
-of edema in the indication (e.g. heart failure) suppresses the CCB pattern.
+Negation, historical/family context and prophylaxis are excluded conservatively
+on both evidence paths. Depression, hypertension, arrhythmia, hyperglycaemia,
+cognitive impairment, psychosis, heart failure, osteoporosis and seizures also
+require new/worsening/drug-related wording in the matching clause. A chronic
+hypertension diagnosis alone therefore does not trigger the NSAID/BP cascade.
+An explicit alternative cause of edema in the matching indication/diagnosis,
+e.g. heart failure, suppresses that edema match. A separate diagnosis alone is
+not assumed to establish the cause of the edema. These choices trade missed
+cases against incidental co-prescribing alerts; manual review remains necessary.
 
 Paused/stopped/non-use entries are excluded. Where recorded duration shows B
 predating A, no match is emitted. The ordinary registration date is not used as
@@ -73,8 +82,8 @@ No absence of a flag is presented as a negative clinical finding.
 
 FEST supplies product identifiers and SPC links, not a complete structured
 frequency table. A PIPC event must never be labelled common just because it
-appears in that list. The current reviewed hover excerpts are restricted to
-exact product SPC URLs and ATCs, with an explicit incomplete-coverage fallback.
+appears in that list. Reviewed hover excerpts require matching composition, formulation and ATC,
+with direct SPC matches preferred and representative-source matches labelled.
 The first three entries have been expanded to 39 reviewed SPCs on 2026-11-03.
 See [adverse-sources.md](adverse-sources.md) and `adverse-effects.js` for exact
 sources, formulation/composition gates, labelled representative-product
