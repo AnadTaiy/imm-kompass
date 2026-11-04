@@ -11,6 +11,7 @@ function renalReviewNotice(){
  return message?`<div class="table-note renal-review-note"><span>${icon('kidney')}${esc(message)}</span><button class="small" data-action="route" data-page="renal">Nyrefunksjon</button></div>`:'';
 }
 function refreshRenalMarkers(){
+ refreshSadman();
  document.querySelectorAll('[data-renal-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.renalMed);el.innerHTML=m?renalFlag(m):'';});
  document.querySelectorAll('[data-older-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.olderMed);el.innerHTML=m?olderFlag(m):'';});
  document.querySelectorAll('[data-renal-review-note]').forEach(el=>el.innerHTML=renalReviewNotice());

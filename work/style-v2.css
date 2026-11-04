@@ -112,3 +112,15 @@
 .med-name-link{display:inline;padding:0;border:0;background:none;color:inherit;text-align:left;font:inherit;font-weight:650;box-shadow:none;min-height:0;white-space:normal;overflow-wrap:anywhere;text-decoration:underline dotted;text-underline-offset:4px;text-decoration-color:var(--muted)}
 .med-name-link:hover{background:none;color:var(--accent);text-decoration-style:solid}
 .med-name-link:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:3px}
+
+/* SADMAN is an informational class lookup, separate from red interaction warnings. */
+.risk-flag.sadman-flag{color:#245d67;background:#edf6f7;border-color:#9fbfc5;margin-bottom:9px}
+.risk-flag.sadman-flag:hover{background:#dfedef}.risk-flag.sadman-flag:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+[data-theme=dark] .risk-flag.sadman-flag{color:#a6d9e3;background:#182a31;border-color:#476772}
+[data-theme=dark] .risk-flag.sadman-flag:hover{background:#223942}
+.sadman-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:16px}
+.sadman-card{padding:18px;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
+.sadman-card h3{display:flex;align-items:center;gap:10px}.sadman-card p,.sadman-panel p+p{margin-top:12px}
+.sadman-letter{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:32px;padding:4px;border:1px solid var(--line);border-radius:6px;color:var(--link);background:var(--surface);font:600 16px var(--font)}
+.sadman-panel .bulletlist{padding-left:22px;margin-top:12px}.sadman-panel .bulletlist li+li{margin-top:10px}
+.sadman-panel .quicklink{white-space:normal}.sadman-panel h2 .icon{vertical-align:middle}

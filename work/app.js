@@ -313,6 +313,6 @@ document.addEventListener('click',async e=>{
 document.addEventListener('pointerdown',e=>{const menu=$('#tools-menu');if(menu?.open&&!menu.contains(e.target))menu.open=false;});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#tools-menu'))$('#tools-menu').open=false;});
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-if(resourceOnly){page='library';document.body.classList.add('source-only');const topic=queryParams.get('topic');if(topic==='eldre'){filters.tags=olderSourceTags();}if(topic==='bivirkning')filters.topic='bivirkning';if(['seponering','nyre'].includes(topic)){filters.tags=[topic];}if(queryParams.has('interactions')){filters.cat='Interaksjoner';sourceContext.showAll=true;}}else initReviewStorage();
+if(resourceOnly){page='library';document.body.classList.add('source-only');const topic=queryParams.get('topic');if(topic==='eldre'){filters.tags=olderSourceTags();}if(['bivirkning','dehydrering'].includes(topic))filters.topic=topic;if(['seponering','nyre'].includes(topic)){filters.tags=[topic];}if(queryParams.has('interactions')){filters.cat='Interaksjoner';sourceContext.showAll=true;}}else initReviewStorage();
 render();
 initSync();

@@ -659,7 +659,10 @@
         "pharmacogenomics",
         "cyp",
         "clinpgx",
-        "pharmgkb"
+        "pharmgkb",
+        "cypinfo",
+        "cypinfo.no",
+        "gentest"
       ]
     },
     "gynekologi": {
@@ -737,6 +740,19 @@
         "urologi",
         "urology"
       ]
+    },
+    "dehydrering": {
+      "label": "SADMAN og dehydrering",
+      "terms": [
+        "sadman",
+        "sadmans",
+        "dehydrering",
+        "dehydration",
+        "hypovolemi",
+        "hypovolemia",
+        "væsketap",
+        "uttørring"
+      ]
     }
   },
   "searchPhrases": {
@@ -780,7 +796,13 @@
     "drug stability": "iv",
     "dietary supplements": "naturmidler",
     "herb drug interactions": "naturmidler",
-    "emergency medicine": "akutt"
+    "emergency medicine": "akutt",
+    "sick day": "dehydrering",
+    "sick-day": "dehydrering",
+    "sick day rules": "dehydrering",
+    "sick day guidance": "dehydrering",
+    "volume depletion": "dehydrering",
+    "genetisk test": "farmakogenetikk"
   },
   "resources": [
     {
@@ -17967,6 +17989,351 @@
           "Interaksjonssøk"
         ],
         "reviewed": "2026-10-26"
+      }
+    },
+    {
+      "id": "cypinfo",
+      "ids": [],
+      "title": "CYPinfo – tolkning av farmakogenetiske analyser",
+      "url": "https://cypinfo.no/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://cypinfo.no/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Norsk verktøy for tolkning av farmakogenetiske prøvesvar, organisert etter terapiområde. Bruk et faktisk analyseresultat som utgangspunkt. Dette er ikke en interaksjonsdatabase.",
+      "note": "Norsk verktøy for tolkning av farmakogenetiske prøvesvar, organisert etter terapiområde. Bruk et faktisk analyseresultat som utgangspunkt. Dette er ikke en interaksjonsdatabase.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "farmakogenetikk"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-hdir",
+      "ids": [],
+      "title": "Helsedirektoratet – diabetes ved interkurrent sykdom",
+      "url": "https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-ved-interkurrent-sykdom-og-steroidbehandling",
+      "category": "Diabetes og endokrinologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-ved-interkurrent-sykdom-og-steroidbehandling"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Blodsukkersenkende behandling ved akutt sykdom, inkludert metformin og dehydrering.",
+      "note": "Blodsukkersenkende behandling ved akutt sykdom, inkludert metformin og dehydrering.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-nnf",
+      "ids": [],
+      "title": "Norsk nyremedisinsk forening – kronisk nyresykdom i allmennpraksis",
+      "url": "https://www.nephro.no/veileder/CKD_veileder_fastleger_minirevisjon_april_2026.pdf",
+      "category": "Dose og organfunksjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://www.nephro.no/veileder/CKD_veileder_fastleger_minirevisjon_april_2026.pdf"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Veileder revidert april 2026. Omtaler blant annet midlertidig pause i RAAS-hemmere, diuretika, SGLT2-hemmere og metformin ved interkurrent sykdom.",
+      "note": "Veileder revidert april 2026. Omtaler blant annet midlertidig pause i RAAS-hemmere, diuretika, SGLT2-hemmere og metformin ved interkurrent sykdom.",
+      "tags": [
+        "nyre"
+      ],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "nyre"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-kdigo",
+      "ids": [],
+      "title": "KDIGO 2024 – legemidler ved akutt sykdom og gjenoppstart",
+      "url": "https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf#page=136",
+      "category": "Dose og organfunksjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf#page=136"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Punkt 4.3.2 omtaler SADMANS, begrenset dokumentasjon og behovet for en tydelig plan for gjenoppstart etter midlertidig pause.",
+      "note": "Punkt 4.3.2 omtaler SADMANS, begrenset dokumentasjon og behovet for en tydelig plan for gjenoppstart etter midlertidig pause.",
+      "tags": [
+        "nyre"
+      ],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "nyre"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-canada",
+      "ids": [],
+      "title": "Diabetes Canada – Sick-day medication list",
+      "url": "https://www.diabetes.ca/for-professionals/appendices/appendix-8",
+      "category": "Diabetes og endokrinologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://www.diabetes.ca/for-professionals/appendices/appendix-8"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "SADMANS-huskelisten ved utilstrekkelig væskeinntak eller akutt fall i nyrefunksjon. Rådene må tilpasses legemiddel, blodsukker og klinisk situasjon.",
+      "note": "SADMANS-huskelisten ved utilstrekkelig væskeinntak eller akutt fall i nyrefunksjon. Rådene må tilpasses legemiddel, blodsukker og klinisk situasjon.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-consensus",
+      "ids": [],
+      "title": "Watson 2023 – konsensus om sick-day-råd",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36470530/",
+      "category": "Forskning",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://pubmed.ncbi.nlm.nih.gov/36470530/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Delphi-studie om midlertidig pause, faresignaler og gjenoppstart ved akutt sykdom. Sulfonylurea krever særskilt vurdering av lavt blodsukker. PMID 36470530.",
+      "note": "Delphi-studie om midlertidig pause, faresignaler og gjenoppstart ved akutt sykdom. Sulfonylurea krever særskilt vurdering av lavt blodsukker. PMID 36470530.",
+      "tags": [
+        "nyre"
+      ],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "nyre"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Forskning",
+        "purposes": [
+          "Forskning"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-trial",
+      "ids": [],
+      "title": "Fink 2022 – randomisert studie av sick-day-protokoll",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36046613/",
+      "category": "Forskning",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://pubmed.ncbi.nlm.nih.gov/36046613/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Studie med 315 personer med kronisk nyresykdom. Ingen sikker forbedring i akutt nyreskade eller nyrefunksjon; viser også utfordringer med gjennomføring. PMID 36046613.",
+      "note": "Studie med 315 personer med kronisk nyresykdom. Ingen sikker forbedring i akutt nyreskade eller nyrefunksjon; viser også utfordringer med gjennomføring. PMID 36046613.",
+      "tags": [
+        "nyre"
+      ],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "nyre"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Forskning",
+        "purposes": [
+          "Forskning"
+        ],
+        "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "sadman-review",
+      "ids": [],
+      "title": "Watson 2022 – kunnskapsoversikt om sick-day-råd",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36046611/",
+      "category": "Forskning",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-04",
+      "verification": "content",
+      "evidence": [
+        "https://pubmed.ncbi.nlm.nih.gov/36046611/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Systematisk kartleggingsoversikt over sick-day-veiledning ved diabetes, nyresykdom og hjerte- og karsykdom. Begrenset kunnskap om kliniske utfall. PMID 36046611.",
+      "note": "Systematisk kartleggingsoversikt over sick-day-veiledning ved diabetes, nyresykdom og hjerte- og karsykdom. Begrenset kunnskap om kliniske utfall. PMID 36046611.",
+      "tags": [
+        "nyre"
+      ],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Kilde til valgt problemstilling",
+        "basis": "Emnekobling til kildens innhold; ikke automatisk behandlingsanbefaling."
+      },
+      "taxonomy": {
+        "primary": [
+          "dehydrering",
+          "nyre"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Forskning",
+        "purposes": [
+          "Forskning"
+        ],
+        "reviewed": "2026-11-04"
       }
     }
   ],

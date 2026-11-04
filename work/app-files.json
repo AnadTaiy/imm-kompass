@@ -24,6 +24,8 @@
   "cascade-policy.js",
   "adverse-effects.js",
   "cascade-ui.js",
+  "sadman-policy.js",
+  "sadman-ui.js",
   "interactions.js",
   "state-migration.js",
   "sync-ui.js",
