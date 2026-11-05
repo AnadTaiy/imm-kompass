@@ -127,3 +127,7 @@
 
 .indication-group-label,.indication-empty{padding:12px;font-size:12px;background:var(--soft);color:var(--ink);border-bottom:1px solid var(--line)}
 .indication-group-label strong{font-size:13px}.indication-group-label p{margin-top:5px;color:var(--muted);line-height:1.5}
+.source-dose-value{display:flex;align-items:flex-start;gap:7px}
+.source-dose-value .dose-code{min-width:0;overflow-wrap:anywhere}
+.source-difference-symbol{display:inline-flex;align-items:center;justify-content:center;flex:0 0 23px;width:23px;height:23px;border:1px solid currentColor;border-radius:5px;background:var(--amber);color:var(--amber-ink);font-size:20px;font-weight:700;line-height:1;cursor:help}
+@media (forced-colors:active){.source-difference-symbol{border-color:CanvasText;color:CanvasText}}
