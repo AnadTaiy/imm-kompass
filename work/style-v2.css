@@ -131,3 +131,13 @@
 .source-dose-value .dose-code{min-width:0;overflow-wrap:anywhere}
 .source-difference-symbol{display:inline-flex;align-items:center;justify-content:center;flex:0 0 23px;width:23px;height:23px;border:1px solid currentColor;border-radius:5px;background:var(--amber);color:var(--amber-ink);font-size:20px;font-weight:700;line-height:1;cursor:help}
 @media (forced-colors:active){.source-difference-symbol{border-color:CanvasText;color:CanvasText}}
+
+/* Each review category keeps its own shape; color also carries severity. */
+.risk-flag.lrp-signal-flag{color:var(--amber-ink);background:var(--amber);border-color:currentColor;margin-bottom:9px;line-height:1.4;text-align:left;white-space:normal}
+.risk-flag.lrp-signal-flag.contraindicated{color:var(--red);background:var(--error-bg)}
+.risk-flag.lrp-signal-flag:hover{filter:brightness(.96)}
+.lrp-signal-icon{flex-shrink:0}.lrp-help-symbol{color:var(--amber-ink)}
+.lrp-signal-card{padding:17px;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
+.lrp-signal-card h3{display:flex;gap:9px;align-items:center}.lrp-signal-card p{margin-top:12px}
+.lrp-signal-panel .quicklink{white-space:normal;overflow-wrap:anywhere}.electrolyte-fields .hint{min-height:18px}
+@media(forced-colors:active){.lrp-signal-flag{border:1px solid CanvasText}.lrp-signal-flag.contraindicated{border-width:3px}}

@@ -27,6 +27,8 @@
   "sadman-policy.js",
   "sadman-ui.js",
   "interactions.js",
+  "lrp-signals.js",
+  "lrp-signals-ui.js",
   "state-migration.js",
   "sync-ui.js",
   "app.js"
