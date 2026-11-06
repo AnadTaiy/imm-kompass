@@ -141,3 +141,11 @@
 .lrp-signal-card h3{display:flex;gap:9px;align-items:center}.lrp-signal-card p{margin-top:12px}
 .lrp-signal-panel .quicklink{white-space:normal;overflow-wrap:anywhere}.electrolyte-fields .hint{min-height:18px}
 @media(forced-colors:active){.lrp-signal-flag{border:1px solid CanvasText}.lrp-signal-flag.contraindicated{border-width:3px}}
+
+.source-difference-symbol{padding:0;box-sizing:border-box;vertical-align:middle}.source-difference-glyph{display:block;width:21px;height:21px;flex:none}
+.headache-use-row{border-top:1px solid var(--line);padding-top:14px}.headache-review>summary{font-weight:600}.headache-review input{max-width:180px}
+
+/* CHA is a navigation shortcut, not a severity warning. */
+.cha-flag{color:var(--ink);background:var(--surface);border-color:var(--line)}
+.cha-symbol{display:inline-flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;font-size:11px;line-height:1}
+#cha-panel{scroll-margin-top:100px}
