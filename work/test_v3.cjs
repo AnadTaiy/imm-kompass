@@ -123,4 +123,14 @@ check('STOPP E6 exact boundary',`state.profile.egfr='30';!olderHits({atc:'A10BA0
 check('metformin combo needs ingredient evidence',`state.profile.egfr='20';!olderHits({atc:'A10BD19',ingredients:'Linagliptin\\nEmpagliflozin'}).some(r=>r.id==='STOPP-E6')`);
 check('renal STOPP disabled for unstable function',`state.profile.stability='unstable';!olderHits({atc:'A10BA02'}).some(r=>r.section==='E')`);
 check('START sources do not activate deprescribing filter',`queryParams.set('older','START');olderSourceTags().join(',')==='alder'`);
+// Shortcut integration: no accidental activation while typing or composing text.
+check('shortcut is discoverable on add button',`renderLms().includes('aria-keyshortcuts="Alt+L"')&&renderLms().includes('Alt + L')`);
+let shortcutCalls=0,prevented=0,modalOpen=false;context.document.querySelector=selector=>selector==='#modal'?{open:modalOpen}:null;context.shortcutOpened=()=>{shortcutCalls++;};run(`medModal=shortcutOpened;page='workspace'`);
+const shortcutEvent=(extra={})=>({altKey:true,ctrlKey:false,metaKey:false,shiftKey:false,key:'l',code:'KeyL',target:{closest:()=>null},preventDefault(){prevented++;},...extra});
+context.shortcutEvent=shortcutEvent();assert.equal(run('medicationShortcut(shortcutEvent)'),true);assert.equal(shortcutCalls,1);assert.equal(prevented,1);count++;
+for(const extra of [{altKey:false},{ctrlKey:true},{metaKey:true},{shiftKey:true},{repeat:true},{isComposing:true},{defaultPrevented:true},{getModifierState:()=>true},{target:{closest:()=>({})}},{key:'n',code:'KeyN'}]){context.shortcutEvent=shortcutEvent(extra);assert.equal(run('medicationShortcut(shortcutEvent)'),false);count++;}
+modalOpen=true;context.shortcutEvent=shortcutEvent();assert.equal(run('medicationShortcut(shortcutEvent)'),false);modalOpen=false;count++;
+context.shortcutEvent=shortcutEvent({ctrlKey:true,altKey:false,key:'n',code:'KeyN'});assert.equal(run('medicationShortcut(shortcutEvent)'),false,'Ctrl+N remains a browser command');count++;
+run(`page='library'`);assert.equal(run('medicationShortcut(shortcutEvent)'),false);count++;
+run(`page='workspace'`);context.shortcutEvent=shortcutEvent({key:'¬'});assert.equal(run('medicationShortcut(shortcutEvent)'),true,'Mac option output uses physical KeyL');count++;
 console.log('PASS: '+count+' v3 clinical, migration, dose, source and journal checks.');

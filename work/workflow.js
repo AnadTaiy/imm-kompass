@@ -30,7 +30,7 @@ function renderLms(){
  `<section class="panel"><div class="panelbody formgrid three">${field('Pasientnummer','profile.patientNumber','text','Bruk et fiktivt løpenummer, ikke journal- eller fødselsnummer.',{maxlength:6,inputmode:'numeric'})}${field('Alder (år)','profile.age','decimal')}${field('Kjønn','profile.sex','select','',{options:[['','Ikke valgt'],['female','Kvinne'],['male','Mann']]})}</div></section>`+
  panelDetails('Pasientgrunnlag og samtale',patientBackground(),'Diagnoser, målinger, bistand og informasjon fra pasienten.')+
  `<section class="panel sectiongap"><div class="panelhead"><div><h2>Kilder</h2><p class="smalltext muted">Sammenlign utgangslisten og andre kilder med oppgitt faktisk bruk.</p></div><button class="small" data-action="add-source">${icon('plus')}Legg til kilde</button></div><div class="panelbody source-list">${sourceRows()}${reporterChoice()}${state.lms.sources?`<div class="notice info">Tidligere kildenotat: ${esc(state.lms.sources)}</div>`:''}</div></section>`+
- `<section class="panel sectiongap"><div class="panelhead"><div><h2>Legemidler og avvik</h2><p class="smalltext muted">Én rad per legemiddel. Registrer dose, bruk eller «ikke på listen» for hver kilde.</p></div><div class="actions"><button data-action="substance-preview">${icon('copy')}Virkestoffliste</button><button class="primary" data-action="add-med">${icon('plus')}Legg til legemiddel</button></div></div><div data-renal-review-note>${renalReviewNotice()}</div><div id="med-comparison">${medTable()}</div></section>`+
+ `<section class="panel sectiongap"><div class="panelhead"><div><h2>Legemidler og avvik</h2><p class="smalltext muted">Én rad per legemiddel. Registrer dose, bruk eller «ikke på listen» for hver kilde.</p></div><div class="actions"><button data-action="substance-preview">${icon('copy')}Virkestoffliste</button><button class="primary" data-action="add-med" title="Legg til legemiddel · Alt + L (⌥ + L på Mac)" aria-keyshortcuts="Alt+L">${icon('plus')}Legg til legemiddel</button></div></div><div data-renal-review-note>${renalReviewNotice()}</div><div id="med-comparison">${medTable()}</div></section>`+
  olderProfile()+criteriaReviewPanel()+chaPanel()+startPanel()+panelDetails('Samstemmingssjekk',`<p class="smalltext muted">Kryss av når temaet er avklart. Manglende avkrysning betyr ikke at legemidlet er fraværende.</p><div class="checklist sectiongap" id="interview-checks">${interviewChecks()}</div><hr class="divider">${checks(LMS_CHECKS,'lms.checks')}<div class="sectiongap">${field('Uavklarte forhold og hvem som følger opp','lms.discrepancies','textarea')}</div><label class="checkline sectiongap"><input type="checkbox" data-bind="lms.confirmed" ${state.lms.confirmed?'checked':''}><strong>Samstemming gjennomgått, relevante avvik avklart med lege og legemiddellisten oppdatert</strong></label>`,'Reseptfrie midler, behovsmedisin, etterlevelse og de øvrige punktene i skjemaet.')+
  `<div class="toolbarbottom end"><button class="primary" data-action="step" data-step="2">Videre til legemiddelgjennomgang ${icon('arrow')}</button></div>`+footer();
 }
@@ -92,3 +92,13 @@ async function workflowAction(a,t){
  if(a==='reset-drug-context'){sourceContext={};render();return true;}
  return false;
 }
+
+// Only active in the review workspace, outside text editing and modal dialogs.
+function medicationShortcut(e){
+ if(e.defaultPrevented||e.repeat||e.isComposing||!e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.getModifierState?.('AltGraph'))return false;
+ if(e.code!=='KeyL'&&String(e.key||'').toLowerCase()!=='l')return false;
+ if(resourceOnly||!['workspace','discharge'].includes(page)||$('#modal')?.open)return false;
+ if(e.target?.closest?.('input,textarea,select,[contenteditable="true"],[contenteditable=""],[role="textbox"]'))return false;
+ e.preventDefault();medModal();return true;
+}
+document.addEventListener('keydown',medicationShortcut);

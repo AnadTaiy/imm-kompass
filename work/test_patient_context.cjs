@@ -75,10 +75,10 @@ run(`state=blank();state.profile.age='78';state.diagnosisList=[{system:'ICD-10',
 let focused=false,scrolled=false;const jumpPanel={tagName:'DETAILS',open:false,parentElement:null,querySelector:()=>({focus(){focused=true;}}),scrollIntoView(){scrolled=true;}};
 context.document.querySelector=s=>s==='#cha-panel'?jumpPanel:null;
 run(`patientContextAction('cha-open',{dataset:{id:'oac'}})`);assert.ok(jumpPanel.open&&focused&&scrolled,'CHA shortcut expands, focuses and scrolls');count++;
-let chaNode;const chaMock=(open=true,tagName='DETAILS')=>({tagName,open,querySelector:()=>({}),set outerHTML(html){chaNode=chaMock(true,html.startsWith('<details ')?'DETAILS':'DIV');}});
+let chaNode;const chaMock=(open=true,tagName='DETAILS')=>({tagName,open,querySelector:()=>({}),set outerHTML(html){chaNode=chaMock(/data-ui-key="patient:cha" open/.test(html),html.startsWith('<details ')?'DETAILS':'DIV');}});
 chaNode=chaMock(false);context.document.querySelector=s=>s==='#cha-panel'?chaNode:null;
 run('refreshCha(true)');assert.equal(chaNode.open,false,'new diagnosis preserves collapsed CHA panel');count++;
 chaNode.open=true;run('refreshCha(true)');assert.equal(chaNode.open,true,'new diagnosis preserves expanded CHA panel');count++;
 run('state.diagnosisList=[];refreshCha(true)');assert.equal(chaNode.tagName,'DIV','irrelevant CHA panel removed');count++;
-run(`state.diagnosisList=[{system:'ICD-10',code:'I48.0',text:'Atrieflimmer'}];refreshCha(true)`);assert.equal(chaNode.open,true,'new relevant CHA panel starts expanded');count++;
+run(`state.diagnosisList=[{system:'ICD-10',code:'I48.0',text:'Atrieflimmer'}];refreshCha(true)`);assert.equal(chaNode.open,false,'new relevant CHA panel stays collapsed until requested');count++;
 console.log('PASS: '+count+' patient-context, criterion boundaries, translation and CHA₂DS₂-VA checks.');
