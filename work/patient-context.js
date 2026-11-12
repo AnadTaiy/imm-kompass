@@ -24,8 +24,8 @@ function chaMedicineRelevant(m){
  if(!chaRelevant()||state.chaReview?.clinicalAF==='no'||(age!==null&&(age<18||age>=140))||!activeMedicines().some(x=>x.id===m.id))return false;
  return chaAnticoagulants().some(x=>x.id===m.id)||diagnosisMatches({system:m.diagnosisSystem,code:m.diagnosisCode},['I48'],['K78']);
 }
-function chaSymbol(){return '<span class="help-difference cha-symbol" aria-hidden="true">VA</span>';}
-function chaMedicineFlag(m){return chaMedicineRelevant(m)?`<button type="button" class="risk-flag cha-flag" data-action="cha-open" data-id="${esc(m.id)}" aria-controls="cha-panel" aria-label="Åpne CHA₂DS₂-VA-vurderingen for ${esc(m.name)}" title="Åpne vurderingen av slagrisiko ved atrieflimmer">${chaSymbol()}<span>CHA₂DS₂-VA<small>Vurder slagrisiko</small></span>${icon('chevron')}</button>`:'';}
+function chaSymbol(){return '<span class="cha-symbol" aria-hidden="true">VA</span>';}
+function chaMedicineFlag(m){return chaMedicineRelevant(m)?`<button type="button" class="risk-flag cha-flag" data-action="cha-open" data-id="${esc(m.id)}" aria-controls="cha-panel" aria-label="Åpne CHA₂DS₂-VA-vurderingen for ${esc(m.name)}" title="Åpne vurderingen av slagrisiko ved atrieflimmer">${chaSymbol()}<span>CHA₂DS₂-VA</span>${icon('chevron')}</button>`:'';}
 function refreshChaMarkers(){document.querySelectorAll('[data-cha-med]').forEach(el=>{const m=state.meds.find(x=>x.id===el.dataset.chaMed);el.innerHTML=m?chaMedicineFlag(m):'';});if(typeof drawInteractionLines==='function')requestAnimationFrame(drawInteractionLines);}
 function openChaPanel(m){
  if(!m||!chaMedicineRelevant(m))return;

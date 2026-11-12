@@ -146,12 +146,12 @@
 .headache-use-row{border-top:1px solid var(--line);padding-top:14px}.headache-review>summary{font-weight:600}.headache-review input{max-width:180px}
 
 /* CHA is a navigation shortcut, not a severity warning. */
-.cha-flag{color:#24516f;background:#eaf3fa;border:2px solid #608cac;padding:8px 10px;font-weight:650;gap:8px}
+.cha-flag{color:#24516f;background:#eaf3fa;border-color:#608cac;font-weight:650;margin-bottom:9px}
 .cha-flag:hover,.cha-flag:focus-visible{background:#d9eaf7;border-color:#315f80}
-.cha-flag>span:not(.cha-symbol){text-align:left;line-height:1.3}.cha-flag small{display:block;font-size:11px;font-weight:450;margin-top:2px}.cha-flag>.icon{width:16px;height:16px;margin-left:auto;flex:none}
-.cha-flag .cha-symbol{background:#24516f;color:#fff;border:0;border-radius:5px}
+.cha-flag>span:not(.cha-symbol){text-align:left;line-height:1.3}.cha-flag>.icon{width:16px;height:16px;flex:none}
 :root[data-theme=dark] .cha-flag{color:#c6e5ff;background:#172c40;border-color:#608eb4}
 :root[data-theme=dark] .cha-flag:hover,:root[data-theme=dark] .cha-flag:focus-visible{background:#203b55;border-color:#8cbbdf}
-:root[data-theme=dark] .cha-flag .cha-symbol{background:#9bc9ed;color:#122333}
-.cha-symbol{display:inline-flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;font-size:11px;line-height:1}
+.cha-symbol{display:inline-flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;font-size:11px;font-weight:650;line-height:1;background:#24516f;color:#fff;border-radius:5px}
+.cha-flag .cha-symbol{width:16px;height:16px;font-size:8px;border-radius:3px}
+:root[data-theme=dark] .cha-symbol{background:#9bc9ed;color:#122333}
 #cha-panel{scroll-margin-top:100px}
