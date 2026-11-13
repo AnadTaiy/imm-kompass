@@ -28,6 +28,8 @@ jobs:
           key: imm-reference-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: imm-reference-
       - run: python build_site.py --sync
+        env:
+          IMM_GOATCOUNTER_SITE: ${{ vars.IMM_GOATCOUNTER_SITE }}
       - uses: actions/cache/save@v4
         with:
           path: .state
