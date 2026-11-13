@@ -132,9 +132,9 @@
 .source-difference-symbol{display:inline-flex;align-items:center;justify-content:center;flex:0 0 23px;width:23px;height:23px;border:1px solid currentColor;border-radius:5px;background:var(--amber);color:var(--amber-ink);font-size:20px;font-weight:700;line-height:1;cursor:help}
 @media (forced-colors:active){.source-difference-symbol{border-color:CanvasText;color:CanvasText}}
 
-/* Each review category keeps its own shape; color also carries severity. */
-.risk-flag.lrp-signal-flag{color:var(--amber-ink);background:var(--amber);border-color:currentColor;margin-bottom:9px;line-height:1.4;text-align:left;white-space:normal}
-.risk-flag.lrp-signal-flag.contraindicated{color:var(--red);background:var(--error-bg)}
+/* Shape, label and icon color distinguish categories. Red retains its severity meaning. */
+.risk-flag.lrp-signal-flag{color:var(--ink);background:var(--soft);border-color:var(--control);margin-bottom:9px;line-height:1.4;text-align:left;white-space:normal}
+.risk-flag.lrp-signal-flag.contraindicated{color:var(--red);background:var(--error-bg);border-color:var(--red)}
 .risk-flag.lrp-signal-flag:hover{filter:brightness(.96)}
 .lrp-signal-icon{flex-shrink:0}.lrp-help-symbol{color:var(--amber-ink)}
 .lrp-signal-card{padding:17px;border:1px solid var(--line);border-radius:8px;background:var(--soft)}
@@ -155,3 +155,21 @@
 .cha-flag .cha-symbol{width:16px;height:16px;font-size:8px;border-radius:3px}
 :root[data-theme=dark] .cha-symbol{background:#9bc9ed;color:#122333}
 #cha-panel{scroll-margin-top:100px}
+/* Category accents stay on icons, leaving the medicine overview calm. */
+:root{--signal-duplicate:#3566a4;--signal-lab:#34715d;--signal-disease:#99592b;--signal-respiration:#1b7383;--signal-headache:#8a508e}
+:root[data-theme=dark]{--signal-duplicate:#8cb8f6;--signal-lab:#8bd0ad;--signal-disease:#e6ae7e;--signal-respiration:#7cd6e2;--signal-headache:#d9a6df}
+.lrp-signal-icon.signal-duplicate{color:var(--signal-duplicate)}
+.lrp-signal-icon.signal-lab{color:var(--signal-lab)}
+.lrp-signal-icon.signal-disease{color:var(--signal-disease)}
+.lrp-signal-icon.signal-respiration{color:var(--signal-respiration)}
+.lrp-signal-icon.signal-headache{color:var(--signal-headache)}
+.contraindicated .lrp-signal-icon{color:var(--red)}
+.risk-flag.lrp-signal-flag:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+/* Muted light gold for attention panels in Ayu; errors keep their red treatment. */
+:root[data-theme=dark] .notice:not(.error){background:#ded1a7;color:#302b1e;border-color:#b4a26c}
+:root[data-theme=dark] .notice:not(.error) :is(.hint,.muted,.smalltext){color:#514a35}
+:root[data-theme=dark] .notice:not(.error) :is(a,summary){color:#51401b}
+:root[data-theme=dark] .notice:not(.error) :is(button,.button){color:#302b1e;border-color:#8d7d50;background:transparent}
+:root[data-theme=dark] .notice:not(.error) :is(button,.button):hover{background:#cfc092}
+.sync-modalfoot .admin-link{margin-right:auto;font-size:11px;color:var(--muted)}
+@media(forced-colors:active){.lrp-signal-icon{color:CanvasText!important}.contraindicated .lrp-signal-icon{color:LinkText!important}}

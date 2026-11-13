@@ -14,6 +14,7 @@ function render(options={}){
  document.querySelectorAll('[data-icon]').forEach(n=>n.innerHTML=icon(n.dataset.icon));updateSaveStatus();renderSyncStatus();restoreWorkRender(viewPlan);
 }
 function route(to){page=to;if(page==='lrp'){page='workspace';step=2;}if(activeReview&&!dirty&&!saveError&&!resourceOnly)persistCurrent();$('#tools-menu').open=false;render({resetScroll:true});}
+function statsAdminUrl(){const site=document.querySelector('meta[name="imm-stats-site"]')?.content||'';return /^https:\/\/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.goatcounter\.com$/.test(site)?site+'/':'https://www.goatcounter.com/';}
 function footer(){return `<footer class="footnote"><span>Laget av <a href="./om-meg.html" title="Om verktøyet og Mohanad Taiy">Mohanad Taiy</a> · Til eget bruk · 2026 | FEST: ${esc(festDateLabel())} <button class="small" data-action="sync-details">Datastatus</button></span><span id="sync-status" aria-live="polite"></span></footer>`;}
 function panelDetails(title,content,sub=''){return `<details class="panel sectiongap" data-ui-key="panel:${esc(title)}"><summary class="panelhead"><div><h2>${title}</h2>${sub?`<p class="smalltext muted">${sub}</p>`:''}</div><span aria-hidden="true">${icon('chevronDown')}</span></summary><div class="panelbody">${content}</div></details>`;}
 function patientSection(key,title,content){return `<details class="patient-section" data-ui-key="patient:${key}"><summary><h3>${title}</h3><span aria-hidden="true">${icon('chevronDown')}</span></summary><div class="patient-section-body">${content}</div></details>`;}
