@@ -133,7 +133,7 @@
 @media (forced-colors:active){.source-difference-symbol{border-color:CanvasText;color:CanvasText}}
 
 /* Shape, label and icon color distinguish categories. Red retains its severity meaning. */
-.risk-flag.lrp-signal-flag{color:var(--ink);background:var(--soft);border-color:var(--control);margin-bottom:9px;line-height:1.4;text-align:left;white-space:normal}
+.risk-flag.lrp-signal-flag{color:var(--link);background:var(--accent-soft);border-color:color-mix(in srgb,var(--link) 65%,var(--control));margin-bottom:9px;line-height:1.4;text-align:left;white-space:normal}
 .risk-flag.lrp-signal-flag.contraindicated{color:var(--red);background:var(--error-bg);border-color:var(--red)}
 .risk-flag.lrp-signal-flag:hover{filter:brightness(.96)}
 .lrp-signal-icon{flex-shrink:0}.lrp-help-symbol{color:var(--amber-ink)}
@@ -165,11 +165,11 @@
 .lrp-signal-icon.signal-headache{color:var(--signal-headache)}
 .contraindicated .lrp-signal-icon{color:var(--red)}
 .risk-flag.lrp-signal-flag:focus-visible{outline:2px solid var(--link);outline-offset:3px}
-/* Muted light gold for attention panels in Ayu; errors keep their red treatment. */
-:root[data-theme=dark] .notice:not(.error){background:#ded1a7;color:#302b1e;border-color:#b4a26c}
+/* Ayu gold for attention panels; errors keep their red treatment. */
+:root[data-theme=dark] .notice:not(.error){background:#e6b450;color:#302b1e;border-color:#c99b3d}
 :root[data-theme=dark] .notice:not(.error) :is(.hint,.muted,.smalltext){color:#514a35}
 :root[data-theme=dark] .notice:not(.error) :is(a,summary){color:#51401b}
 :root[data-theme=dark] .notice:not(.error) :is(button,.button){color:#302b1e;border-color:#8d7d50;background:transparent}
-:root[data-theme=dark] .notice:not(.error) :is(button,.button):hover{background:#cfc092}
+:root[data-theme=dark] .notice:not(.error) :is(button,.button):hover{background:#d8a644}
 .sync-modalfoot .admin-link{margin-right:auto;font-size:11px;color:var(--muted)}
 @media(forced-colors:active){.lrp-signal-icon{color:CanvasText!important}.contraindicated .lrp-signal-icon{color:LinkText!important}}
