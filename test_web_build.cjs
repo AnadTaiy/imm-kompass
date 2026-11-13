@@ -5,6 +5,22 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const site = path.join(__dirname, 'site');
 const html = fs.readFileSync(path.join(site, 'index.html'), 'utf8');
+const about = fs.readFileSync(path.join(site, 'om-meg.html'), 'utf8');
+const statsSite = (process.env.IMM_GOATCOUNTER_SITE || '').trim().replace(/\/+$/, '');
+const visitScript = html.match(/<script defer src="(assets\/visits-[^"]+)"><\/script>/);
+if(statsSite){
+  assert(html.includes(`<meta name="imm-stats-site" content="${statsSite}">`));
+  assert(visitScript,'Configured builds include the local visit counter');
+  new vm.Script(fs.readFileSync(path.join(site,visitScript[1]),'utf8'));
+  assert(about.includes(visitScript[0]));
+  assert(about.includes('En enkel besøksteller hos GoatCounter'));
+}else{
+  assert(!visitScript,'Unconfigured builds must not load analytics');
+  assert(!html.includes('name="imm-stats-site"'));
+  assert(!about.includes('En enkel besøksteller hos GoatCounter'));
+}
+assert(!about.includes('<!--VISIT_PRIVACY-->'));
+require('./work/test_visit_counter.cjs');
 const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 assert(scripts.length > 4, 'Catalog must be split into bounded scripts');
 assert.equal(new Set(scripts).size, scripts.length, 'No duplicate script loads');

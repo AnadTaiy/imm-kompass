@@ -11,6 +11,13 @@ def compact(data):return json.dumps(data,ensure_ascii=False,separators=(',',':')
 
 MAX_SCRIPT_BYTES=1_500_000  # Margin below Googlebot's 2 MB uncompressed resource limit.
 
+def stats_site():
+ # Only a public collection address belongs in the build. Never accept credentials/tokens.
+ value=os.environ.get('IMM_GOATCOUNTER_SITE','').strip().rstrip('/')
+ if value and not re.fullmatch(r'https://[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.goatcounter\.com',value):
+  raise ValueError('IMM_GOATCOUNTER_SITE must be an HTTPS GoatCounter site address without credentials, query or path')
+ return value
+
 def catalog_scripts(key,rows):
  """Keep complete records and their order; every chunk is independently valid JS."""
  target='DATA.catalog.'+key
@@ -52,6 +59,7 @@ def cache_copy(source,destination):
    d=destination/name;d.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,d)
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--sync',action='store_true');args=parser.parse_args()
+ stats=stats_site()
  OUT.mkdir(exist_ok=True);SITE.mkdir(exist_ok=True);(SITE/'assets').mkdir(exist_ok=True)
  if args.sync and (ROOT/'.state/catalog/catalog.json').exists():
   cached=read_json(ROOT/'.state/catalog/catalog.json');seed=read_json(W/'catalog/catalog.json')
@@ -79,7 +87,10 @@ def main():
   for i,chunk in enumerate(catalog_scripts(key,rows),1):scripts.append(asset(f'{key}-{i:02d}',chunk))
  code=catalog_guard(parts)+'\n'.join((W/f).read_text(encoding='utf-8') for f in FILES)
  app=asset('app',code);style=asset('style',(W/'style-v2.css').read_text(encoding='utf-8'),'css')
- revision=hashlib.sha256('|'.join(asset_paths).encode()).hexdigest()[:24]
+ counter=asset('visits',(W/'visit-counter.js').read_text(encoding='utf-8')) if stats else ''
+ stats_tags=('<meta name="imm-stats-site" content="'+stats+'"><script defer src="'+counter+'"></script>') if stats else ''
+ stats_privacy=('<p>En enkel besøksteller hos GoatCounter brukes til samlet besøksstatistikk. Bare appens faste sideadresse og navn sendes; innhold, søk og valg fra gjennomgangene inngår ikke. Tjenesten mottar tekniske tilkoblingsopplysninger for å telle besøk. Statistikkoversikten krever innlogging. <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">GoatCounters personverninformasjon</a>.</p>') if stats else ''
+ revision=hashlib.sha256('|'.join(asset_paths+[stats]).encode()).hexdigest()[:24]
  html=re.sub(r'<script>\s*const DATA=.*?</script>\s*<script>.*?</script>\s*</body>',lambda m:'<script>window.IMM_WEB_VERSION='+json.dumps(revision)+';</script>\n'+'\n'.join('<script src="'+p+'"></script>' for p in scripts+[app])+'\n</body>',html,flags=re.S)
  html=re.sub(r'<style>.*?</style>',lambda m:'<link rel="stylesheet" href="'+style+'">',html,count=1,flags=re.S)
  url='https://anadtaiy.github.io/imm-kompass/'
@@ -88,10 +99,12 @@ def main():
  metadata={'@context':'https://schema.org','@type':'LearningResource','name':'IMM Kompass','url':url,'inLanguage':'nb','isAccessibleForFree':True,'author':{'@type':'Person','name':'Mohanad Taiy'},'description':'Selvstendig studentprosjekt for læring i klinisk farmasi.'}
  html=html.replace('</head>','<meta name="author" content="Mohanad Taiy"><link rel="canonical" href="'+url+'"><script type="application/ld+json">'+compact(metadata)+'</script></head>')
  html=html.replace('<body>','<body><noscript><h1>IMM Kompass av Mohanad Taiy</h1><p>Læringsverktøy for klinisk farmasi. Aktiver JavaScript for å bruke appen.</p></noscript>')
+ html=html.replace('</head>',stats_tags+'</head>')
  (SITE/'index.html').write_text(html,encoding='utf-8');(SITE/'.nojekyll').touch()
  status=read_json(W/'sync-status.json',{'phase':'waiting'});status.update(service='IMM-Kompass-sync',revision=revision);write_json(SITE/'version.json',status)
  about=(W/'about.template.html').read_text(encoding='utf-8').replace('/*STYLE*/',style)
  about=about.replace('<!--FAVICON-->',re.search(r'<link\b[^>]*rel=["\']icon["\'][^>]*>',html)[0])
+ about=about.replace('</head>',stats_tags+'</head>').replace('<!--VISIT_PRIVACY-->',stats_privacy)
  (SITE/'om-meg.html').write_text(about,encoding='utf-8')
  shutil.copytree(ROOT/'public',SITE,dirs_exist_ok=True)
  (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+url+path+'</loc></url>' for path in ['', 'om-meg.html'])+'</urlset>',encoding='utf-8')
