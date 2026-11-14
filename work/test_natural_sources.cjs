@@ -60,9 +60,9 @@ results([oa]);run(`state.meds=[{name:'Johannesurt / prikkperikum',atc:'N06AX25',
 check('patient default includes natural sources without unrelated addiction',`const ids=filteredResources().map(r=>r.id);ids.includes('natural-source-2')&&ids.includes('oa-nrf')&&!ids.includes('r189')&&!ids.includes('r185')`);
 for(const topic of Object.keys(DATA.searchTopics)){
  results([],{}, {topic});
- check('global publisher order for topic '+topic,`(()=>{const ranks=filteredResources().map(sourcePriority);return ranks.every((v,i)=>!i||v>=ranks[i-1]);})()`);
+ check('guideline tier and publisher order for topic '+topic,`(()=>{const ranks=filteredResources().map(r=>sourceClinicalPriority(r)*10+sourcePriority(r));return ranks.every((v,i)=>!i||v>=ranks[i-1]);})()`);
 }
 for(const ctx of [{atc:'B01AF02'},{atc:'N06AX25',naturalId:'johannesurt'},{priority:'dose'}]){
- results([oa,af,dm],ctx);check('publisher order across drug, natural and dose contexts',`(()=>{const ranks=filteredResources().map(sourcePriority);return ranks.every((v,i)=>!i||v>=ranks[i-1]);})()`);
+ results([oa,af,dm],ctx);check('guideline tier and publisher order across contexts',`(()=>{const ranks=filteredResources().map(r=>sourceClinicalPriority(r)*10+sourcePriority(r));return ranks.every((v,i)=>!i||v>=ranks[i-1]);})()`);
 }
 console.log(`PASS: ${count} natural products, exact FEST substance matching, source context and dose metadata checks.`);

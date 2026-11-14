@@ -13,6 +13,8 @@
   "help.js",
   "older-ui.js",
   "patient-context.js",
+  "palliative-ui.js",
+  "blood-pressure.js",
   "stopp-context.js",
   "criteria-policy.js",
   "practical-ui.js",

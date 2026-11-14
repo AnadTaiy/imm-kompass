@@ -82,3 +82,24 @@ chaNode.open=true;run('refreshCha(true)');assert.equal(chaNode.open,true,'new di
 run('state.diagnosisList=[];refreshCha(true)');assert.equal(chaNode.tagName,'DIV','irrelevant CHA panel removed');count++;
 run(`state.diagnosisList=[{system:'ICD-10',code:'I48.0',text:'Atrieflimmer'}];refreshCha(true)`);assert.equal(chaNode.open,false,'new relevant CHA panel stays collapsed until requested');count++;
 console.log('PASS: '+count+' patient-context, criterion boundaries, translation and CHA₂DS₂-VA checks.');
+const checksBefore=count;
+run(`state=blank();`);
+check('no palliative inference from cancer, age, morphine or a negative statement',`state.profile.age='89';state.meds=[{id:'m',name:'Morfin',atc:'N02AA01'}];state.diagnosisList=[{system:'ICD-10',code:'C34',text:'Lungekreft'},{text:'Ikke palliativ behandling'}];!palliativeRelevant()`);
+check('explicit care context activates review without inventing prognosis',`state.diagnosisList=[{text:'Palliativ behandling',system:'',code:''}];palliativeRelevant()&&state.profile.endOfLife===''&&!state.profile.frail&&palliativeReviewNotice().includes('Palliasjon')`);
+check('medicine flag requires recorded prevention purpose',`!palliativeMedicineFlag(state.meds[0])&&palliativeMedicineFlag({...state.meds[0],treatmentPurpose:'primary'}).includes('Vurder behandlingsnytte')`);
+check('palliative notice removed when context is removed',`state.diagnosisList=[];!palliativeRelevant()&&!palliativeReviewNotice()`);
+check('end-of-life context also enables review',`state.profile.endOfLife='yes';palliativeRelevant()`);
+check('palliative URL does not disclose patient information',`!palliativeSourceUrl().includes('89')&&!palliativeSourceUrl().includes('Morfin')&&new URL(palliativeSourceUrl()).searchParams.get('topic')==='palliasjon'`);
+check('palliative context distinct from unsupported ICD coding',`palliativeSearchMatch('pallia')&&palliativeSuggestion('x').includes('uten diagnosekode')&&!palliativeDiagnosis({text:'Mistanke om palliasjon'})&&!palliativeDiagnosis({system:'ICD-10',code:'Z51.4'})`);
+run(`state=blank();state.profile.age='78';`);
+check('blank blood pressure is silent',`bpAssessment()===null&&!bpNotice()`);
+check('incomplete blood pressure not a clinical signal',`state.profile.bpSystolic='130';bpAssessment().kind==='incomplete'&&!bpNotice()`);
+for(const [s,d,method,kind] of [[140,80,'office','high'],[130,90,'office','high'],[139,89,'office','reference'],[119,69,'office','reference'],[135,80,'home','high'],[130,85,'home','high'],[130,80,'24h','high'],[120,70,'night','high'],[120,70,'day','reference'],[180,80,'','severe'],[170,110,'home','severe'],[89,65,'office','low'],[130,59,'office','low'],[130,80,'standing','context'],[80,90,'office','invalid'],[3500,80,'office','invalid']]){
+ check('BP boundary '+[s,d,method,kind].join(' '),`Object.assign(state.profile,{bpSystolic:'${s}',bpDiastolic:'${d}',bpMethod:'${method}',bpUnit:'mmHg'});bpAssessment().kind==='${kind}'`);
+}
+check('unknown age and pregnancy do not receive routine adult interpretation',`Object.assign(state.profile,{bpSystolic:'140',bpDiastolic:'90',age:''});bpAssessment().kind==='context'&&(state.profile.age='30',state.profile.pregnant=true,bpAssessment().kind==='context')`);
+check('kPa and mmHg equivalence',`state.profile.pregnant=false;Object.assign(state.profile,{bpUnit:'kPa',bpSystolic:String(140/BP_KPA),bpDiastolic:String(90/BP_KPA),bpMethod:'office'});bpAssessment().kind==='high'&&Math.abs(bpValues().s-140)<0.0001`);
+check('repeated unit switching preserves measurement boundaries and readable numbers',`[60,70,80,85,90,110,120,130,135,140,180].every(n=>{let v=String(n);for(let i=0;i<20;i++)v=bpConvertValue(bpConvertValue(v,'kPa'),'mmHg');return v===String(n);})`);
+check('blood pressure marker is selective and does not label unrelated drugs',`state.meds=[{id:'bp',atc:'C08CA01'},{id:'other',atc:'A02BC01'}];bpMedicineFlag(state.meds[0]).includes('Vurder blodtrykk')&&!bpMedicineFlag(state.meds[1])`);
+check('BP help distinguishes treatment from diagnosis and has precise references',`bpHelp().includes('8.5.2')&&bpHelp().includes('#page=54')&&bpHelp().includes('9.7.4')&&bpHelp().includes('Helsedirektoratet')`);
+console.log('PASS: '+(count-checksBefore)+' palliative context, BP boundaries and source checks.');

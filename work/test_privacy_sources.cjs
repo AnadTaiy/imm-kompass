@@ -26,7 +26,7 @@ check('database search works', `filters.access='';filters.q='Janusmed';filteredR
 check('checkbox starts a directory even from unrelated filters', `filters={q:'artrose',topic:'artrose',tags:['nyre'],cat:'Revmatologi',mode:'all',fav:true,pediatric:false,access:'open'};setInteractionDatabaseFilter(true);filteredResources().length===10&&filters.interactionDatabases===true`);
 check('unchecking restores the previous search', `setInteractionDatabaseFilter(false);filters.q==='artrose'&&filters.tags[0]==='nyre'&&filters.access==='open'&&!filters.interactionDatabases`);
 check('shared DMP data is made explicit', `setInteractionDatabaseFilter(true);interactionDatabaseNote().includes('samme interaksjonsdata')&&DATA.resources.filter(r=>r.interactionDataSource==='DMP / FEST').length===2`);
-check('source publisher order remains global', `(()=>{const ranks=filteredResources().map(sourcePriority);return ranks.every((n,i)=>i===0||n>=ranks[i-1]);})()`);
+check('source ordering preserves guideline tiers and publisher preference', `(()=>{const ranks=filteredResources().map(r=>sourceClinicalPriority(r)*10+sourcePriority(r));return ranks.every((n,i)=>i===0||n>=ranks[i-1]);})()`);
 const Store=require('./review-store.js');
 class MemoryStorage{constructor(){this.map=new Map();this.fail=false;}get length(){return this.map.size;}key(i){return [...this.map.keys()][i]??null;}getItem(k){return this.map.get(k)??null;}setItem(k,v){if(this.fail)throw Error('Quota');this.map.set(k,v);}removeItem(k){this.map.delete(k);}}
 const storage=new MemoryStorage(),store=new Store(storage);

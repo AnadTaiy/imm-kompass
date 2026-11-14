@@ -24,7 +24,7 @@ check('related explicitly extends results',related.length>direct.length&&direct.
 check('general explicitly includes subscriptions',general.includes('r019')&&general.includes('r008'));
 check('general Norwegian portal only appears when requested',general.includes('r029')&&!direct.includes('r029'));
 const doseIds=query('',{tags:['nyre']},{priority:'dose'});context.doseIds=doseIds;
-check('global publisher order also applies to dose shortcut',run(`const ranks=doseIds.map(id=>sourcePriority(DATA.resources.find(r=>r.id===id)));ranks.every((r,i)=>!i||r>=ranks[i-1])`));
+check('guidelines precede other sources; publisher order applies within each tier',run(`const ranks=doseIds.map(id=>(()=>{const r=DATA.resources.find(r=>r.id===id);return sourceClinicalPriority(r)*10+sourcePriority(r)})());ranks.every((r,i)=>!i||r>=ranks[i-1])`));
 const all=query('',{tags:['nyre','vekt'],mode:'all'}),any=query('',{tags:['nyre','vekt'],mode:'any'});
 check('all/any combination',all.includes('r020')&&all.length<any.length&&all.every(id=>any.includes(id)));
 check('topic+patient facet intersection',query('',{topic:'infeksjon',tags:['nyre']}).includes('r020')&&!query('',{topic:'infeksjon',tags:['nyre']}).includes('r055'));
@@ -89,6 +89,20 @@ check('clearing renal context removes method panel',run("filters.q='';renalSourc
 check('failure never advertised as available update',run("!syncUpdateAvailable({phase:'error',revision:'different'})"));
 check('unknown update phase is never applied',run("!syncUpdateAvailable({phase:'unknown',revision:'different'})"));
 console.log('PASS: 6 renal source and sync-error presentation checks.');
+
+check('parent diagnosis I48 reaches actual AF resources',query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'I48'}).some(id=>['r041','r151'].includes(id)));
+check('invalid partial diagnoses still rejected',query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'I4'}).length===0&&query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'J45.999'}).length===0);
+check('source code case and punctuation normalized',query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'j450'})[0]==='r197');
+check('GINA first for coded asthma',query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'J45.0'})[0]==='r197');
+check('GINA first for ICPC and bilingual text',query('',{},{diagnosisSystem:'ICPC-2',diagnosisCode:'R96'})[0]==='r197'&&query('asthma')[0]==='r197');
+check('GOLD first for COPD; no asthma guideline',query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'J44.9'})[0]==='r218'&&!query('',{},{diagnosisSystem:'ICD-10',diagnosisCode:'J44.9'}).includes('r197'));
+check('GOLD first for ICPC and text',query('',{},{diagnosisSystem:'ICPC-2',diagnosisCode:'R95'})[0]==='r218'&&query('kols')[0]==='r218');
+check('practical tapering source first from medicine shortcut',query('',{tags:['seponering']},{atc:'N05BA01'})[0]==='r228');
+check('palliative terms produce relevant guideline sources',query('',{},{indication:'palliativ behandling'}).includes('palliative-goals')&&query('',{topic:'palliasjon'}).includes('palliative-handbook'));
+check('unrelated filters continue to narrow preferred sources',!query('asthma',{purpose:'Interaksjonssøk'}).includes('r197'));
+check('diagnosis suggestions offer actual codes and abbreviations',run(`diagnosisSearch('astma').some(x=>x.d[1]==='J45.0')&&diagnosisSearch('AF').some(x=>x.d[1]==='I48.0')&&sourceDiagnosisField().includes('Diagnoseforslag til fagkilder')`));
+check('control point view no longer offers a JSON download',!fs.readFileSync(__dirname+'/clinical-ui.js','utf8').includes('risk-export')&&!fs.readFileSync(__dirname+'/workflow.js','utf8').includes('risk-export'));
+console.log('PASS: diagnosis group routes, guideline priority, palliative sources and download removal.');
 
 // The actual delegated menu click must retain a user's source question.
 run("filters={q:'artrose',tags:['alder'],access:'paid',interactionDatabases:true};sourceContext={scope:'all',atc:'M01AE01'};var savedFilters=JSON.stringify(filters),savedContext=JSON.stringify(sourceContext);route=to=>{page=to;};");

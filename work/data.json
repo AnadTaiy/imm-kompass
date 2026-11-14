@@ -10583,7 +10583,13 @@
       "currentHttp": 200,
       "currentTechnical": "http",
       "diagnosisOnly": true,
-      "diagnosisTerms": []
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ]
     },
     {
       "ids": [
@@ -13667,7 +13673,13 @@
       "currentHttp": 200,
       "currentTechnical": "http",
       "diagnosisOnly": true,
-      "diagnosisTerms": []
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ]
     },
     {
       "ids": [
@@ -14440,7 +14452,8 @@
       },
       "taxonomy": {
         "primary": [
-          "seponering"
+          "seponering",
+          "palliasjon"
         ],
         "related": [
           "alder"
@@ -14454,7 +14467,14 @@
       },
       "summary": "Seponering om seponering og nedtrapping.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ]
     },
     {
       "id": "r224",
@@ -14528,7 +14548,8 @@
       },
       "taxonomy": {
         "primary": [
-          "seponering"
+          "seponering",
+          "palliasjon"
         ],
         "related": [
           "alder"
@@ -14542,7 +14563,14 @@
       },
       "summary": "Seponering om seponering og nedtrapping.",
       "currentHttp": null,
-      "currentTechnical": "Kontrollert via fagkilde / søk"
+      "currentTechnical": "Kontrollert via fagkilde / søk",
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ]
     },
     {
       "id": "r226",
@@ -16900,7 +16928,11 @@
       "scope": "book",
       "diagnosisOnly": true,
       "diagnosisTerms": [
-        "palliasjon"
+        "palliasjon",
+        "palliativ behandling",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
       ],
       "minAge": null,
       "summary": "Bokoversikt; velg relevant kapittel. Direkte inngang til boken",
@@ -18334,6 +18366,108 @@
           "Forskning"
         ],
         "reviewed": "2026-11-04"
+      }
+    },
+    {
+      "id": "palliative-goals",
+      "ids": [],
+      "title": "Helsedirektoratet – behandlingsavklaringer og legemiddelnytte",
+      "url": "https://www.helsedirektoratet.no/veiledere/behandlingsavklaringer-ved-livsbegrensende-eller-alvorlig-langvarig-sykdom/beslutningsprosesser-for-behandlingsavklaringer",
+      "summary": "Vurder behandlingsmål, forventet nytte og belastning ved livsbegrensende eller alvorlig langvarig sykdom. Omfatter forebyggende legemidler.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "region": "Norway",
+      "verification": "content",
+      "checked": "2026-11-13",
+      "evidence": [
+        "https://www.helsedirektoratet.no/veiledere/behandlingsavklaringer-ved-livsbegrensende-eller-alvorlig-langvarig-sykdom/beslutningsprosesser-for-behandlingsavklaringer"
+      ],
+      "sources": [],
+      "tags": [
+        "palliasjon",
+        "seponering"
+      ],
+      "note": "Kildebasert kontrollpunkt for legemiddelnytte. Ingen automatisk seponering.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Palliativ behandlingskontekst"
+      },
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ],
+      "diagnosisOnly": true,
+      "taxonomy": {
+        "primary": [
+          "palliasjon",
+          "seponering"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-13"
+      }
+    },
+    {
+      "id": "palliative-handbook",
+      "ids": [],
+      "title": "Legemiddelhåndboka – palliativ behandling",
+      "url": "https://www.legemiddelhandboka.no/palliativ-behandling",
+      "summary": "Oversikt over lindring av symptomer og individuell legemiddelbehandling i en palliativ situasjon.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "region": "Norway",
+      "verification": "content",
+      "checked": "2026-11-13",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/palliativ-behandling"
+      ],
+      "sources": [],
+      "tags": [
+        "palliasjon"
+      ],
+      "note": "Kildebasert kontrollpunkt for legemiddelnytte. Ingen automatisk seponering.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Palliativ behandlingskontekst"
+      },
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ],
+      "diagnosisOnly": true,
+      "taxonomy": {
+        "primary": [
+          "palliasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-13"
       }
     }
   ],
