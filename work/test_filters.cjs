@@ -99,11 +99,19 @@ check('GOLD first for COPD; no asthma guideline',query('',{},{diagnosisSystem:'I
 check('GOLD first for ICPC and text',query('',{},{diagnosisSystem:'ICPC-2',diagnosisCode:'R95'})[0]==='r218'&&query('kols')[0]==='r218');
 check('practical tapering source first from medicine shortcut',query('',{tags:['seponering']},{atc:'N05BA01'})[0]==='r228');
 check('palliative terms produce relevant guideline sources',query('',{},{indication:'palliativ behandling'}).includes('palliative-goals')&&query('',{topic:'palliasjon'}).includes('palliative-handbook'));
+check('palliative main guideline and both kit sources are first',JSON.stringify(query('',{topic:'palliasjon'}).slice(0,3))===JSON.stringify(['palliative-last-days','palliative-kit-north','palliative-kit-bergen']));
 check('unrelated filters continue to narrow preferred sources',!query('asthma',{purpose:'Interaksjonssøk'}).includes('r197'));
 check('diagnosis suggestions offer actual codes and abbreviations',run(`diagnosisSearch('astma').some(x=>x.d[1]==='J45.0')&&diagnosisSearch('AF').some(x=>x.d[1]==='I48.0')&&sourceDiagnosisField().includes('Diagnoseforslag til fagkilder')`));
 check('control point view no longer offers a JSON download',!fs.readFileSync(__dirname+'/clinical-ui.js','utf8').includes('risk-export')&&!fs.readFileSync(__dirname+'/workflow.js','utf8').includes('risk-export'));
 console.log('PASS: diagnosis group routes, guideline priority, palliative sources and download removal.');
 
+// Both diagnosis entry points render real suggestions and retain keyboard semantics.
+run(`var oldQuery=document.querySelector,dxInput={value:'astma',setAttribute(k,v){this[k]=v;}},codeInput={value:'j45',setAttribute(k,v){this[k]=v;}},dxList={innerHTML:''},codeList={innerHTML:''};document.querySelector=s=>({'#source-diagnosis':dxInput,'#source-code':codeInput,'#source-diagnosis-suggestions':dxList,'#source-code-suggestions':codeList}[s]||null);showSourceDiagnosisSuggestions('source-code');`);
+check('code field shows coded asthma choices',run(`codeList.innerHTML.includes('J45.0')&&codeList.innerHTML.includes('data-input="source-code"')&&codeInput['aria-expanded']==='true'`));
+check('switching to name field closes code choices',run(`showSourceDiagnosisSuggestions('source-diagnosis');dxList.innerHTML.includes('allergisk astma')&&codeList.innerHTML===''&&codeInput['aria-expanded']==='false'`));
+check('ICPC code resolves even before selecting a coding system',run(`codeInput.value='K78';showSourceDiagnosisSuggestions('source-code');codeList.innerHTML.includes('ICPC-2 K78')`));
+check('short or invalid input never leaves stale diagnosis options',run(`codeInput.value='x';showSourceDiagnosisSuggestions('source-code');codeList.innerHTML===''&&codeInput['aria-expanded']==='false'`));
+run('document.querySelector=oldQuery;');
 // The actual delegated menu click must retain a user's source question.
 run("filters={q:'artrose',tags:['alder'],access:'paid',interactionDatabases:true};sourceContext={scope:'all',atc:'M01AE01'};var savedFilters=JSON.stringify(filters),savedContext=JSON.stringify(sourceContext);route=to=>{page=to;};");
 run("clickHandlers.find(fn=>fn.toString().includes('await workflowAction'))({target:{closest:()=>({dataset:{action:'route',page:'library'}})}})").then(()=>{

@@ -71,7 +71,7 @@ async function workflowAction(a,t){
  if(a==='bp-help'){showHelp('bp');return true;}if(a==='risk-coverage'){riskCoverage();return true;}
  if(a==='renal-reference'){renalReference();return true;}
  if(a==='renal-auto'){state.profile.egfrMode='auto';syncRenal();markChanged();render();return true;}
- if(a==='select-source-diagnosis'){selectSourceDiagnosis(Number(t.dataset.index));return true;}if(a==='source-palliative-select'){selectSourcePalliative();return true;}if(a==='select-source-drug'){selectSourceDrug(t.dataset.id);return true;}
+ if(a==='select-source-diagnosis'){selectSourceDiagnosis(Number(t.dataset.index),t.dataset.input);return true;}if(a==='source-palliative-select'){selectSourcePalliative();return true;}if(a==='select-source-drug'){selectSourceDrug(t.dataset.id);return true;}
 
  if(a==='substance-preview'){substancePreview();return true;}
  if(a==='copy-substances'){await copySubstanceSelection(t.dataset.lang||'no');return true;}

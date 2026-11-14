@@ -21,3 +21,19 @@ Markering gjelder registrerte målinger hos voksne, ikke oppnåelse av et automa
 ## Kilderekkefølge
 
 Relevante retningslinjer før andre kildetyper, deretter etablert utgiverrekkefølge. Eksplisitte unntak: GINA først ved astma, GOLD først ved KOLS og Legemiddelhåndbokas praktiske nedtrappingsråd først ved seponering. Alle eksisterende relevans-, tilgangs- og temafiltre gjelder fortsatt. Rekkefølgen testes for ICD, ICPC, norsk og engelsk søk.
+
+
+## Palliativ oversikt og lindrende skrin – kontroll 14.11.2026
+
+- Hovedkilde: Helsedirektoratet, https://www.helsedirektoratet.no/faglige-rad/lindrende-behandling-i-livets-sluttfase . Generelle legemiddelråd og kapitlet «Legemidler for fremtidig behov» lest. Palliativ kontekst er ikke ensbetydende med livets sluttfase.
+- Helse Bergen: https://www.helse-bergen.no/49b62b/siteassets/seksjon/klb/-/medikamentskrin/de_fire_viktigste_medikamentene.pdf , revidert mai 2025, lest. Morfin/oksykodon, midazolam, haloperidol og glykopyrronium. Doseringsalgoritmen er ikke gjengitt i appen.
+- Metodebok: https://metodebok.no/emne/PTE9us96/lindrende-skrin/lindrende-behandling-(lindring-i-nord) , oppdatert 16.07.2026, lest i nettleser (web-parser fikk 403). Gjelder voksne i livets sluttfase.
+- Kliniske ordinasjoner for midazolam/glykopyrronium og subkutan bruk kan ligge utenfor preparatomtalens godkjente indikasjon/administrasjonsmåte. De føyes ikke til godkjente indikasjonsforslag.
+- Lokal oversiktslogikk: aktive N02A/N02B/M01A/M02A vises som registrerte smertestillende/opioider, ikke som bevist faktisk indikasjon eller automatisk seponeringskandidat. Andre skrin-koblinger krever injeksjonsform og presis ATC; depotinjeksjon, epidural/intratekal form og inhalasjon utelukkes. Ingen beskjed om manglende skrinmedisin utledes.
+- Et manuelt forebyggende formål på slike symptommidler gir beskjed om å kontrollere registreringen. Opprinnelig data bevares. Produktbytte nullstiller behandlingsårsak og forebyggingsformål i kladden; redigering av samme preparat bevarer verdiene.
+
+## Preparatspesifikke indikasjonsforslag
+
+`indication-evidence.js` har kontrollerte, korte oppsummeringer fra de oppgitte produktinformasjonene, lest 14.11.2026. Match krever preparatnavn, legemiddelform og ATC, ikke bare ATC. Felles preparatomtaler dekker styrkene som er oppført i dokumentets navn. EMA-siden for Prialt bekrefter intratekal indikasjon; norsk PDF ga 429 ved kontroll, derfor siteres EMA-siden.
+
+Dette dekker de identifiserte hullene for ordinære N02-preparater i katalogen, inkludert injeksjonsopioider. Det er ikke en komplett godkjent indikasjonsdatabase for alle FEST-preparater. Et forslag er et registreringshjelpemiddel, ikke en beslutning om egnet behandling. Pasientdiagnoser og bivirkninger brukes ikke til å produsere standardforslag. Detaljerte kontraindikasjoner, alder, dose og administrasjon må kontrolleres i produktinformasjonen.

@@ -18469,6 +18469,165 @@
         ],
         "reviewed": "2026-11-13"
       }
+    },
+    {
+      "id": "palliative-last-days",
+      "ids": [],
+      "title": "Helsedirektoratet – lindrende behandling i livets sluttfase",
+      "url": "https://www.helsedirektoratet.no/faglige-rad/lindrende-behandling-i-livets-sluttfase",
+      "summary": "Nasjonale faglige råd om symptomlindring, legemiddelgjennomgang og planlegging av fremtidige legemiddelbehov i livets sluttfase.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "region": "Norway",
+      "verification": "content",
+      "checked": "2026-11-14",
+      "evidence": [
+        "https://www.helsedirektoratet.no/faglige-rad/lindrende-behandling-i-livets-sluttfase"
+      ],
+      "sources": [],
+      "tags": [
+        "palliasjon",
+        "seponering"
+      ],
+      "note": "Nasjonale faglige råd om symptomlindring, legemiddelgjennomgang og planlegging av fremtidige legemiddelbehov i livets sluttfase.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Palliativ behandlingskontekst"
+      },
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ],
+      "diagnosisOnly": true,
+      "taxonomy": {
+        "primary": [
+          "palliasjon"
+        ],
+        "related": [
+          "smerte"
+        ],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-14"
+      }
+    },
+    {
+      "id": "palliative-kit-bergen",
+      "ids": [],
+      "title": "Helse Bergen – de fire viktigste legemidlene i livets sluttfase",
+      "url": "https://www.helse-bergen.no/49b62b/siteassets/seksjon/klb/-/medikamentskrin/de_fire_viktigste_medikamentene.pdf",
+      "summary": "Praktisk oversikt over morfin/oksykodon, midazolam, haloperidol og glykopyrronium til symptomlindring hos døende voksne. Individuell ordinasjon; noe bruk er utenfor godkjent indikasjon.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "region": "Norway",
+      "verification": "content",
+      "checked": "2026-11-14",
+      "evidence": [
+        "https://www.helse-bergen.no/49b62b/siteassets/seksjon/klb/-/medikamentskrin/de_fire_viktigste_medikamentene.pdf"
+      ],
+      "sources": [],
+      "tags": [
+        "palliasjon",
+        "seponering"
+      ],
+      "note": "Praktisk oversikt over morfin/oksykodon, midazolam, haloperidol og glykopyrronium til symptomlindring hos døende voksne. Individuell ordinasjon; noe bruk er utenfor godkjent indikasjon.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Palliativ behandlingskontekst"
+      },
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ],
+      "diagnosisOnly": true,
+      "taxonomy": {
+        "primary": [
+          "palliasjon"
+        ],
+        "related": [
+          "smerte"
+        ],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-14"
+      }
+    },
+    {
+      "id": "palliative-kit-north",
+      "ids": [],
+      "title": "Metodebok – Lindrende skrin (Lindring i nord)",
+      "url": "https://metodebok.no/emne/PTE9us96/lindrende-skrin/lindrende-behandling-(lindring-i-nord)",
+      "summary": "Prosedyre for lindrende skrin til voksne i livets sluttfase, med lenker til medikamentoversikt og symptomalgoritmer.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "region": "Norway",
+      "verification": "content",
+      "checked": "2026-11-14",
+      "evidence": [
+        "https://metodebok.no/emne/PTE9us96/lindrende-skrin/lindrende-behandling-(lindring-i-nord)"
+      ],
+      "sources": [],
+      "tags": [
+        "palliasjon",
+        "seponering"
+      ],
+      "note": "Prosedyre for lindrende skrin til voksne i livets sluttfase, med lenker til medikamentoversikt og symptomalgoritmer.",
+      "codes": {
+        "atc": [],
+        "icd": [
+          "Z515"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Palliativ behandlingskontekst"
+      },
+      "diagnosisTerms": [
+        "palliativ behandling",
+        "palliasjon",
+        "palliativ omsorg",
+        "lindrende behandling",
+        "palliativ fase"
+      ],
+      "diagnosisOnly": true,
+      "taxonomy": {
+        "primary": [
+          "palliasjon"
+        ],
+        "related": [
+          "smerte"
+        ],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-14"
+      }
     }
   ],
   "audit": [

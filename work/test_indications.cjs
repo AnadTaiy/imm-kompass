@@ -18,8 +18,15 @@ check('matching patient diagnosis appears once per code',`indicationOptions(norv
 check('administrative route and duration labels not treatment causes',`['ØYEDRÅPER','TIL INJEKSJON','TIL INFUSJON','TIL INSULINPUMPE','LANGTIDSVIRKENDE','TIL KATT','HJERTEMEDISIN','VANNDRIVENDE'].every(x=>!therapeuticUseLabel(x))`);
 check('explicit treatment and prevention labels retained',`['MOT ØDEM','MOT HØYT BLODTRYKK','FOREBYGGER HJERNESLAG','ØYEDRÅPER MOT ALLERGI','VED SØVNVANSKER','TIL PREVENSJON'].every(therapeuticUseLabel)`);
 check('injection with route-only label has no fabricated indication',`(()=>{const p=DATA.catalog.meds.find(m=>m.brand==='Furix'&&m.uses.length===1&&m.uses[0]==='1152');return !!p&&indicationOptions(p,'').length===0;})()`);
-check('the rule applies to every product in the catalog',`DATA.catalog.meds.every(p=>indicationOptions(p,'').every(x=>x.origin==='product'&&x.system==='FEST 7488'&&p.uses.includes(x.code)))`);
+check('the rule applies to every product in the catalog',`DATA.catalog.meds.every(p=>indicationOptions(p,'').every(x=>x.origin==='product'&&x.system==='FEST 7488'&&p.uses.includes(x.code)||x.origin==='spc'&&!!indicationEvidence(p)&&!x.system&&!x.code&&!!x.source))`);
 check('changing patient symptoms cannot change default choices for any product',`DATA.catalog.meds.every(p=>JSON.stringify(indicationOptions(p,'',state.diagnosisList))===JSON.stringify(indicationOptions(p,'',[])))`);
+// Newly reviewed SPC fallback: never generalise an ATC class to all routes/products.
+check('morphine and oxycodone injections have source-backed pain suggestions',`DATA.catalog.meds.filter(p=>p.ordinary&&['N02AA01','N02AA05'].includes(p.atc)&&/inj/i.test(p.form)).every(p=>indicationOptions(p,'').some(x=>x.origin==='spc'&&/smerter/.test(x.text)))`);
+check('epidural morphine retains the epidural qualifier',`indicationOptions(DATA.catalog.meds.find(p=>p.brand==='Morfin Epidural'),'').every(x=>/epidural/.test(x.text))`);
+check('opioid indications never gain palliative off-label dyspnea automatically',`DATA.catalog.meds.filter(p=>p.atc==='N02AA05').every(p=>indicationOptions(p,'').every(x=>!/dysp|tungpust|forebygg/i.test(x.text)))`);
+check('changing ATC or form cannot borrow an SPC suggestion',`(()=>{const p=DATA.catalog.meds.find(p=>p.brand==='OxyNorm'&&/inj/i.test(p.form));return !indicationEvidence({...p,atc:'C08CA01'})&&!indicationEvidence({...p,form:'Inhalasjon'});})()`);
+check('all evidence entries resolve to real catalog products',`INDICATION_EVIDENCE.every(r=>DATA.catalog.meds.some(p=>indicationEvidence(p)===r))`);
+check('all ordinary N02 catalog products now have source-based options',`DATA.catalog.meds.filter(p=>p.ordinary&&p.atc.startsWith('N02')).every(p=>indicationOptions(p,'').length>0)`);
 // Realistic cascading case must still work without falsifying amlodipine indication.
 run(`state.meds=[{id:'aml',name:'Norvasc',atc:'C08CA01',form:'Tablett',indication:'Hypertensjon',status:'Uendret',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}},{id:'fur',name:'Furix',atc:'C03CA01',form:'Tablett',indication:'Vanndrivende',status:'Uendret',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}}];var before=JSON.stringify(state);`);
 check('patient-level edema still triggers the cascade',`cascadeFindings().some(h=>h.rule==='PIPC-05'&&h.evidenceSource==='patient')`);
@@ -34,3 +41,8 @@ check('explicit selection alone populates indication and diagnosis code',`(()=>{
 check('mismatched catalog and manually edited ATC cannot borrow product uses',`form.elements.indication.value='';form.elements.atc.value='A10BA02';showIndications();indicationChoices.length===0&&source.innerHTML===''`);
 check('malicious patient text is escaped in manual search',`state.diagnosisList=[{text:'Test <img src=x onerror=alert(1)>',system:'',code:''}];form.elements.indication.value='Test <img';showIndications();suggestions.innerHTML.includes('&lt;img')&&!suggestions.innerHTML.includes('<img')`);
 console.log('PASS: '+checks+' indication provenance, whole-catalog, manual-search and cascade separation checks.');
+
+check('diagnosis search caches repeated queries without changing results',`diagnosisSearch('astma')===diagnosisSearch('ASTMA')&&diagnosisSearch('j45.0').some(x=>x.d[1]==='J45.0')`);
+const timings=[];
+for(const term of ['as','ast','astm','astma','i4','i48','j45','j45.0','di','dia','diab','diabetes','k7','k78','hy','hyper','hypertensjon','AF','KOLS','nyre']){context.benchTerm=term;run('diagnosisQueryCache.delete(normCatalog(benchTerm).trim())');const start=performance.now();run('diagnosisSearch(benchTerm)');timings.push(performance.now()-start);}
+console.log('Diagnosis search benchmark, 20 uncached queries: median '+timings.sort((a,b)=>a-b)[10].toFixed(2)+' ms, max '+Math.max(...timings).toFixed(2)+' ms.');
