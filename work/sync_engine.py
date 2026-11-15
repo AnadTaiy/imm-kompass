@@ -129,7 +129,14 @@ def replace_app_data(app,data):
 def run_checks(work):
  node=node_executable()
  for name in ['test_v3.cjs','test_filters.cjs','test_calculators.cjs','test_renal_dose.cjs','test_cascades.cjs','test_sadman.cjs','test_lrp_signals.cjs','test_pain_safety.cjs','test_indications.cjs','test_persistence.cjs','test_renal_policy.cjs','test_patient_context.cjs','test_stopp_context.cjs','test_natural_sources.cjs','test_privacy_sources.cjs','test_interaction_layout.cjs','test_undo.cjs','test_warning_clarity.cjs','test_work_status.cjs','test_view_state.cjs']:
-  subprocess.run([node,str(work/name)],check=True,capture_output=True,encoding='utf-8',timeout=90,**process_options())
+  # Keep failures visible in CI; otherwise only CalledProcessError is shown and
+  # differences in the freshly synced reference catalog cannot be diagnosed.
+  result=subprocess.run([node,str(work/name)],capture_output=True,encoding='utf-8',timeout=90,**process_options())
+  if result.returncode:
+   print(f'FAILED: {name}',flush=True)
+   print(result.stdout,flush=True)
+   print(result.stderr,flush=True)
+   result.check_returncode()
 @contextmanager
 def sync_lock(work):
  """An OS-held lock is released even if the updater crashes. Never steal another run's lock."""
