@@ -33,6 +33,8 @@
   "lrp-signals.js",
   "pain-safety.js",
   "pain-safety-ui.js",
+  "medicine-checks.js",
+  "medicine-checks-ui.js",
   "lrp-signals-ui.js",
   "state-migration.js",
   "sync-ui.js",

@@ -18628,6 +18628,793 @@
         ],
         "reviewed": "2026-11-14"
       }
+    },
+    {
+      "id": "medicine-mcMetformin",
+      "ids": [],
+      "title": "MHRA – metformin og vitamin B12",
+      "url": "https://www.gov.uk/drug-safety-update/metformin-and-reduced-vitamin-b12-levels-new-advice-for-monitoring-patients-at-risk",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.gov.uk/drug-safety-update/metformin-and-reduced-vitamin-b12-levels-new-advice-for-monitoring-patients-at-risk"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "B12-risiko ved metformin: symptomer, testing og oppfølging. Ikke rutinemessig tilskudd til alle.",
+      "note": "B12-risiko ved metformin: symptomer, testing og oppfølging. Ikke rutinemessig tilskudd til alle.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "A10BA02"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "diabetes",
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcB12",
+      "ids": [],
+      "title": "NICE NG239 – B12: symptomer, risikofaktorer og utredning",
+      "url": "https://www.nice.org.uk/guidance/ng239/chapter/Recommendations#recognising-vitamin-b12-deficiency",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.nice.org.uk/guidance/ng239/chapter/Recommendations#recognising-vitamin-b12-deficiency"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "B12-mangel: symptomer, risikofaktorer og utredning. Metformin og PPI er risikofaktorer.",
+      "note": "B12-mangel: symptomer, risikofaktorer og utredning. Metformin og PPI er risikofaktorer.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "A10BA02",
+          "A02BC"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "bivirkning"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcMg",
+      "ids": [],
+      "title": "MHRA – PPI og hypomagnesemi",
+      "url": "https://www.gov.uk/drug-safety-update/proton-pump-inhibitors-in-long-term-use-reports-of-hypomagnesaemia",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.gov.uk/drug-safety-update/proton-pump-inhibitors-in-long-term-use-reports-of-hypomagnesaemia"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Langvarig PPI og magnesium, særlig ved samtidig diuretikum eller digoksin.",
+      "note": "Langvarig PPI og magnesium, særlig ved samtidig diuretikum eller digoksin.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "A02BC"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "refluks"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcMtx",
+      "ids": [],
+      "title": "Legemiddelhåndboka – metotreksat",
+      "url": "https://www.legemiddelhandboka.no/extended/virkestoff/metotreksat",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/extended/virkestoff/metotreksat"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Metotreksat: indikasjon, ukentlig dosering ved inflammatorisk sykdom, folsyre og sikkerhet.",
+      "note": "Metotreksat: indikasjon, ukentlig dosering ved inflammatorisk sykdom, folsyre og sikkerhet.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "L04AX03",
+          "L01BA01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi",
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcMtxMonitor",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av metotreksat",
+      "url": "https://sps.nhs.uk/monitorings/methotrexate-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/methotrexate-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Oppfølging av blodceller, lever og nyrefunksjon ved metotreksat.",
+      "note": "Oppfølging av blodceller, lever og nyrefunksjon ved metotreksat.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "L04AX03",
+          "L01BA01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcLithium",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av litium",
+      "url": "https://sps.nhs.uk/monitorings/lithium-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/lithium-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Litiumkonsentrasjon, nyre, tyreoidea, kalsium og tegn på toksisitet.",
+      "note": "Litiumkonsentrasjon, nyre, tyreoidea, kalsium og tegn på toksisitet.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "N05AN01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "psykiatri"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcAmiodarone",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av amiodaron",
+      "url": "https://sps.nhs.uk/monitorings/amiodarone-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/amiodarone-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Tyreoidea, lever, elektrolytter, EKG og målrettet utredning av lungesymptomer ved amiodaron.",
+      "note": "Tyreoidea, lever, elektrolytter, EKG og målrettet utredning av lungesymptomer ved amiodaron.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "C01BD01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "hjerte"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcDoac",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av DOAK",
+      "url": "https://sps.nhs.uk/monitorings/doacs-direct-oral-anticoagulants-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/doacs-direct-oral-anticoagulants-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Dosegrunnlag, kreatininclearance, blodstatus og oppfølging ved DOAK.",
+      "note": "Dosegrunnlag, kreatininclearance, blodstatus og oppfølging ved DOAK.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "B01AE07",
+          "B01AF01",
+          "B01AF02",
+          "B01AF03"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "trombose"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcRaas",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av ACE-hemmere og ARB",
+      "url": "https://sps.nhs.uk/monitorings/ace-inhibitors-and-angiotensin-ii-receptor-blockers-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/ace-inhibitors-and-angiotensin-ii-receptor-blockers-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Blodtrykk, kalium og nyrefunksjon ved ACE-hemmer eller angiotensinreseptorblokker.",
+      "note": "Blodtrykk, kalium og nyrefunksjon ved ACE-hemmer eller angiotensinreseptorblokker.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "C09AA",
+          "C09CA"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "hjerte"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcSpironolactone",
+      "ids": [],
+      "title": "NHS SPS – oppfølging av spironolakton",
+      "url": "https://sps.nhs.uk/monitorings/spironolactone-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/monitorings/spironolactone-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Oppfølging av kalium og nyrefunksjon ved spironolakton, særlig ved hjertesvikt.",
+      "note": "Oppfølging av kalium og nyrefunksjon ved spironolakton, særlig ved hjertesvikt.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "C03DA01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm",
+          "hjertesvikt"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcNsaid",
+      "ids": [],
+      "title": "Legemiddelhåndboka – NSAID",
+      "url": "https://www.legemiddelhandboka.no/extended/ikke-steroide-antiinflammatoriske-midler-nsaid",
+      "category": "Bivirkninger",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/extended/ikke-steroide-antiinflammatoriske-midler-nsaid"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "NSAID: gastrointestinal, kardiovaskulær og renal risiko. Vurder egnethet og beskyttelse.",
+      "note": "NSAID: gastrointestinal, kardiovaskulær og renal risiko. Vurder egnethet og beskyttelse.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "M01A"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "smerte",
+          "bivirkning"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcSteroid",
+      "ids": [],
+      "title": "Legemiddelhåndboka – systemiske glukokortikoider",
+      "url": "https://www.legemiddelhandboka.no/extended/glukokortikoider-for-systemisk-effekt-og-lokal-injeksjon",
+      "category": "Bivirkninger",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/extended/glukokortikoider-for-systemisk-effekt-og-lokal-injeksjon"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Systemiske glukokortikoider: behandlingsoppfølging og beinhelse ved langtidsbruk.",
+      "note": "Systemiske glukokortikoider: behandlingsoppfølging og beinhelse ved langtidsbruk.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "H02AB"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "osteoporose",
+          "bivirkning"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcOpioid",
+      "ids": [],
+      "title": "Helsedirektoratet – smerte og obstipasjonsprofylakse ved palliasjon",
+      "url": "https://www.helsedirektoratet.no/retningslinjer/palliasjon-i-kreftomsorgen-handlingsprogram/symptomer-og-tilstander/smerte",
+      "category": "Bivirkninger",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsedirektoratet.no/retningslinjer/palliasjon-i-kreftomsorgen-handlingsprogram/symptomer-og-tilstander/smerte"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Smertebehandling og obstipasjonsprofylakse ved opioider i kreftomsorgens palliasjon.",
+      "note": "Smertebehandling og obstipasjonsprofylakse ved opioider i kreftomsorgens palliasjon.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [
+          "N02A"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "palliasjon",
+          "smerte"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcScottish",
+      "ids": [],
+      "title": "Skotsk veileder 2026–2029 – risikokombinasjoner",
+      "url": "https://www.gov.scot/publications/polypharmacy-guidance-appropriate-prescribing-making-medicines-safe-effective-sustainable-2026-2029/pages/16/",
+      "category": "IMM og dokumentasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.gov.scot/publications/polypharmacy-guidance-appropriate-prescribing-making-medicines-safe-effective-sustainable-2026-2029/pages/16/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Utvalgte risikoindikatorer, inkludert NSAID + ACE-hemmer/ARB + diuretikum. Individuell vurdering.",
+      "note": "Utvalgte risikoindikatorer, inkludert NSAID + ACE-hemmer/ARB + diuretikum. Individuell vurdering.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "lms",
+          "interaksjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcDmp",
+      "ids": [],
+      "title": "DMP – sjekkliste for legemiddelgjennomgang",
+      "url": "https://www.dmp.no/bivirkninger-og-sikkerhet/rad-til-helsepersonell/legemiddelgjennomgang",
+      "category": "IMM og dokumentasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://www.dmp.no/bivirkninger-og-sikkerhet/rad-til-helsepersonell/legemiddelgjennomgang"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Offisiell sjekkliste og praktisk støtte til legemiddelgjennomgang.",
+      "note": "Offisiell sjekkliste og praktisk støtte til legemiddelgjennomgang.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "lms"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcMonitoring",
+      "ids": [],
+      "title": "NHS SPS – legemiddelvis oppfølging",
+      "url": "https://sps.nhs.uk/home/tools/drug-monitoring/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://sps.nhs.uk/home/tools/drug-monitoring/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "Legemiddelvise kontrollpunkter og oppfølging. Kontrollhyppighet tilpasses pasienten.",
+      "note": "Legemiddelvise kontrollpunkter og oppfølging. Kontrollhyppighet tilpasses pasienten.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcThink",
+      "ids": [],
+      "title": "ThinkCascades – ni prioriterte forskrivningskaskader",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9477172/",
+      "category": "Bivirkninger",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9477172/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "ThinkCascades: ni prioriterte forskrivningskaskader hos eldre. Vurder årsak og tidsforløp.",
+      "note": "ThinkCascades: ni prioriterte forskrivningskaskader hos eldre. Vurder årsak og tidsforløp.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "bivirkning",
+          "alder"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
+    },
+    {
+      "id": "medicine-mcPincer",
+      "ids": [],
+      "title": "OpenSAFELY – PINCER-indikatorer",
+      "url": "https://reports.opensafely.org/reports/changes-in-pincer-measures-throughout-the-covid-19-pandemic/",
+      "category": "Monitorering og TDM",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-15",
+      "verification": "content",
+      "evidence": [
+        "https://reports.opensafely.org/reports/changes-in-pincer-measures-throughout-the-covid-19-pandemic/"
+      ],
+      "scope": "chapter",
+      "diagnosisOnly": false,
+      "diagnosisTerms": [],
+      "summary": "PINCER: indikatorer for risikoforskrivning og mulig manglende oppfølging. Appen beregner ikke tidsavhengige indikatorer.",
+      "note": "PINCER: indikatorer for risikoforskrivning og mulig manglende oppfølging. Appen beregner ikke tidsavhengige indikatorer.",
+      "tags": [],
+      "sources": [],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Legemiddelspesifikke kontrollpunkter",
+        "basis": "Manuelt avgrenset emnekobling til fagkilden; ikke en godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "lms",
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-15"
+      }
     }
   ],
   "audit": [
