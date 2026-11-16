@@ -187,3 +187,5 @@
 @media(forced-colors:active){.medicine-check-icon>circle:first-child{fill:Canvas;stroke:CanvasText}.medicine-check-icon>path{stroke:CanvasText}.medicine-check-icon .exclamation-dot{fill:CanvasText}}
 
 .source-directory-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+
+.renal-help-icon{display:inline-flex;color:#795299;vertical-align:middle;margin-right:6px}.renal-help-icon .icon{width:21px;height:21px}[data-theme=dark] .renal-help-icon{color:#c4a3e4}
