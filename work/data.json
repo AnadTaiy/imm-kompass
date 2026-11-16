@@ -1117,7 +1117,9 @@
       },
       "summary": "Retningslinje / fagstoff om terapikontroll og laboratorieprøver.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 11
     },
     {
       "ids": [
@@ -1300,7 +1302,9 @@
       },
       "summary": "Legemiddelmonografier, dosering, bivirkninger og interaksjoner.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 9
     },
     {
       "ids": [
@@ -1877,7 +1881,9 @@
       },
       "summary": "Bok om legemiddeldosering ved nedsatt nyrefunksjon. Tilgang via utgiver.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 12
     },
     {
       "ids": [
@@ -1994,7 +2000,9 @@
       },
       "summary": "Kliniske oversikter, diagnostikk og behandling.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 7
     },
     {
       "ids": [
@@ -2578,7 +2586,9 @@
       },
       "summary": "Kliniske oversikter for norsk praksis.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 5
     },
     {
       "ids": [
@@ -2687,7 +2697,9 @@
       },
       "summary": "Finn nasjonale retningslinjer etter sykdom eller tema.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 0
     },
     {
       "ids": [
@@ -6169,7 +6181,9 @@
       "technicalVerificationBeforeUser": "search",
       "technicalNoteBeforeUser": "DMPs søk for godkjent preparatomtale, refusjon og produktinformasjon. Sjekk indikasjon, dose, kontraindikasjoner og formulering.",
       "currentHttp": null,
-      "currentTechnical": "unverified"
+      "currentTechnical": "unverified",
+      "referenceWork": true,
+      "referenceOrder": 13
     },
     {
       "ids": [
@@ -6278,7 +6292,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 14
     },
     {
       "ids": [
@@ -6387,7 +6403,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 15
     },
     {
       "ids": [
@@ -6496,7 +6514,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 16
     },
     {
       "ids": [
@@ -6605,7 +6625,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 17
     },
     {
       "ids": [
@@ -6714,7 +6736,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 18
     },
     {
       "ids": [
@@ -6823,7 +6847,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 19
     },
     {
       "ids": [
@@ -6931,7 +6957,9 @@
       },
       "summary": "Oppslag om sykdommer, legemidler og behandling.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 2
     },
     {
       "ids": [
@@ -7046,7 +7074,9 @@
       },
       "summary": "Søk etter spørsmål og svar om legemidler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 6
     },
     {
       "ids": [
@@ -7094,7 +7124,9 @@
       },
       "summary": "Systematiske kunnskapsoppsummeringer.",
       "currentHttp": 412,
-      "currentTechnical": "error"
+      "currentTechnical": "error",
+      "referenceWork": true,
+      "referenceOrder": 20
     },
     {
       "ids": [
@@ -7201,7 +7233,9 @@
       },
       "summary": "Klinisk oppslagsverk for diagnostikk og behandling.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 10
     },
     {
       "ids": [
@@ -9544,7 +9578,9 @@
       },
       "summary": "Preparatomtaler med indikasjon, dosering, interaksjoner og forsiktighetsregler.",
       "currentHttp": 200,
-      "currentTechnical": "http"
+      "currentTechnical": "http",
+      "referenceWork": true,
+      "referenceOrder": 4
     },
     {
       "ids": [],
@@ -9696,7 +9732,9 @@
       },
       "summary": "Finn britiske retningslinjer etter sykdom eller tema.",
       "currentHttp": 403,
-      "currentTechnical": "blocked"
+      "currentTechnical": "blocked",
+      "referenceWork": true,
+      "referenceOrder": 8
     },
     {
       "ids": [
@@ -10730,7 +10768,9 @@
       },
       "summary": "Retningslinje / fagstoff om barn.",
       "currentHttp": 200,
-      "currentTechnical": "ok"
+      "currentTechnical": "ok",
+      "referenceWork": true,
+      "referenceOrder": 21
     },
     {
       "ids": [
@@ -12773,7 +12813,9 @@
       "currentHttp": 200,
       "currentTechnical": "http",
       "diagnosisOnly": true,
-      "diagnosisTerms": []
+      "diagnosisTerms": [],
+      "referenceWork": true,
+      "referenceOrder": 26
     },
     {
       "ids": [
@@ -19415,6 +19457,654 @@
         ],
         "reviewed": "2026-11-15"
       }
+    },
+    {
+      "id": "ref-hbib",
+      "title": "Helsebiblioteket – oppslagsverk og databaser",
+      "url": "https://www.helsebiblioteket.no/oppslagsverk-og-databaser/oppslagsverk",
+      "summary": "Samlet inngang til kliniske oppslagsverk og informasjon om tilgang.",
+      "category": "Generelle oppslagsverk",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsebiblioteket.no/oppslagsverk-og-databaser/oppslagsverk"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Helsebiblioteket – oppslagsverk og databaser",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [],
+        "related": [],
+        "general": true,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 3
+    },
+    {
+      "id": "ref-metodebok",
+      "title": "Metodebok – metodebøker og veiledere",
+      "url": "https://metodebok.no/",
+      "summary": "Søk etter metodebøker, faglige veiledere og lokale prosedyrer. Kontroller hvem prosedyren gjelder for.",
+      "category": "Generelle oppslagsverk",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "restricted",
+      "evidence": [
+        "https://metodebok.no/"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "Metodebok – metodebøker og veiledere",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [],
+        "related": [],
+        "general": true,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 1
+    },
+    {
+      "id": "ref-ukcpa",
+      "title": "UKCPA – Handbook of Perioperative Medicines",
+      "url": "https://periop-handbook.ukclinicalpharmacy.org/",
+      "summary": "Legemiddelvise råd før, under og etter kirurgi. Britisk oppslagsverk.",
+      "category": "Generelle oppslagsverk",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://periop-handbook.ukclinicalpharmacy.org/"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": true,
+        "label": "UKCPA – Handbook of Perioperative Medicines",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "administrasjon"
+        ],
+        "related": [],
+        "general": true,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 22
+    },
+    {
+      "id": "ref-antibiotika",
+      "title": "Antibiotika.no – antibiotikabruk og fagressurser",
+      "url": "https://www.antibiotika.no/",
+      "summary": "Fagressurser fra antibiotikamiljøene i primærhelsetjenesten og sykehus.",
+      "category": "Infeksjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://www.antibiotika.no/"
+      ],
+      "codes": {
+        "atc": [
+          "J01"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Antibiotika.no – antibiotikabruk og fagressurser",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "infeksjon",
+          "resistens"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 23
+    },
+    {
+      "id": "ref-kreftlex",
+      "title": "Kreftlex – kreftsykdommer og behandling",
+      "url": "https://kreftlex.no/",
+      "summary": "Oppslagsverk om kreftsykdommer, utredning og behandling.",
+      "category": "Kreft",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://kreftlex.no/"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [
+          "C"
+        ],
+        "icpc": [],
+        "general": false,
+        "label": "Kreftlex – kreftsykdommer og behandling",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "kreft"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 24
+    },
+    {
+      "id": "ref-dskp",
+      "title": "DSKP – klinisk psykofarmakologi og handlingskort",
+      "url": "https://www.psykofarmakologi.dk/",
+      "summary": "Danske handlingskort og fagressurser om psykofarmaka og oppfølging.",
+      "category": "Psykiatri og rus",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://www.psykofarmakologi.dk/"
+      ],
+      "codes": {
+        "atc": [
+          "N05",
+          "N06"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "DSKP – klinisk psykofarmakologi og handlingskort",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "psykiatri",
+          "tdm"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 25
+    },
+    {
+      "id": "course-ada-easd",
+      "title": "ADA/EASD 2026 – behandling av type 2-diabetes",
+      "url": "https://link.springer.com/article/10.1007/s00125-026-06855-7",
+      "summary": "Oppdatert konsensusrapport fra oktober 2026 om helhetlig behandling av type 2-diabetes hos voksne som ikke er gravide. Erstatter konsensusrapporten fra 2022.",
+      "category": "Diabetes og endokrinologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s00125-026-06855-7"
+      ],
+      "codes": {
+        "atc": [
+          "A10B"
+        ],
+        "icd": [
+          "E11"
+        ],
+        "icpc": [
+          "T90"
+        ],
+        "general": false,
+        "label": "ADA/EASD 2026 – behandling av type 2-diabetes",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-hdir-diabetes",
+      "title": "Helsedirektoratet – blodsukkersenkende behandling ved type 2-diabetes",
+      "url": "https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-og-behandlingsmal-ved-diabetes-type-2",
+      "summary": "Kapittel med behandlingsmål og valg av blodsukkersenkende legemidler ved type 2-diabetes.",
+      "category": "Diabetes og endokrinologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-og-behandlingsmal-ved-diabetes-type-2"
+      ],
+      "codes": {
+        "atc": [
+          "A10B"
+        ],
+        "icd": [
+          "E11"
+        ],
+        "icpc": [
+          "T90"
+        ],
+        "general": false,
+        "label": "Helsedirektoratet – blodsukkersenkende behandling ved type 2-diabetes",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-inhalers",
+      "title": "Janusinfo – oversikt over inhalatorer",
+      "url": "https://janusinfo.se/inhalatorer",
+      "summary": "Illustrert oversikt over inhalatorer på det svenske markedet. Norske preparatnavn og tilgjengelighet kan avvike.",
+      "category": "Administrasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://janusinfo.se/inhalatorer"
+      ],
+      "codes": {
+        "atc": [
+          "R03"
+        ],
+        "icd": [
+          "J44",
+          "J45"
+        ],
+        "icpc": [
+          "R95",
+          "R96"
+        ],
+        "general": false,
+        "label": "Janusinfo – oversikt over inhalatorer",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "lunge",
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Administrasjon",
+        "purposes": [
+          "Administrasjon"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-nice-ra",
+      "title": "NICE NG100 – revmatoid artritt hos voksne",
+      "url": "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations#initial-pharmacological-management",
+      "summary": "Anbefalinger om legemiddelbehandling, behandlingsmål og oppfølging ved revmatoid artritt.",
+      "category": "Revmatologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://www.nice.org.uk/guidance/ng100/chapter/Recommendations#initial-pharmacological-management"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M05",
+          "M06"
+        ],
+        "icpc": [
+          "L88"
+        ],
+        "general": false,
+        "label": "NICE NG100 – revmatoid artritt hos voksne",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "diagnosisOnly": true
+    },
+    {
+      "id": "course-lhb-ra",
+      "title": "Legemiddelhåndboken – revmatoid artritt",
+      "url": "https://www.legemiddelhandboka.no/muskel-og-skjelettsykdommer/betennelsesaktige-revmatiske-sykdommer/revmatoid-artritt-ra",
+      "summary": "Terapikapittel om diagnostikk, behandling og oppfølging ved revmatoid artritt.",
+      "category": "Revmatologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://www.legemiddelhandboka.no/muskel-og-skjelettsykdommer/betennelsesaktige-revmatiske-sykdommer/revmatoid-artritt-ra"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M05",
+          "M06"
+        ],
+        "icpc": [
+          "L88"
+        ],
+        "general": false,
+        "label": "Legemiddelhåndboken – revmatoid artritt",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "diagnosisOnly": true
+    },
+    {
+      "id": "course-relis-sonde",
+      "title": "RELIS – administrasjon av legemidler i sonde",
+      "url": "https://relis.no/artikler/39158/",
+      "summary": "Praktisk gjennomgang av valg av formulering, knusing og administrasjon via sonde.",
+      "category": "Administrasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://relis.no/artikler/39158/"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "RELIS – administrasjon av legemidler i sonde",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "sonde",
+          "administrasjon"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Administrasjon",
+        "purposes": [
+          "Administrasjon"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-kupp-opioid",
+      "title": "RELIS / KUPP – riktigere bruk av opioider",
+      "url": "https://relis.no/wp-content/uploads/2023/03/KUPP-opioider-sidedelt-med-innstikk.pdf",
+      "summary": "Kampanjebrosjyre om opioidbehandling og revurdering av langvarig bruk ved ikke-malign smerte.",
+      "category": "Smerte og palliasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://relis.no/wp-content/uploads/2023/03/KUPP-opioider-sidedelt-med-innstikk.pdf"
+      ],
+      "codes": {
+        "atc": [
+          "N02A"
+        ],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "RELIS / KUPP – riktigere bruk av opioider",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "smerte",
+          "seponering"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-patient-leaflets",
+      "title": "Helsebiblioteket – pasientbrosjyrer",
+      "url": "https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/pasientbrosjyrer-pa-helsebiblioteket",
+      "summary": "Inngang til pasientinformasjon og brosjyrer på Helsebiblioteket.",
+      "category": "Pasientinformasjon",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/pasientbrosjyrer-pa-helsebiblioteket"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "Helsebiblioteket – pasientbrosjyrer",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "etterlevelse"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Pasientinformasjon",
+        "purposes": [
+          "Pasientinformasjon"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "course-aas",
+      "title": "OUS – anabole steroider og behandling",
+      "url": "https://www.oslo-universitetssykehus.no/fag-og-forskning/nasjonale-og-regionale-tjenester/nrapp/rus-og-avhengighet/opplaering-ressurser-tsb/anabole-steroider-og-behandling/",
+      "summary": "Fagressurser om bruk av anabole androgene steroider, helseskader og behandling. Inngang til håndboken og oppdatert undervisningsmateriell.",
+      "category": "Psykiatri og rus",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://www.oslo-universitetssykehus.no/fag-og-forskning/nasjonale-og-regionale-tjenester/nrapp/rus-og-avhengighet/opplaering-ressurser-tsb/anabole-steroider-og-behandling/"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [],
+        "icpc": [],
+        "general": false,
+        "label": "OUS – anabole steroider og behandling",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "rus"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      }
+    },
+    {
+      "id": "guide-eular-ra-2025",
+      "title": "EULAR – revmatoid artritt, 2025-oppdateringen (publisert 2026)",
+      "url": "https://doi.org/10.1016/j.ard.2026.01.023",
+      "summary": "Gjeldende EULAR-anbefalinger om sykdomsmodifiserende legemidler ved revmatoid artritt. 2025-oppdateringen ble publisert i mars 2026.",
+      "category": "Revmatologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "search",
+      "evidence": [
+        "https://www.eular.org/recommendations-management",
+        "https://doi.org/10.1016/j.ard.2026.01.023"
+      ],
+      "codes": {
+        "atc": [],
+        "icd": [
+          "M05",
+          "M06"
+        ],
+        "icpc": [
+          "L88"
+        ],
+        "general": false,
+        "label": "EULAR – revmatoid artritt, 2025-oppdateringen (publisert 2026)",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "revmatologi"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Retningslinje / fagstoff",
+        "purposes": [
+          "Retningslinje / fagstoff"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "diagnosisOnly": true
+    },
+    {
+      "id": "ref-ada",
+      "title": "ADA – gjeldende Standards of Care in Diabetes",
+      "url": "https://professional.diabetes.org/standards-of-care",
+      "summary": "ADAs offisielle inngang til gjeldende diabetesretningslinjer og oppdateringer. Viser 2026-utgaven ved kontroll 16.11.2026.",
+      "category": "Diabetes og endokrinologi",
+      "access": "Åpen",
+      "pediatric": false,
+      "checked": "2026-11-16",
+      "verification": "content",
+      "evidence": [
+        "https://professional.diabetes.org/standards-of-care"
+      ],
+      "codes": {
+        "atc": [
+          "A10B"
+        ],
+        "icd": [
+          "E11"
+        ],
+        "icpc": [
+          "T90"
+        ],
+        "general": false,
+        "label": "ADA – gjeldende Standards of Care in Diabetes",
+        "basis": "Manuell emneindeksering etter kildens innhold. Ingen automatisk kobling til godkjent indikasjon."
+      },
+      "taxonomy": {
+        "primary": [
+          "diabetes"
+        ],
+        "related": [],
+        "general": false,
+        "purpose": "Generelt oppslagsverk",
+        "purposes": [
+          "Generelt oppslagsverk"
+        ],
+        "reviewed": "2026-11-16"
+      },
+      "referenceWork": true,
+      "referenceOrder": 27,
+      "scope": "book"
     }
   ],
   "audit": [

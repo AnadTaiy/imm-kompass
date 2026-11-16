@@ -53,6 +53,10 @@ check('distinct circular icon, not triangle',run(`medicineCheckSymbol().includes
 check('one category button, source opens new tab',run(`lrpSignalFlags(m).split('Legemiddelkontroll</span>').length===2&&lrpSignalFlags(m).includes('target="_blank"')`));
 check('no private query, age, diagnosis or dose exported',run(`(()=>{const u=new URL(lrpSignalUrl(m,lrpSignalFindings()));return [...u.searchParams.keys()].every(k=>['tool','scope','lrpSignal','catalog','atc'].includes(k))&&!u.href.includes('secret')&&!u.hash;})()`));
 check('click opens exact clinical source plus SPC',run(`queryParams.set('lrpSignal','mc-metformin-b12');sourceContext={catalogId:p.id,atc:p.atc};lrpSignalSourcePanel().includes(window.IMMMedicineChecks.sources.mcMetformin[1])&&lrpSignalSourcePanel().includes(p.spc)`));
+check('metformin panel excludes the general help block',run(`!lrpSignalSourcePanel().includes('Hva undersøkes?')&&!lrpSignalSourcePanel().includes('Mulig dobbeltbehandling:')`));
+check('other control categories also exclude the general help block',run(`queryParams.set('lrpSignal','mc-ppi-review,mc-mtx-folate,lab-high-k-raas');sourceContext={atc:'A02BC01'};!lrpSignalSourcePanel().includes('Hva undersøkes?')`));
+check('general explanations remain in their Help categories',run(`(()=>{let html='';modal=(t,b)=>html=b;showHelp();return html.includes('Dobbeltbehandling, prøvesvar og legemiddel–sykdom')&&html.includes('Respirasjonsrisiko og legemiddeloverforbrukshodepine')&&html.includes('Legemiddelkontroll og sjekklister');})()`));
+run(`queryParams.set('lrpSignal','mc-metformin-b12')`);
 check('changing selected drug invalidates old prompt',run(`sourceContext={atc:'C08CA01'};lrpSignalSourcePanel().includes('passer ikke')`));
 check('Help and review guide render without downloads',run(`(()=>{let html='';modal=(t,b)=>html=b;showHelp();return html.includes('Legemiddelkontroll')&&html.includes('PINCER')&&html.includes('mc-metformin')===false&&!medicineReviewGuide().includes('download');})()`));
 check('guide shares existing source routing',run(`practicalSupport().includes('Kort sjekkliste')&&practicalSupport().includes('tool=sources')`));

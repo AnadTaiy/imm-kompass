@@ -27,6 +27,21 @@ check('checkbox starts a directory even from unrelated filters', `filters={q:'ar
 check('unchecking restores the previous search', `setInteractionDatabaseFilter(false);filters.q==='artrose'&&filters.tags[0]==='nyre'&&filters.access==='open'&&!filters.interactionDatabases`);
 check('shared DMP data is made explicit', `setInteractionDatabaseFilter(true);interactionDatabaseNote().includes('samme interaksjonsdata')&&DATA.resources.filter(r=>r.interactionDataSource==='DMP / FEST').length===2`);
 check('source ordering preserves guideline tiers and publisher preference', `(()=>{const ranks=filteredResources().map(r=>sourceClinicalPriority(r)*10+sourcePriority(r));return ranks.every((n,i)=>i===0||n>=ranks[i-1]);})()`);
+check('reference directory ignores invalid context and prior filters', `filters={q:'artrose',topic:'artrose',tags:['nyre'],access:'paid'};sourceContext={atc:'INVALID',diagnosisCode:'INVALID'};setReferenceWorkFilter(true);filteredResources().length===28&&filteredResources().every(r=>r.referenceWork===true)`);
+check('named handbooks and portals included, including pediatric KOBLE', `['r029','ref-metodebok','r099','ref-hbib','r019','r145','r162'].every(id=>filteredResources().some(r=>r.id===id))`);
+check('directory has no individual guideline chapters or course archives', `!filteredResources().some(r=>['r166','course-nice-ra','course-adherence'].includes(r.id))`);
+check('directory order starts with national portals', `filteredResources().slice(0,4).map(r=>r.id).join(',')==='r029,ref-metodebok,r099,ref-hbib'`);
+check('directory hides inapplicable context, topic filters and old checkbox', `(()=>{const html=renderLibrary();return !/source-diagnosis|resource-topic|resource-general|Kontrollpunkt fra legemiddellisten/.test(html)&&html.includes('resource-references')&&!filterSummary().includes('INVALID');})()`);
+check('reference directory searches names without disease inference', `filters.q='NICE';filteredResources().length===1&&filteredResources()[0].id==='r145'`);
+check('reference directory licensed/open access both work', `filters.q='';filters.access='paid';var paid=filteredResources();filters.access='open';var open=filteredResources();paid.length>0&&open.length>0&&paid.every(r=>r.access!=='Åpen')&&open.every(r=>r.access==='Åpen')`);
+check('directory favorites work', `filters.access='';favorites.add('r099');filters.fav=true;filteredResources().map(r=>r.id).join(',')==='r099'`);
+check('switching directories retains original search, not directory filters', `setInteractionDatabaseFilter(true);filteredResources().length===10&&!filters.referenceWorks&&filters.previousSearch.q==='artrose'`);
+check('leaving directory restores original search exactly', `setInteractionDatabaseFilter(false);filters.q==='artrose'&&filters.topic==='artrose'&&filters.tags[0]==='nyre'&&filters.access==='paid'&&!sourceDirectoryMode()`);
+check('reset discards old directory snapshot', `setReferenceWorkFilter(true);filters={q:'new search',tags:[]};setReferenceWorkFilter(true);setReferenceWorkFilter(false);filters.q==='new search'&&!filters.topic`);
+check('clinical context is never modified by directories', `sourceContext.atc==='INVALID'&&sourceContext.diagnosisCode==='INVALID'`);
+check('course sources avoid private URLs and the parked UKCPA domain', `DATA.resources.filter(r=>/^(course-|ref-)/.test(r.id)).every(r=>/^https:/.test(r.url)&&!/(canvas|verifier=|ukcpa-periophandbook.co.uk)/.test(r.url))`);
+check('no course archives in the library', `!DATA.resources.some(r=>/kursarkiv|futurelearn/i.test(r.title+' '+r.url))`);
+check('imported treatment guidance uses updated versions', `DATA.resources.some(r=>r.id==='course-ada-easd'&&r.title.includes('2026'))&&!DATA.resources.some(r=>['course-chadsvasc','course-antithrombotic'].includes(r.id))`);
 const Store=require('./review-store.js');
 class MemoryStorage{constructor(){this.map=new Map();this.fail=false;}get length(){return this.map.size;}key(i){return [...this.map.keys()][i]??null;}getItem(k){return this.map.get(k)??null;}setItem(k,v){if(this.fail)throw Error('Quota');this.map.set(k,v);}removeItem(k){this.map.delete(k);}}
 const storage=new MemoryStorage(),store=new Store(storage);
