@@ -76,6 +76,23 @@ check('EN dedup',String.raw`substanceList('en').text==='Paracetamol\nCodeine'`);
 check('selection',String.raw`substanceList('no',['2']).text==='Paracetamol'`);
 check('empty selection empty',String.raw`substanceList('no',[]).text===''`);
 check('English missing blocked',String.raw`state.meds[0].ingredientsEn='';!!substanceList('en').error`);
+run(String.raw`state=blank();state.meds=[
+ {id:'combo',name:'Paralgin forte',ingredients:'Paracetamol\nKodein',ingredientsEn:'Paracetamol\nCodeine',form:'tab 400 mg/30 mg',doseUnit:'tablett',schedule:'Ved behov',observations:{baseline:{dose:'2x3'}},actualUses:{patient:{dose:'1→ x 3'}}},
+ {id:'single',name:'Paracet',ingredients:'Paracetamol',ingredientsEn:'Paracetamol',form:'tab 500 mg',doseUnit:'tablett',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}}
+];`);
+check('dose export keeps combination with its own strength and actual dose',String.raw`substanceList('no',['combo'],true).text==='Paracetamol / Kodein (tab 400 mg/30 mg) — 1 tablett inntil 3 ganger daglig · Ved behov'`);
+check('English export changes names but preserves recorded strength and dosing',String.raw`substanceList('en',['combo'],true).text==='Paracetamol / Codeine (tab 400 mg/30 mg) — 1 tablett inntil 3 ganger daglig · Ved behov'`);
+check('dose export retains separate medicines sharing a substance',String.raw`substanceList('no',null,true).text.split('\n').length===2&&substanceList('no',null,true).text.includes('Paracetamol (tab 500 mg) — 1 tablett daglig')`);
+check('plain export remains deduplicated and without doses',String.raw`substanceList('no').text==='Paracetamol\nKodein'`);
+check('empty selection has no dose lines',String.raw`substanceList('no',[],true).text===''`);
+check('missing actual dose never falls back to source dose',String.raw`state.meds[0].actualUses.patient.dose='';substanceList('no',['combo'],true).text.includes('Dosering ikke registrert')&&!substanceList('no',['combo'],true).text.includes('3 ganger')`);
+check('weekly dose expands without calculating a daily dose',String.raw`state.meds[1].actualUses.patient.dose='1u man';substanceList('no',['single'],true).text.endsWith('1 tablett ukentlig på mandag')`);
+check('free text stays on one medicine line',String.raw`state.meds[1].actualUses.patient.dose='1–2 tabletter ved smerter,\nmaks 4 per døgn';substanceList('no',['single'],true).text==='Paracetamol (tab 500 mg) — 1–2 tabletter ved smerter, maks 4 per døgn'`);
+check('mg dosing keeps its unit and never becomes tablets',String.raw`state.meds[1].doseUnit='mg';state.meds[1].actualUses.patient.dose='10x1';substanceList('no',['single'],true).text.endsWith('10 mg daglig')`);
+check('relative dose is used when relative is the actual-use reporter',String.raw`state.lms.sourceList.push({id:'relative',type:'PR',relation:'Ektefelle'});state.meds[1].actualUses.relative={dose:'5x1'};substanceList('no',['single'],true).text.endsWith('5 mg daglig')`);
+check('missing relative dose does not use the old patient dose',String.raw`delete state.meds[1].actualUses.relative;substanceList('no',['single'],true).text.endsWith('Dosering ikke registrert')`);
+check('stopped medicine excluded by default and labeled when selected',String.raw`state.meds[1].status='Seponert';!substanceList('no',null,true).text.includes('500 mg')&&substanceList('no',['single'],true).text.endsWith('· Seponert')`);
+check('dose export still blocks missing English names',String.raw`state.meds[0].ingredientsEn='';!!substanceList('en',['combo'],true).error`);
 run(String.raw`state=blank();state.lrps=[{id:'a',title:'A',problem:'Bakgrunn',action:'Forslag',implemented:false,measure:'Skjult',taperPlan:'Avtalt plan',restartPlan:'Ny vurdering ved symptomer'},{id:'b',title:'B',problem:'Bakgrunn B',action:'Forslag B',implemented:true,measure:'Utført'}];`);
 check('journal includes plan, excludes unconfirmed measure',String.raw`journalText().includes('Avtalt plan')&&!journalText().includes('Skjult')&&journalText().includes('Utført')&&journalValidation()===''`);
 check('journal order',String.raw`state.lrps.reverse();journalText().indexOf('1. B')<journalText().indexOf('2. A')`);
