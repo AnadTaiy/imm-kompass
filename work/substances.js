@@ -1,12 +1,15 @@
 function substanceDoseLine(m,names){
  const oneLine=value=>String(value||'').replace(/\s+/g,' ').trim();
- const form=oneLine(m.form),dose=oneLine(doseText(actualUse(m).dose,m))||'Dosering ikke registrert';
+ const form=oneLine(m.form),name=oneLine(m.name),dose=oneLine(doseText(actualUse(m).dose,m))||'Dosering ikke registrert';
+ // FEST commonly keeps the strength in the product name and only the form in m.form.
+ // Preserve that label verbatim rather than guessing or converting the strength.
+ const presentation=/\d/.test(name)&&!/\d/.test(form)?name:form;
  const extra=[];
  if(m.schedule&&m.schedule!=='Fast'&&!norm(dose).includes(norm(m.schedule)))extra.push(m.schedule);
  if(['Pausert','Seponert'].includes(m.status)&&!norm(dose).includes(norm(m.status)))extra.push(m.status);
  // Keep combinations and separate prescriptions together with their own dose.
  // Never infer actual use from a conflicting source or calculate a substance dose.
- return names.join(' / ')+(form?' ('+form+')':'')+' — '+dose+(extra.length?' · '+extra.join(' · '):'');
+ return names.join(' / ')+(presentation?' ('+presentation+')':'')+' — '+dose+(extra.length?' · '+extra.join(' · '):'');
 }
 function substanceList(lang='no',selected=null,includeDose=false){
  const active=selected?state.meds.filter(m=>selected.includes(m.id)):state.meds.filter(m=>m.schedule!=='Bruker ikke'&&!['Pausert','Seponert'].includes(m.status));

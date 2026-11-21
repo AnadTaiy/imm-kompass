@@ -93,6 +93,10 @@ check('relative dose is used when relative is the actual-use reporter',String.ra
 check('missing relative dose does not use the old patient dose',String.raw`delete state.meds[1].actualUses.relative;substanceList('no',['single'],true).text.endsWith('Dosering ikke registrert')`);
 check('stopped medicine excluded by default and labeled when selected',String.raw`state.meds[1].status='Seponert';!substanceList('no',null,true).text.includes('500 mg')&&substanceList('no',['single'],true).text.endsWith('· Seponert')`);
 check('dose export still blocks missing English names',String.raw`state.meds[0].ingredientsEn='';!!substanceList('en',['combo'],true).error`);
+run(String.raw`state=blank();state.meds=[{id:'fest',name:'Amlodipin Accord tab 10 mg',form:'Tablett',ingredients:'Amlodipin',ingredientsEn:'Amlodipine',doseUnit:'tablett',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}}];`);
+check('FEST strength in the product name is preserved without dose inference',String.raw`substanceList('no',null,true).text==='Amlodipin (Amlodipin Accord tab 10 mg) — 1 tablett daglig'`);
+check('FEST name-only strength is also preserved with English ingredients',String.raw`substanceList('en',null,true).text==='Amlodipine (Amlodipin Accord tab 10 mg) — 1 tablett daglig'`);
+check('manual form and strength retained when present',String.raw`state.meds[0].form='Tablett 10 mg';substanceList('no',null,true).text==='Amlodipin (Tablett 10 mg) — 1 tablett daglig'`);
 run(String.raw`state=blank();state.lrps=[{id:'a',title:'A',problem:'Bakgrunn',action:'Forslag',implemented:false,measure:'Skjult',taperPlan:'Avtalt plan',restartPlan:'Ny vurdering ved symptomer'},{id:'b',title:'B',problem:'Bakgrunn B',action:'Forslag B',implemented:true,measure:'Utført'}];`);
 check('journal includes plan, excludes unconfirmed measure',String.raw`journalText().includes('Avtalt plan')&&!journalText().includes('Skjult')&&journalText().includes('Utført')&&journalValidation()===''`);
 check('journal order',String.raw`state.lrps.reverse();journalText().indexOf('1. B')<journalText().indexOf('2. A')`);
