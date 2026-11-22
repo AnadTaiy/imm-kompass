@@ -16,6 +16,24 @@ for(const [text,code] of [['1 tablett daglig','1x1'],['2 tabletter morgen og kve
 check('never mg to tablets',String.raw`!IMMDose.parse('10 mg daglig','tablett').recognized && IMMDose.parse('10 mg daglig','mg').code==='10x1'`);
 check('complex prose retained',String.raw`IMMDose.parse('1–2 tabletter ved smerter, maks 4 per døgn','tablett').text==='1–2 tabletter ved smerter, maks 4 per døgn'`);
 check('weekly unknown day retained',String.raw`!IMMDose.parse('1u feil','tablett').recognized`);
+for(const [code,text] of [
+ ['1x1','1 tablet once daily'],['1+0','1 tablet in the morning'],['0+1','1 tablet in the evening'],
+ ['0+1+0+0','1 tablet in the late morning'],['0+0+1+0','1 tablet in the afternoon'],
+ ['1+1','1 tablet in the morning, 1 tablet in the evening'],['2+2','2 tablets in the morning, 2 tablets in the evening'],
+ ['1x3','1 tablet 3 times daily'],['1+1+2','1 tablet in the morning, 1 tablet at midday, 2 tablets in the evening'],
+ ['1→ x 3','1 tablet up to 3 times daily'],['1u','1 tablet once weekly (weekday not specified)'],
+ ['vb','As needed – specify dose and actual use'],['uregelmessig','Irregular use – specify dose and actual use'],
+ ['eo','As prescribed / according to medication chart'],['e.a','As agreed'],['bil','Bilaterally'],
+ ['h øye','Right eye'],['v øye','Left eye'],['0','Temporarily withheld'],['S','Discontinued'],
+ ['½+0','0.5 tablets in the morning'],['1,5x2','1.5 tablets 2 times daily'],
+ ['1 tablett inntil 3 ganger daglig','1 tablet up to 3 times daily'],
+ ['10 mg daglig','10 mg once daily'],
+ ['1–2 tabletter ved smerter, maks 4 per døgn','1–2 tablets as needed for pain, maximum 4 per day'],
+ ['0,5 ml ved behov, maks 2 ml daglig','0.5 mL as needed, maximum 2 mL per day']
+])check('English dosage '+code,`IMMDose.english(${JSON.stringify(code)},'tablett').translated&&IMMDose.english(${JSON.stringify(code)},'tablett').text===${JSON.stringify(text)}`);
+for(const [day,text] of [['man','Monday'],['tir','Tuesday'],['ons','Wednesday'],['tors','Thursday'],['fre','Friday'],['lør','Saturday'],['søn','Sunday']])check('English weekday '+day,`IMMDose.english('1u ${day}','tablett').text==='1 tablet once weekly on ${text}'`);
+for(const [unit,one,two] of [['tablett','tablet','tablets'],['kapsel','capsule','capsules'],['dråpe','drop','drops'],['dose','dose','doses'],['puff','puff','puffs'],['plaster','patch','patches'],['mg','mg','mg'],['µg','microgram','micrograms'],['ml','mL','mL'],['IE','IU','IU'],['enhet','unit','units']])check('English dosage unit '+unit,`IMMDose.english('1x1',${JSON.stringify(unit)}).text==='1 ${one} once daily'&&IMMDose.english('2x1',${JSON.stringify(unit)}).text==='2 ${two} once daily'`);
+for(const text of ['1u feil','Ikke ta 1 tablett ved behov','1 tablett hvis blodtrykket er over avtalt grense','2–1 tabletter ved behov','1 tablett ved behov, maks 4 per døgn, ikke ved feber'])check('Unknown English dose retains complete original '+text,`!IMMDose.english(${JSON.stringify(text)},'tablett').translated&&IMMDose.english(${JSON.stringify(text)},'tablett').text===${JSON.stringify(text)}`);
 run(String.raw`state=blank();state.meds=[{id:'a',name:'A',atc:'B01AA03',doseUnit:'tablett',observations:{baseline:{dose:'1x1',comment:'EPJ'},kj:{dose:'1 tablett daglig',comment:'KJ'}},actualUses:{patient:{dose:'1 tablett daglig',comment:'Pasient'}}}];`);
 check('dose normalization',String.raw`!discrepancy(state.meds[0]).different&&!discrepancy(state.meds[0]).missing`);
 check('equivalent source doses have no discrepancy symbol',String.raw`!medTable().includes('class="source-difference-symbol"')`);
@@ -81,7 +99,7 @@ run(String.raw`state=blank();state.meds=[
  {id:'single',name:'Paracet',ingredients:'Paracetamol',ingredientsEn:'Paracetamol',form:'tab 500 mg',doseUnit:'tablett',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}}
 ];`);
 check('dose export keeps combination with its own strength and actual dose',String.raw`substanceList('no',['combo'],true).text==='Paracetamol / Kodein (tab 400 mg/30 mg) — 1 tablett inntil 3 ganger daglig · Ved behov'`);
-check('English export changes names but preserves recorded strength and dosing',String.raw`substanceList('en',['combo'],true).text==='Paracetamol / Codeine (tab 400 mg/30 mg) — 1 tablett inntil 3 ganger daglig · Ved behov'`);
+check('English export translates dosing and schedule while preserving strength',String.raw`substanceList('en',['combo'],true).text==='Paracetamol / Codeine (tab 400 mg/30 mg) — 1 tablet up to 3 times daily · As needed'`);
 check('dose export retains separate medicines sharing a substance',String.raw`substanceList('no',null,true).text.split('\n').length===2&&substanceList('no',null,true).text.includes('Paracetamol (tab 500 mg) — 1 tablett daglig')`);
 check('plain export remains deduplicated and without doses',String.raw`substanceList('no').text==='Paracetamol\nKodein'`);
 check('empty selection has no dose lines',String.raw`substanceList('no',[],true).text===''`);
@@ -95,8 +113,14 @@ check('stopped medicine excluded by default and labeled when selected',String.ra
 check('dose export still blocks missing English names',String.raw`state.meds[0].ingredientsEn='';!!substanceList('en',['combo'],true).error`);
 run(String.raw`state=blank();state.meds=[{id:'fest',name:'Amlodipin Accord tab 10 mg',form:'Tablett',ingredients:'Amlodipin',ingredientsEn:'Amlodipine',doseUnit:'tablett',schedule:'Fast',actualUses:{patient:{dose:'1x1'}}}];`);
 check('FEST strength in the product name is preserved without dose inference',String.raw`substanceList('no',null,true).text==='Amlodipin (Amlodipin Accord tab 10 mg) — 1 tablett daglig'`);
-check('FEST name-only strength is also preserved with English ingredients',String.raw`substanceList('en',null,true).text==='Amlodipine (Amlodipin Accord tab 10 mg) — 1 tablett daglig'`);
+check('FEST name-only strength is also preserved with English ingredients',String.raw`substanceList('en',null,true).text==='Amlodipine (Amlodipin Accord tab 10 mg) — 1 tablet once daily'`);
 check('manual form and strength retained when present',String.raw`state.meds[0].form='Tablett 10 mg';substanceList('no',null,true).text==='Amlodipin (Tablett 10 mg) — 1 tablett daglig'`);
+check('English missing dosage is explicit',String.raw`state.meds[0].actualUses.patient.dose='';substanceList('en',null,true).text.endsWith('Dose not recorded')&&!substanceList('en',null,true).warning`);
+check('English weekly schedule is translated',String.raw`state.meds[0].schedule='Ukentlig / periodisk';state.meds[0].actualUses.patient.dose='1u tors';substanceList('en',null,true).text.endsWith('1 tablet once weekly on Thursday · Weekly / periodic use')`);
+check('English status is translated for selected stopped medicine',String.raw`state.meds[0].status='Seponert';substanceList('en',['fest'],true).text.endsWith('· Discontinued')`);
+check('Unknown free text is preserved and marked in English export',String.raw`state.meds[0].actualUses.patient.dose='Ikke ta ved feber';const unknownDose=substanceList('en',['fest'],true);unknownDose.text.includes('Original dosage (not translated): Ikke ta ved feber')&&!!unknownDose.warning&&!unknownDose.error`);
+check('Unselected unknown instructions do not warn',String.raw`!substanceList('en',[],true).warning&&substanceList('en',[],true).text===''`);
+check('English as needed code has no duplicate schedule',String.raw`state.meds[0].status='';state.meds[0].schedule='Ved behov';state.meds[0].actualUses.patient.dose='vb';substanceList('en',['fest'],true).text.endsWith('As needed – specify dose and actual use')`);
 run(String.raw`state=blank();state.lrps=[{id:'a',title:'A',problem:'Bakgrunn',action:'Forslag',implemented:false,measure:'Skjult',taperPlan:'Avtalt plan',restartPlan:'Ny vurdering ved symptomer'},{id:'b',title:'B',problem:'Bakgrunn B',action:'Forslag B',implemented:true,measure:'Utført'}];`);
 check('journal includes plan, excludes unconfirmed measure',String.raw`journalText().includes('Avtalt plan')&&!journalText().includes('Skjult')&&journalText().includes('Utført')&&journalValidation()===''`);
 check('journal order',String.raw`state.lrps.reverse();journalText().indexOf('1. B')<journalText().indexOf('2. A')`);

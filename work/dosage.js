@@ -35,5 +35,42 @@
   if(s.includes('+')){const parts=s.split('+').map(x=>x.trim());if([2,3,4].includes(parts.length)&&parts.every(x=>new RegExp('^'+numeric+'$').test(x))){const values=parts.map(number),labels={2:['morgen','kveld'],3:['morgen','middag','kveld'],4:['morgen','formiddag','ettermiddag','kveld']}[parts.length];if(values.some(n=>n>0))return done(values.map(fmt).join('+'),values.map((n,i)=>n?quantity(n)+' '+labels[i]:'').filter(Boolean).join(', '));}}
   return {code:original,text:original,recognized:false};
  }
- const api={DAYS,PRESETS,INITIATIVES,UNITS,parse,inferUnit};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(root)root.IMMDose=api;
+ const EN_UNITS={tablett:['tablet','tablets'],kapsel:['capsule','capsules'],dråpe:['drop','drops'],dose:['dose','doses'],puff:['puff','puffs'],plaster:['patch','patches'],mg:['mg','mg'],'µg':['microgram','micrograms'],ml:['mL','mL'],IE:['IU','IU'],enhet:['unit','units']};
+ const EN_DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+ function english(raw,unit='enhet'){
+  const parsed=parse(raw,unit),original=String(raw??'').trim();
+  const words=EN_UNITS[unit]||EN_UNITS.enhet,quantity=n=>String(n)+' '+words[n===1?0:1];
+  const done=text=>({...parsed,text,translated:true});
+  if(!original)return done('');
+  if(parsed.recognized){
+   const literals={uregelmessig:'Irregular use – specify dose and actual use',vb:'As needed – specify dose and actual use',eo:'As prescribed / according to medication chart','e.a':'As agreed',bil:'Bilaterally','h øye':'Right eye','v øye':'Left eye','0':'Temporarily withheld',S:'Discontinued'};
+   if(parsed.code in literals)return done(literals[parsed.code]);
+   if(parsed.weekly)return done(quantity(parsed.amount)+' once weekly'+(parsed.day?' on '+EN_DAYS[DAYS.findIndex(d=>d[0]===parsed.day)]:' (weekday not specified)'));
+   const m=/^(\d+(?:,\d+)?)(→ x |x)(\d+)$/.exec(parsed.code);
+   if(m){const n=number(m[1]),times=Number(m[3]);return done(quantity(n)+(m[2]==='→ x '?' up to '+times+' times daily':times===1?' once daily':' '+times+' times daily'));}
+   if(parsed.code.includes('+')){
+    const values=parsed.code.split('+').map(number),labels={2:['in the morning','in the evening'],3:['in the morning','at midday','in the evening'],4:['in the morning','in the late morning','in the afternoon','in the evening']}[values.length];
+    if(labels)return done(values.map((n,i)=>n?quantity(n)+' '+labels[i]:'').filter(Boolean).join(', '));
+   }
+  }
+  // An explicit unit in prose takes precedence over the selected shorthand unit.
+  if(!parsed.recognized)for(const key of Object.keys(UNITS))if(key!==unit&&parse(original,key).recognized)return english(original,key);
+  // Translate only this complete, unambiguous PRN sentence pattern; never replace
+  // fragments in arbitrary instructions (which could omit negation or conditions).
+  const unitNames=Object.entries(UNITS).flatMap(([key,forms])=>forms.map(word=>[word,key]));
+  const unitPattern=[...new Set(unitNames.map(([word])=>word))].sort((a,b)=>b.length-a.length).join('|');
+  const amount='('+numeric+')(?:\\s*[–-]\\s*('+numeric+'))?';
+  const free=new RegExp('^'+amount+'\\s+('+unitPattern+')\\s+(ved behov|ved smerter)(?:,?\\s*(?:maks(?:imalt)?\\.?|maksimum)\\s+('+numeric+')(?:\\s+('+unitPattern+'))?\\s+(?:per døgn|daglig))?\\.?$').exec(clean(original));
+  if(free){
+   const n=number(free[1]),end=free[2]?number(free[2]):null;
+   if(n>0&&(end===null||end>=n)&&(!free[5]||number(free[5])>0)){
+    const key=unitNames.find(([word])=>word===free[3])[1],forms=EN_UNITS[key];
+    let text=String(n)+(end===null?'':'–'+end)+' '+forms[end===null&&n===1?0:1]+(free[4]==='ved behov'?' as needed':' as needed for pain');
+    if(free[5]){const max=number(free[5]),maxKey=free[6]?unitNames.find(([word])=>word===free[6])[1]:null;text+=', maximum '+max+(maxKey?' '+EN_UNITS[maxKey][max===1?0:1]:'')+' per day';}
+    return done(text);
+   }
+  }
+  return {...parsed,text:original,translated:false};
+ }
+ const api={DAYS,PRESETS,INITIATIVES,UNITS,parse,inferUnit,english};if(typeof module!=='undefined'&&module.exports)module.exports=api;if(root)root.IMMDose=api;
 })(typeof window!=='undefined'?window:null);
