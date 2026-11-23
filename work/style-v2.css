@@ -200,3 +200,6 @@
 @media print{.comparison-export-table th,.comparison-export-table td{color:#111;background:#fff}.comparison-export-table thead th{background:#e5edf3}.comparison-export-table tbody tr:nth-child(even)>*{background:#f5f7f8}.comparison-export-section h2{font-size:12pt}}
 
 .word-export-button{background:#185abd!important;border-color:#185abd!important;color:#fff!important}.word-export-button:hover{background:#124a9e!important;border-color:#124a9e!important}.word-export-button:focus-visible{outline:3px solid #77a9ed;outline-offset:3px}
+
+.lrp-signal-panel .source-link-buttons{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.lrp-signal-panel .source-link-buttons .button{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;line-height:1.5}
