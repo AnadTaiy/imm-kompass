@@ -87,11 +87,15 @@ def main():
   for i,chunk in enumerate(catalog_scripts(key,rows),1):scripts.append(asset(f'{key}-{i:02d}',chunk))
  code=catalog_guard(parts)+'\n'.join((W/f).read_text(encoding='utf-8') for f in FILES)
  app=asset('app',code);style=asset('style',(W/'style-v2.css').read_text(encoding='utf-8'),'css')
+ pdf_assets={key:asset(key,(W/name).read_text(encoding='utf-8')) for key,name in [('pdf','pdf-lib.min.js'),('fontkit','fontkit.umd.min.js')]}
+ font=(W/'export-font.ttf').read_bytes();font_name='export-font-'+hashlib.sha256(font).hexdigest()[:20]+'.ttf';(SITE/'assets'/font_name).write_bytes(font);asset_paths.append(font_name);pdf_assets['font']='assets/'+font_name
+ for name in ['pdf-lib-LICENSE.txt','fontkit-LICENSE.txt','export-font-LICENSE.txt']:
+  shutil.copy2(W/name,SITE/'assets'/name)
  counter=asset('visits',(W/'visit-counter.js').read_text(encoding='utf-8')) if stats else ''
  stats_tags=('<meta name="imm-stats-site" content="'+stats+'"><script defer src="'+counter+'"></script>') if stats else ''
  stats_privacy=('<p>En enkel besøksteller hos GoatCounter brukes til samlet besøksstatistikk. Bare appens faste sideadresse og navn sendes; innhold, søk og valg fra gjennomgangene inngår ikke. Tjenesten mottar tekniske tilkoblingsopplysninger for å telle besøk. Statistikkoversikten krever innlogging. <a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">GoatCounters personverninformasjon</a>.</p>') if stats else ''
  revision=hashlib.sha256('|'.join(asset_paths+[stats]).encode()).hexdigest()[:24]
- html=re.sub(r'<script>\s*const DATA=.*?</script>\s*<script>.*?</script>\s*</body>',lambda m:'<script>window.IMM_WEB_VERSION='+json.dumps(revision)+';</script>\n'+'\n'.join('<script src="'+p+'"></script>' for p in scripts+[app])+'\n</body>',html,flags=re.S)
+ html=re.sub(r'<script>\s*const DATA=.*?</script>\s*<script>.*?</script>\s*</body>',lambda m:'<script>window.IMM_WEB_VERSION='+json.dumps(revision)+';window.IMM_PDF_ASSETS='+compact(pdf_assets)+';</script>\n'+'\n'.join('<script src="'+p+'"></script>' for p in scripts+[app])+'\n</body>',html,flags=re.S)
  html=re.sub(r'<style>.*?</style>',lambda m:'<link rel="stylesheet" href="'+style+'">',html,count=1,flags=re.S)
  url='https://anadtaiy.github.io/imm-kompass/'
  html=html.replace('<title>IMM Kompass · Klinisk farmasi</title>','<title>IMM Kompass – Mohanad Taiy | Klinisk farmasi</title>')

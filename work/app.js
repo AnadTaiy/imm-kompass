@@ -247,6 +247,7 @@ function importJson(){
 document.addEventListener('click',async e=>{
  const t=e.target.closest('[data-action]');if(!t)return;
  const a=t.dataset.action,id=t.dataset.id;
+ if(e.target.closest('.tools-popover'))closeHeaderMenus();
  if(a==='jump-work-status'){jumpWorkStatus(t.dataset.kind);return;}
  if(await workflowAction(a,t))return;
  if(sessionAction(a,t))return;
@@ -281,6 +282,9 @@ document.addEventListener('click',async e=>{
  if(a==='report')reportModal();
  if(a==='export-text')download('IMM-arbeidsnotat.txt',noteText());
  if(a==='copy-note')await copyNote();
+ if(a==='export-comparison')showComparisonExport();
+ if(a==='comparison-pdf')await saveComparisonPdf(t);
+ if(a==='comparison-word')download('Legemiddeloversikt.docx',comparisonDocx(comparisonExportData()),'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
  if(a==='export-json')exportJson();
  if(a==='import-json')importJson();
  if(a==='print'&&page==='journal'){const error=journalValidation();if(error){toast(error);return;}$('#printcontent').innerHTML=`<pre>${esc(journalText())}</pre>`;window.print();return;}
@@ -310,8 +314,9 @@ document.addEventListener('click',async e=>{
   const c=DATA.calibration.find(x=>x.id===id);if(c){Object.assign(state.profile,c,{scrUnit:'umol',stability:'stable',cgWeightType:'actual',dialysis:false,pregnant:false});markChanged();$('#modal').close();route('renal');toast(`Fiktiv test ${id} er lagt inn.`);}
  }
 });
-document.addEventListener('pointerdown',e=>{const menu=$('#tools-menu');if(menu?.open&&!menu.contains(e.target))menu.open=false;});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#tools-menu'))$('#tools-menu').open=false;});
+function closeHeaderMenus(){for(const menu of document.querySelectorAll('.header-inner details.tools'))menu.open=false;}
+document.addEventListener('pointerdown',e=>{for(const menu of document.querySelectorAll('.header-inner details.tools'))if(menu.open&&!menu.contains(e.target))menu.open=false;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHeaderMenus();});
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 if(resourceOnly){page='library';document.body.classList.add('source-only');const topic=queryParams.get('topic');if(topic==='eldre'){filters.tags=olderSourceTags();}if(['bivirkning','dehydrering','palliasjon'].includes(topic))filters.topic=topic;if(['seponering','nyre'].includes(topic)){filters.tags=[topic];}if(queryParams.has('interactions')){filters.cat='Interaksjoner';sourceContext.showAll=true;}}else initReviewStorage();
 render();

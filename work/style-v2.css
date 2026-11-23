@@ -40,10 +40,10 @@
 .interaction-detail{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--surface);font-size:15px;line-height:1.7}.interaction-detail h4{margin:20px 0 8px}.interaction-detail p{max-width:78ch}.interaction-detail .interaction-names{font-size:20px;line-height:1.4}.interaction-detail+.interaction-detail{margin-top:22px}
 .filterline>.field{flex:1;min-width:220px}.filterline>.field select{width:100%;max-width:none}.filter-summary{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;font-size:12px}.filter-summary:empty{display:none}
 @media(max-width:720px){.header-inner{flex-wrap:wrap}.header-inner>.actions{margin-left:auto}.comparison th:first-child,.comparison td:first-child{width:145px}.comparison .med-actions-cell{width:142px}.comparison-layout.with-pairs{grid-template-columns:minmax(0,1fr) 60px}.comparison th,.comparison td{padding:9px 7px}.help-section{padding:12px}.help-symbols{gap:16px 10px}.interaction-detail{padding:16px}.filterline>.field{min-width:0;flex-basis:100%}}
-.header-inner>.actions>button,.header-inner .tools>summary{width:98px;height:40px;padding:8px 10px;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;box-sizing:border-box;border:1px solid var(--control);border-radius:6px}
+.header-inner>.actions>button,.header-inner .tools>summary{width:132px;height:42px;padding:9px 12px;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;box-sizing:border-box;border:1px solid var(--control);border-radius:6px}
 .header-inner button[data-action=help]{background:color-mix(in srgb,var(--accent-soft) 65%,var(--surface));border-color:color-mix(in srgb,var(--link) 40%,var(--control));color:var(--ink)}
 .header-inner button[data-action=help]:hover{background:var(--accent-soft);border-color:var(--link)}.header-inner button[data-action=help] .icon{width:18px;height:18px;color:var(--link)}.header-inner button[data-action=help]>span{display:flex;align-items:center}
-@media(max-width:720px){.header-inner>.actions>button,.header-inner .tools>summary{width:86px;height:40px}}
+@media(max-width:620px){.header-inner>.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.header-inner>.actions>button,.header-inner .tools,.header-inner .tools>summary{width:100%}}
 .renal-transfer .textlink{display:block;margin-top:14px}
 
 .tools-popover a.button{justify-content:flex-start;border-color:transparent;background:transparent;text-align:left}.tools-popover a.button:hover{background:var(--hover)}
@@ -189,3 +189,19 @@
 .source-directory-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
 
 .renal-help-icon{display:inline-flex;color:#795299;vertical-align:middle;margin-right:6px}.renal-help-icon .icon{width:21px;height:21px}[data-theme=dark] .renal-help-icon{color:#c4a3e4}
+
+/* Review actions have their own menu; all controls retain the same hit area. */
+.tools-popover .new-review-action{background:var(--accent-soft);border:1px solid var(--accent);color:var(--link);font-weight:650;margin-bottom:3px}.source-only #reviews-menu{display:none}.tools-popover{max-width:calc(100vw - 28px)}
+@media(max-width:650px){.header-inner{flex-wrap:wrap}.header-inner>.actions{width:100%;justify-content:flex-end}#reviews-menu .tools-popover{right:auto;left:0}}
+
+.lrp-signal-icon.signal-triple{color:#7b4fa2}:root[data-theme="dark"] .lrp-signal-icon.signal-triple{color:#cea5f2}
+
+.comparison-export-preview{overflow:auto}.comparison-export-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}.comparison-export-table th,.comparison-export-table td{border:1px solid #b9c1c7;padding:10px;text-align:left;vertical-align:middle;white-space:pre-wrap;overflow-wrap:anywhere}.comparison-export-table th:first-child{width:24%}.comparison-export-table thead th{background:var(--soft)}.comparison-export-section+.comparison-export-section{margin-top:24px}.comparison-export-section h2{font-size:18px;margin:12px 0}
+@media print{.comparison-export-table th,.comparison-export-table td{color:#111;background:#fff}.comparison-export-table thead th{background:#e5edf3}.comparison-export-table tbody tr:nth-child(even)>*{background:#f5f7f8}.comparison-export-section h2{font-size:12pt}}
+
+.word-export-button{background:#185abd!important;border-color:#185abd!important;color:#fff!important}.word-export-button:hover{background:#124a9e!important;border-color:#124a9e!important}.word-export-button:focus-visible{outline:3px solid #77a9ed;outline-offset:3px}
+
+.lrp-signal-panel .source-link-buttons{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.lrp-signal-panel .source-link-buttons .button{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;line-height:1.5}
+
+.header-inner .tools>summary{white-space:nowrap;line-height:1.35;transition:background .12s,border-color .12s}.header-inner .tools>summary>span{display:inline-flex;align-items:center}.header-inner .tools>summary .icon{width:17px;height:17px;color:var(--link)}.header-inner .tools>summary:hover{background:var(--hover);border-color:var(--muted)}.header-inner .tools[open]>summary{background:var(--accent-soft);border-color:var(--link)}
