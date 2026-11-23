@@ -5,6 +5,8 @@
  'use strict';
  const S=root.IMMLrpSignals||(typeof require==='function'?require('./lrp-signals.js'):null);
  const sources={
+  mcTriple:['Legemiddelhåndboka – hemodynamisk nyreskade','https://www.legemiddelhandboka.no/extended/nyre-og-urinveissykdommer/nyresykdommer/medikamentelle-og-toksiske-nyreskader'],
+  mcTripleStudy:['Lapi mfl. – samtidig bruk og akutt nyreskade (BMJ 2013)','https://pubmed.ncbi.nlm.nih.gov/23299844/'],
   mcMetformin:['MHRA – metformin og vitamin B12','https://www.gov.uk/drug-safety-update/metformin-and-reduced-vitamin-b12-levels-new-advice-for-monitoring-patients-at-risk'],
   mcB12:['NICE NG239 – B12: symptomer, risikofaktorer og utredning','https://www.nice.org.uk/guidance/ng239/chapter/Recommendations#recognising-vitamin-b12-deficiency'],
   mcMg:['MHRA – PPI og hypomagnesemi','https://www.gov.uk/drug-safety-update/proton-pump-inhibitors-in-long-term-use-reports-of-hypomagnesaemia'],
@@ -38,23 +40,35 @@
   {id:'mc-opioid-bowel',atc:['N02A'],title:'Fast opioidbehandling – avklar obstipasjonsprofylakse',detail:'Regelmessig opioidbruk kan gi vedvarende obstipasjon. Ingen aktiv behandling med laksantia er gjenkjent i listen.',advice:'Avklar avføring, faktisk bruk, reseptfrie midler og behov for laksantia. Diaré, ileus, stomi og andre forhold kan endre vurderingen. Manglende registrering er ikke det samme som manglende behandling.',refs:['mcOpioid','mcStart']},
   {id:'mc-nsaid-gastro',nsaid:true,title:'NSAID – vurder magebeskyttelse',detail:'Systemisk NSAID og registrert risikofaktor gir grunn til å vurdere gastrointestinal sikkerhet. Ingen PPI eller misoprostol er gjenkjent i den aktive listen.',advice:'Vurder først om NSAID er egnet, deretter eventuell gastrobeskyttelse. Alder, tidligere ulcus, antitrombotisk behandling og glukokortikoider påvirker risiko. Magebeskyttelse opphever ikke kontraindikasjoner eller nyre-/hjerterisiko.',refs:['mcNsaid','mcScottish']},
   {id:'mc-steroid-bone',atc:['H02AB'],title:'Langvarig glukokortikoid – vurder beinhelse',detail:'Langvarig systemisk glukokortikoidbehandling kan øke risikoen for osteoporose og brudd.',advice:'Vurder samlet frakturrisiko, dose og behandlingslengde, kalsiuminntak, vitamin D og behov for DXA eller beinbeskyttende behandling. Eksisterende tilskudd erstatter ikke en risikovurdering. Behandlingsmål og forventet nytte må tas med.',refs:['mcSteroid']},
-  {id:'mc-triple-renal',atc:['C09AA','C09CA','C03'],nsaidAlso:true,title:'NSAID + ACE-hemmer/ARB + diuretikum',detail:'Denne tredobbelkombinasjonen kan øke risikoen for akutt nyreskade, særlig ved væsketap eller redusert nyrefunksjon.',advice:'Bekreft faktisk samtidig bruk, også reseptfritt NSAID. Vurder om NSAID kan unngås og avklar væskestatus, nyrefunksjon og oppfølging med lege. Ikke stopp all behandling automatisk.',refs:['mcScottish']}
- ].map(r=>({...r,kind:'medicine',level:2}));
+  {id:'mc-triple-renal',atc:['C09AA','C09CA','C03'],nsaidAlso:true,kind:'triple',title:'Triple whammy – risiko for akutt nyreskade',detail:'ACE-hemmer/ARB utvider den efferente arteriolen. NSAID hemmer prostaglandiner og kan trekke sammen den afferente arteriolen. Diuretika kan redusere sirkulerende volum. Sammen kan dette senke filtrasjonstrykket og GFR og gi akutt nyreskade (AKI), særlig ved dehydrering eller nedsatt nyrefunksjon.',advice:'Bekreft faktisk samtidig bruk, også reseptfritt NSAID. Vurder om NSAID kan unngås og avklar væskestatus, nyrefunksjon og oppfølging med lege. Ikke stopp all behandling automatisk.',refs:['mcTriple','mcTripleStudy','mcRaas']}
+ ].map(r=>({...r,kind:r.kind||'medicine',level:2}));
  const norm=v=>String(v??'').trim().toLowerCase();
  const weeks=m=>/^\d+(?:[.,]\d+)?$/.test(String(m.durationWeeks??''))?Number(String(m.durationWeeks).replace(',','.')):null;
  const regular=m=>norm(m.schedule)==='fast'&&!/\b(vb|ved behov|uregelmessig)\b/i.test(m.actualDose||'');
  const weekly=m=>/^\d+(?:[.,]\d+)?\s*u(?:\s|$)/i.test(m.actualDose||'')||/\bukentlig\b|\ben gang (?:i |per )?uken\b|\bhver uke\b/i.test(m.actualDose||'');
  const nsaid=c=>/^(M01A[ABCEGH]\d{2}|M01AX01)$/.test(c);
  function matchesSource(r,m,idx){const cs=S.codes(m,idx);return r.nsaid?cs.some(nsaid):cs.some(c=>(r.nsaidAlso&&nsaid(c))||r.atc.some(a=>c.startsWith(a)));}
+ function tripleMembers(meds,idx){
+  const groups=[[],[],[]];
+  for(const m of meds.filter(S.active)){
+   if(S.route(S.product(m,idx)||m)!=='systemic')continue;
+   const cs=S.codes(m,idx);
+   // Combination products are expanded from their FEST ingredients by S.codes.
+   if(cs.some(c=>/^(C09AA|C09CA)/.test(c)))groups[0].push(m);
+   if(cs.some(c=>/^C03[ABCDE]/.test(c)))groups[1].push(m);
+   if(cs.some(nsaid))groups[2].push(m);
+  }
+  return groups.every(g=>g.length)?[...new Map(groups.flat().map(m=>[m.id,m])).values()]:[];
+ }
  function findings(meds,profile,diagnoses,idx){
+  const members=tripleMembers(meds,idx),tripleFindings=members.length?[{rule:'mc-triple-renal',kind:'triple',level:2,medIds:members.map(m=>m.id),evidence:'Aktiv liste inneholder ACE-hemmer/ARB, diuretikum og systemisk NSAID: '+members.map(m=>m.name||m.atc).join(' + ')+'. Avklar samtidig bruk, også behovsmedisin og reseptfrie midler.'}]:[];
   // New rules require an explicit adult age. Unknown age is not assumed adult.
-  if(!String(profile.age??'').trim()||!S.adult(profile))return [];
-  const list=meds.filter(S.active),cs=m=>S.codes(m,idx),has=(m,prefix)=>cs(m).some(c=>prefix.some(p=>c.startsWith(p))),any=prefix=>list.some(m=>has(m,prefix)),out=[];
+  if(!String(profile.age??'').trim()||!S.adult(profile))return tripleFindings;
+  const list=meds.filter(S.active),cs=m=>S.codes(m,idx),has=(m,prefix)=>cs(m).some(c=>prefix.some(p=>c.startsWith(p))),any=prefix=>list.some(m=>has(m,prefix)),out=[...tripleFindings];
   const dx=(icd,icpc=[])=>diagnoses.some(d=>d.system==='ICD-10'?icd.some(c=>String(d.code).toUpperCase().startsWith(c)):d.system==='ICPC-2'&&icpc.includes(d.code));
   const giRisk=Number(profile.age)>=65||dx(['K25','K26','K27','K28'],['D85','D86'])||any(['B01A','H02AB']);
-  const triple=list.some(m=>has(m,['C09AA','C09CA']))&&list.some(m=>has(m,['C03']))&&list.some(m=>cs(m).some(nsaid));
   for(const m of list){const p=S.product(m,idx)||m,route=S.route(p),w=weeks(m);
-   for(const r of rules){if(!matchesSource(r,m,idx))continue;
+   for(const r of rules){if(r.kind==='triple'||!matchesSource(r,m,idx))continue;
     // Transdermal analgesic opioids are systemic; skin NSAIDs/steroids are not.
     if(route!=='systemic'&&!(r.id==='mc-opioid-bowel'&&/plaster|transderm/i.test(p.form||'')))continue;
     let evidence=r.title+'. Avklar oppfølging; registrerte data fastslår ikke at noe mangler.';
@@ -71,11 +85,10 @@
     }
     if(r.id==='mc-nsaid-gastro'){if(!giRisk||any(['A02BC','A02BB01']))continue;evidence='Systemisk NSAID og gastrointestinal risikofaktor. Magebeskyttelse er ikke gjenkjent i aktiv liste.';}
     if(r.id==='mc-steroid-bone'&&(!regular(m)||w===null||w<=13||!/tablett|kapsel|mikstur|peror|oral/i.test(p.form||'')))continue;
-    if(r.id==='mc-triple-renal'){if(!triple)continue;evidence='Aktiv liste inneholder NSAID, ACE-hemmer/ARB og diuretikum. Avklar faktisk samtidig bruk.';}
     out.push({rule:r.id,kind:r.kind,level:2,medIds:[m.id],evidence});
    }
   }
   return out;
  }
- const api={sources,rules,findings,matchesSource};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.IMMMedicineChecks=api;
+ const api={sources,rules,findings,matchesSource,tripleMembers};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.IMMMedicineChecks=api;
 })(typeof window!=='undefined'?window:globalThis);

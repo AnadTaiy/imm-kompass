@@ -73,7 +73,7 @@ function updateSaveStatus(){
  el.className=`save-status ${saveError?'save-failed':''}`;
  el.innerHTML=saveError
   ?`<div role="alert"><strong>Ikke lagret lokalt</strong><p>${esc(saveError)}</p></div><div class="actions">${undoButton()}<button class="small" data-action="retry-save">Prøv igjen</button><button class="small" data-action="save-as-new">Lagre som ny</button><button class="small" data-action="export-json">Eksporter arbeidsøkt</button></div>`
-  :`<span>${activeReview?`<strong>${esc(activeReview.name)}</strong> · Lagret lokalt ${esc(localTime(activeReview.updatedAt))}`:'Automatisk lokal lagring starter når du skriver.'}<span class="undo-feedback" role="status">${esc(undoFeedback)}</span></span><div class="actions">${undoButton()}<button class="small" data-action="route" data-page="sessions">Gjennomganger</button></div>`;
+  :`<span>${activeReview?`<strong>${esc(activeReview.name)}</strong> · Lagret lokalt ${esc(localTime(activeReview.updatedAt))}`:'Automatisk lokal lagring starter når du skriver.'}<span class="undo-feedback" role="status">${esc(undoFeedback)}</span></span><div class="actions">${undoButton()}</div>`;
 }
 function restoreReview(record){
  state=cleanImported({format:'IMM-Kompass',version:1,state:record.state},true);

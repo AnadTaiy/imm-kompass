@@ -38,5 +38,7 @@
   "lrp-signals-ui.js",
   "state-migration.js",
   "sync-ui.js",
+  "comparison-export.js",
+  "comparison-pdf.js",
   "app.js"
 ]
