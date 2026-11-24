@@ -204,4 +204,10 @@
 .lrp-signal-panel .source-link-buttons{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 .lrp-signal-panel .source-link-buttons .button{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;line-height:1.5}
 
+.cha-caution{padding:12px 14px;border:1px solid #e1c45f;border-left:4px solid #d5ad28;border-radius:5px;background:#fff2b9;color:#4b3c10;font-size:13px;line-height:1.65}
+:root[data-theme=dark] .cha-caution{background:#343020;border-color:#8d7939;border-left-color:#e6c459;color:#f3dd91}
+.glycemia-icon{color:#a6446c;flex:none;vertical-align:middle;margin-right:6px}:root[data-theme=dark] .glycemia-icon{color:#ef9bbb}
+.glycemia-help details{padding:12px 0;border-top:1px solid var(--line)}.glycemia-help .glycemia-targets tbody th{font-size:13px;color:var(--ink);background:transparent;font-weight:600;width:31%}.glycemia-help .glycemia-targets td:nth-child(2){width:29%}.glycemia-help .button{white-space:normal;text-align:left}
+@media(max-width:600px){.glycemia-targets thead{display:none}.glycemia-targets,.glycemia-targets tbody,.glycemia-targets tr{display:block}.glycemia-targets tr{padding:12px 0;border-bottom:1px solid var(--line)}.glycemia-help .glycemia-targets th,.glycemia-help .glycemia-targets td,.glycemia-help .glycemia-targets td:nth-child(2){display:block;width:100%;padding:5px 10px;border:0}}
+
 .header-inner .tools>summary{white-space:nowrap;line-height:1.35;transition:background .12s,border-color .12s}.header-inner .tools>summary>span{display:inline-flex;align-items:center}.header-inner .tools>summary .icon{width:17px;height:17px;color:var(--link)}.header-inner .tools>summary:hover{background:var(--hover);border-color:var(--muted)}.header-inner .tools[open]>summary{background:var(--accent-soft);border-color:var(--link)}

@@ -6,6 +6,7 @@ const REVIEW_SUB={6:['Tromboseprofylakse','Ulcusprofylakse','Smerte','Kvalme','O
 function newWorkflowState(){return {version:3,startChecks:{},startReviews:{},diagnosisList:[],clinicalFacts:{},criterionChecks:{},chaReview:{},profile:profileBlank(),journal:journalBlank(),lms:{checks:[],interview:[],confirmed:false,sources:'',discrepancies:'',notes:'',supportChecks:[],reporterId:'',sourceList:[{id:'baseline',type:'EPJ',name:'Utgangsliste',date:'',note:''},{id:'kj',type:'KJ',name:'Kjernejournal',date:'',note:''}]},review:Array.from({length:10},()=>({checked:false,note:'',sub:[]})),meds:[],lrps:[],discharge:{checks:[],recipient:'',education:'',followup:'',notes:''}};}
 function workflowNav(){const active=page==='journal'?3:page==='workspace'?step:0;return `<nav class="workflow-nav" aria-label="Arbeidsflyt">${[[1,'Legemiddelsamstemming'],[2,'Legemiddelgjennomgang'],[3,'Journalutkast']].map(([n,label])=>`<button data-action="step" data-step="${n}" class="${n===active?'active':''}" ${n===active?'aria-current="step"':''}><span>0${n}</span>${label}</button>`).join('')}</nav>`;}
 function render(options={}){
+ cancelSourceSearch();
  const viewPlan=prepareWorkRender(options);
  applyTheme(document.documentElement.dataset.theme||'light');
  $('#workflow-nav').innerHTML=workflowNav();

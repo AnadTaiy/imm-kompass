@@ -70,4 +70,18 @@ check('unrelated drug not marked by triple',!hits([...triple,med('C08CA01')]).fi
 const comboRaas=catalog.meds.find(p=>p.ingredientIds?.length>1&&S.codes({...p,catalogId:p.id},idx).some(c=>c.startsWith('C09AA')||c.startsWith('C09CA'))&&S.codes({...p,catalogId:p.id},idx).some(c=>c.startsWith('C03')));
 assert.ok(comboRaas);check('two products containing the three groups count',has([{...comboRaas,id:'combo',catalogId:comboRaas.id},med('M01AE01')],'mc-triple-renal'));
 check('own triple symbol and Help explanation',run(`(()=>{let h='';modal=(t,b)=>h=b;showHelp();return h.includes('Triple whammy')&&lrpSignalSymbol('triple').includes('<circle')&&lrpSignalSymbol('triple')!==medicineCheckSymbol();})()`));
+const betulacProduct=catalog.meds.find(p=>p.id==='ID_91FE6159-6BDB-4427-ACE7-009CF013E872');assert.ok(betulacProduct);
+const betulac=med('',{...betulacProduct,catalogId:betulacProduct.id,id:'betulac'}),opioid=med('N02AA01');
+check('FEST oral Betulac recognised without assigning ATC',!has([opioid,betulac],'mc-opioid-bowel')&&betulac.atc==='');
+const duphalacProduct=catalog.meds.find(p=>p.id==='ID_625B965E-C295-498A-8DF4-217BD7463105');assert.ok(duphalacProduct);
+check('Duphalac still suppresses omission',!has([opioid,{...duphalacProduct,catalogId:duphalacProduct.id}],'mc-opioid-bowel'));
+for(const extra of [{status:'Pausert'},{status:'Seponert'},{actualDose:'0'},{actualDose:'S'},{schedule:'Bruker ikke'}])check('inactive Betulac is not current laxative '+JSON.stringify(extra),has([opioid,{...betulac,...extra}],'mc-opioid-bowel'));
+check('a name alone cannot confirm laxative content',has([opioid,med('',{name:'Betulac',ingredients:['Laktulose']})],'mc-opioid-bowel'));
+check('mismatched product cannot borrow lactulose',has([opioid,{...betulac,atc:'C08CA01'}],'mc-opioid-bowel'));
+check('unrelated supplement does not suppress warning',!M.isLaxative({...betulac,catalogId:'not-in-catalog'},idx));
+context.betulacTest=betulac;context.opioidTest=opioid;
+run(`state=blank();state.profile.age='78';state.profile.endOfLife='no';state.meds=[opioidTest,betulacTest];`);
+check('STOPP L2 excluded when Betulac registered',run(`criterionKnownChecks(olderCriteria.get('STOPP-L2'),state.meds[0]).some(c=>c.label==='Ingen laksantia registrert'&&c.pass===false)`));
+check('START identifies Betulac as existing treatment',run(`startPanel().includes('Registrert innen den brede legemiddelgruppen: Betulac')`));
+check('removing Betulac updates all three checks',run(`state.meds.pop();registeredLaxatives().length===0&&criterionKnownChecks(olderCriteria.get('STOPP-L2'),state.meds[0]).every(c=>c.pass===true)&&lrpSignalFindings().some(f=>f.rule==='mc-opioid-bowel')`));
 console.log('PASS: '+count+' medicine-specific matching, exclusion, combination, privacy and UI checks.');

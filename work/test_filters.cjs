@@ -112,6 +112,34 @@ check('switching to name field closes code choices',run(`showSourceDiagnosisSugg
 check('ICPC code resolves even before selecting a coding system',run(`codeInput.value='K78';showSourceDiagnosisSuggestions('source-code');codeList.innerHTML.includes('ICPC-2 K78')`));
 check('short or invalid input never leaves stale diagnosis options',run(`codeInput.value='x';showSourceDiagnosisSuggestions('source-code');codeList.innerHTML===''&&codeInput['aria-expanded']==='false'`));
 run('document.querySelector=oldQuery;');
+// Pending typing must not overwrite newer filters or a different page.
+check('source search coalesces input and ignores detached inputs',run(`(()=>{
+ const oldSet=setTimeout,oldClear=clearTimeout,oldQuery=document.querySelector,oldResults=resourceResults;
+ const jobs=new Map();let id=0,renders=0,input={value:'n'},visible=input;
+ try{
+  setTimeout=fn=>{jobs.set(++id,fn);return id;};clearTimeout=id=>jobs.delete(id);
+  document.querySelector=s=>s==='#resource-search'?visible:s==='#resource-results'?{innerHTML:''}:null;
+  resourceResults=()=>{renders++;return '';};
+  filters.q='n';queueSourceSearch(input);input.value='nyre';filters.q='nyre';queueSourceSearch(input);
+  if(jobs.size!==1||renders)return false;[...jobs.values()][0]();jobs.clear();if(renders!==1)return false;
+  queueSourceSearch(input);visible={value:'nyre'};[...jobs.values()][0]();jobs.clear();if(renders!==1)return false;
+  visible=input;queueSourceSearch(input);filters.q='astma';[...jobs.values()][0]();jobs.clear();if(renders!==1)return false;
+  queueSourceSearch(input);cancelSourceSearch();return jobs.size===0;
+ }finally{setTimeout=oldSet;clearTimeout=oldClear;document.querySelector=oldQuery;resourceResults=oldResults;sourceSearchTimer=null;}
+})()`));
+check('patient context is refreshed between searches',run(`(()=>{
+ state=blank();filters={q:'',tags:[],mode:'any'};sourceContext={};
+ state.diagnosisList=[{system:'ICD-10',code:'J45.0',text:'Astma'}];const asthma=filteredResources().map(r=>r.id);
+ state.diagnosisList=[{system:'ICD-10',code:'J44',text:'KOLS'}];const copd=filteredResources().map(r=>r.id);
+ return asthma[0]==='r197'&&copd[0]==='r218'&&!copd.includes('r197');
+})()`));
+check('source matching work grows linearly per render',run(`(()=>{
+ const old=sourceMatch;let calls=0;sourceMatch=(...args)=>{calls++;return old(...args);};
+ try{filters={q:'n',tags:[],mode:'any'};sourceContext={atc:'C09AA05'};resourceResults();return calls<=DATA.resources.length;}
+ finally{sourceMatch=old;}
+})()`));
+console.log('PASS: typing coalescing, stale search exclusion, fresh patient context and linear source matching.');
+
 // The actual delegated menu click must retain a user's source question.
 run("filters={q:'artrose',tags:['alder'],access:'paid',interactionDatabases:true};sourceContext={scope:'all',atc:'M01AE01'};var savedFilters=JSON.stringify(filters),savedContext=JSON.stringify(sourceContext);route=to=>{page=to;};");
 run("clickHandlers.find(fn=>fn.toString().includes('await workflowAction'))({target:{closest:()=>({dataset:{action:'route',page:'library'}})}})").then(()=>{
@@ -120,3 +148,4 @@ run("clickHandlers.find(fn=>fn.toString().includes('await workflowAction'))({tar
  check('new review restores default patient source scope',run("filters.q===''&&!filters.tags.length&&!filters.interactionDatabases&&!Object.keys(sourceContext).length"));
  console.log('PASS: 2 source navigation and review isolation checks.');
 }).catch(error=>{console.error(error);process.exitCode=1;});
+

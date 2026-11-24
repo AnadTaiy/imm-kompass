@@ -27,7 +27,7 @@ function criterionKnownChecks(r,m={}){
  if(id==='STOPP-B3')combination('Samtidig verapamil/diltiazem eller betablokker',stoppCode(m).startsWith('C07')?['C08DA','C08DB']:['C07']);
  if(id==='STOPP-C10')combination('Samtidig systemisk NSAID og oral antikoagulasjon',stoppCode(m).startsWith('M01A')?['B01AA','B01AE07','B01AF']:['M01A']);
  if(id==='STOPP-H7')combination('Samtidig systemisk kortikosteroid og NSAID',stoppCode(m).startsWith('M01A')?['H02AB']:['M01A']);
- if(id==='STOPP-L2'||id==='START-K2'){const meds=id==='STOPP-L2'?[m]:startTriggerMedicines(r);checks.push({label:'Regelmessig opioidbruk, ikke bare ved behov',pass:meds.some(x=>x.schedule==='Fast'&&!/\bvb\b|ved behov/i.test(actualUse(x).dose))});if(id==='STOPP-L2')checks.push({label:'Ingen laksantia registrert',pass:!activeMedicines().some(x=>/^A06A/.test(x.atc||''))});}
+ if(id==='STOPP-L2'||id==='START-K2'){const meds=id==='STOPP-L2'?[m]:startTriggerMedicines(r);checks.push({label:'Regelmessig opioidbruk, ikke bare ved behov',pass:meds.some(x=>x.schedule==='Fast'&&!/\bvb\b|ved behov/i.test(actualUse(x).dose))});if(id==='STOPP-L2')checks.push({label:'Ingen laksantia registrert',pass:!registeredLaxatives().length});}
  if(id==='STOPP-L6'){numeric('Paracetamol minst 3000 mg/døgn',m.dailyDoseMg,n=>n>=3000);const weight=IMMCalc.number(p.weight),height=IMMCalc.number(p.height);checks.push({label:'BMI under 18 eller kronisk leversykdom',pass:p.liver===true?true:weight>0&&height>0?weight/(height/100)**2<18:null});}
  if(id==='START-B2'){checks.push({label:'Ikke moderat/alvorlig etablert skrøpelighet',pass:c.moderateSevereFrailty==='yes'?false:c.moderateSevereFrailty==='no'?true:null});}
  if(id==='START-B7')numeric('eGFR over 30 ml/min/1,73 m²',p.egfr,n=>n>30);

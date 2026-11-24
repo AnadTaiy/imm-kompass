@@ -204,9 +204,10 @@ document.addEventListener('input',e=>{
  const t=e.target;
  captureDraft(t);
  if(t.dataset.bind&&t.tagName!=='SELECT'&&t.type!=='checkbox')updateBound(t);
- if(t.id==='resource-search'){filters.q=t.value;$('#resource-results').innerHTML=resourceResults();}
+ if(t.id==='resource-search'){filters.q=t.value;if(e.isComposing)cancelSourceSearch();else queueSourceSearch(t);}
  if(t.id==='audit-search'){auditFilter.q=t.value;$('#audit-results').innerHTML=auditResults();}
 });
+document.addEventListener('compositionend',e=>{if(e.target.id==='resource-search'){filters.q=e.target.value;queueSourceSearch(e.target);}});
 document.addEventListener('change',e=>{
  const t=e.target;
  captureDraft(t);

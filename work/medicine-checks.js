@@ -48,6 +48,17 @@
  const weekly=m=>/^\d+(?:[.,]\d+)?\s*u(?:\s|$)/i.test(m.actualDose||'')||/\bukentlig\b|\ben gang (?:i |per )?uken\b|\bhver uke\b/i.test(m.actualDose||'');
  const nsaid=c=>/^(M01A[ABCEGH]\d{2}|M01AX01)$/.test(c);
  function matchesSource(r,m,idx){const cs=S.codes(m,idx);return r.nsaid?cs.some(nsaid):cs.some(c=>(r.nsaidAlso&&nsaid(c))||r.atc.some(a=>c.startsWith(a)));}
+ // A registered oral lactulose supplement can cover the missing-laxative check
+ // even when FEST provides no ATC (e.g. Betulac). Do not assign it a drug ATC or
+ // infer treatment from a typed brand/ingredient name. Require the catalog's
+ // single ingredient identifier and an oral solution, linked to A06AD11.
+ function isLaxative(m,idx){
+  if(S.codes(m,idx).some(c=>c.startsWith('A06A')))return true;
+  const p=S.product(m,idx);
+  return !!(p&&p.type==='16'&&!p.atc&&p.ingredientIds?.length===1&&
+   /mikstur|oral (?:solution|løsning)/i.test(p.form||'')&&
+   idx.single.get(p.ingredientIds[0])?.has('A06AD11'));
+ }
  function tripleMembers(meds,idx){
   const groups=[[],[],[]];
   for(const m of meds.filter(S.active)){
@@ -80,7 +91,7 @@
     }
     if(r.id==='mc-amiodarone-monitor'&&/inj|infus/i.test(p.form||''))continue;
     if(r.id==='mc-opioid-bowel'){
-     if(!regular(m)||any(['A06A'])||dx(['R19.7','K56','Z93.2'],['D11']))continue;
+     if(!regular(m)||list.some(x=>isLaxative(x,idx))||dx(['R19.7','K56','Z93.2'],['D11']))continue;
      evidence='Fast opioidbehandling. Laksantia er ikke gjenkjent i aktiv liste; avklar faktisk bruk og tarmfunksjon.';
     }
     if(r.id==='mc-nsaid-gastro'){if(!giRisk||any(['A02BC','A02BB01']))continue;evidence='Systemisk NSAID og gastrointestinal risikofaktor. Magebeskyttelse er ikke gjenkjent i aktiv liste.';}
@@ -90,5 +101,5 @@
   }
   return out;
  }
- const api={sources,rules,findings,matchesSource,tripleMembers};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.IMMMedicineChecks=api;
+ const api={sources,rules,findings,matchesSource,tripleMembers,isLaxative};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.IMMMedicineChecks=api;
 })(typeof window!=='undefined'?window:globalThis);

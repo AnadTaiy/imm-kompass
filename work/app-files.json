@@ -15,6 +15,7 @@
   "patient-context.js",
   "palliative-ui.js",
   "blood-pressure.js",
+  "glycemia-help.js",
   "stopp-context.js",
   "criteria-policy.js",
   "practical-ui.js",
